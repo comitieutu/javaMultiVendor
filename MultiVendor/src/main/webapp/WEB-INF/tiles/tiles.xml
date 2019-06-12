@@ -10,7 +10,8 @@
 	</definition>
 	
 	<definition name="home.index" extends="mytemplate">
-		<put-attribute name="content" value="/WEB-INF/views/home/index.jsp"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/views/client/index.jsp"></put-attribute>
 	</definition>
+	
 	
 </tiles-definitions>

@@ -1,15 +1,15 @@
-package comi.controllers;
+package comi.controllers.admin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("home")
-public class HomeController {
+@RequestMapping("admin/product")
+public class ProductController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String index() {
-		return "home/index";
+		return "admin/product/index";
 	}
 }

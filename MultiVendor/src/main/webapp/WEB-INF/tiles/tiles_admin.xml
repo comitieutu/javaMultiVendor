@@ -4,9 +4,23 @@
 "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
 
 <tiles-definitions>
+
+	<definition name="templateAdmin" template="/WEB-INF/views/admin/templateAdmin.jsp">
+		<put-attribute name="contentAdmin" value=""></put-attribute>
+	</definition>
 	
-	<definition name="admin.index" extends="mytemplate">
-		<put-attribute name="content" value="/WEB-INF/views/admin/index.jsp"></put-attribute>
+	<definition name="admin.index" extends="templateAdmin">
+		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/index.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="admin.product.index" extends="templateAdmin">
+		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/product/index.jsp"></put-attribute>
+	</definition>
+	<definition name="admin.product.create" extends="templateAdmin">
+		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/product/create.jsp"></put-attribute>
+	</definition>
+	<definition name="admin.product.update" extends="templateAdmin">
+		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/product/update.jsp"></put-attribute>
 	</definition>
 	
 </tiles-definitions>

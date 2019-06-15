@@ -10,6 +10,6 @@ public class DashboardController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String index() {
-		return "admin/index";
+		return "admin.index";
 	}
 }

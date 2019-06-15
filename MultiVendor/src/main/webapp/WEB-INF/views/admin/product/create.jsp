@@ -32,12 +32,6 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 col-sm-2 control-label">Category</label>
-                    <div class="col-sm-10">
-                        <s:select path="categoryid" class="form-control round-form"/>
-                    </div>
-                </div>
-                <div class="form-group">
                     <label class="col-sm-2 col-sm-2 control-label">Brand</label>
                     <div class="col-sm-10">
                         <s:input path="brand" type="text" class="form-control round-form"/>

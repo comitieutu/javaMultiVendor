@@ -16,7 +16,6 @@
                         <th><i class="fa fa-align-justify"></i> Quantity</th>
                         <th><i class="fa fa-bullhorn"></i> Unit price</th>
                         <th><i class="fa fa-bullhorn"></i> Brand</th>
-                        <th><i class="fa fa-star"></i> Category id</th>
                         <th><i class="fa fa-star"></i> Action</th>
                         <th></th>
                     </tr>
@@ -30,7 +29,6 @@
 							<td>${p.quantity }</td>
 							<td>${p.unitprice }</td>
 							<td>${p.brand }</td>
-							<td>${p.categoryid }</td>
 							<td>
 								<a href="${pageContext.request.contextPath }/admin/product/update/${p.id}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i>Edit</a> 
 								<a href="${pageContext.request.contextPath }/admin/product/delete/${p.id}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i>Delete</a>

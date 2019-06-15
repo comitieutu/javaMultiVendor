@@ -20,9 +20,9 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public Iterable<Product> findAll() {
 		List<Product> products = new ArrayList<Product>();
-		products.add(new Product(1, "product 1", "description 1", 1, 2.5, "branch 1", 1));
-		products.add(new Product(2, "product 2", "description 2", 3, 4, "branch 2", 2));
-		products.add(new Product(3, "product 3", "description 3", 5, 5.5, "branch 3", 1));
+		products.add(new Product());
+		products.add(new Product());
+		products.add(new Product());
 		return products;
 	}
 

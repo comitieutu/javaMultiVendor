@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:mysql://localhost:3306/multivendor</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <mapping class="comi.entities.Bank"/>
+        <mapping class="comi.entities.Category"/>
+        <mapping class="comi.entities.Comment"/>
+        <mapping class="comi.entities.Country"/>
+        <mapping class="comi.entities.Delivery"/>
+        <mapping class="comi.entities.Flashsale"/>
+        <mapping class="comi.entities.Payment"/>
+        <mapping class="comi.entities.Personinfo"/>
+        <mapping class="comi.entities.Product"/>
+        <mapping class="comi.entities.Productdetail"/>
+        <mapping class="comi.entities.Role"/>
+        <mapping class="comi.entities.Saleorder"/>
+        <mapping class="comi.entities.Saleorderdetail"/>
+        <mapping class="comi.entities.Shipmentdetail"/>
+        <mapping class="comi.entities.Shipper"/>
+        <mapping class="comi.entities.Stateorprovince"/>
+        <mapping class="comi.entities.Supplier"/>
+        <mapping class="comi.entities.User"/>
+        <mapping class="comi.entities.Userrole"/>
+        <mapping class="comi.entities.Warehouse"/>
+        <mapping class="comi.entities.District"/>
+
+        <!-- <property name="connection.username"/> -->
+        <!-- <property name="connection.password"/> -->
+
+        <!-- DB schema will be updated if needed -->
+        <!-- <property name="hbm2ddl.auto">update</property> -->
+    </session-factory>
+</hibernate-configuration>

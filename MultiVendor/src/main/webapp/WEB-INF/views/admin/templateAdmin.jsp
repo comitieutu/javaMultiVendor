@@ -15,7 +15,7 @@
   <title>Dashio - Bootstrap Admin Template</title>
 	
 	<c:set var="path" value="${pageContext.request.contextPath }/resources/admin"></c:set>
-	
+
   <!-- Favicons -->
   <link href="img/favicon.png" rel="icon">
   <link href="img/apple-touch-icon.png" rel="apple-touch-icon">

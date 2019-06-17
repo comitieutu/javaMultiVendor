@@ -19,7 +19,7 @@ import javax.persistence.Table;
 @Table(name = "category", catalog = "multivendor")
 public class Category implements java.io.Serializable {
 
-	private Integer id;
+	private Integer id;Category
 	private String name;
 	private String description;
 	private int parent;

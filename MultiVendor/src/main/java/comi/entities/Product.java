@@ -23,7 +23,6 @@ public class Product implements java.io.Serializable {
 
 	private Integer id;
 	private Category category;
-	private User user;
 	private String name;
 	private String description;
 	private int quantity;
@@ -36,10 +35,9 @@ public class Product implements java.io.Serializable {
 	public Product() {
 	}
 
-	public Product(Category category, User user, String name, String description, int quantity, double unitprice,
+	public Product(Category category, String name, String description, int quantity, double unitprice,
 			String brand) {
 		this.category = category;
-		this.user = user;
 		this.name = name;
 		this.description = description;
 		this.quantity = quantity;
@@ -47,11 +45,10 @@ public class Product implements java.io.Serializable {
 		this.brand = brand;
 	}
 
-	public Product(Category category, User user, String name, String description, int quantity, double unitprice,
+	public Product(Category category, String name, String description, int quantity, double unitprice,
 			String brand, Set<Comment> comments, Set<Productdetail> productdetails,
 			Set<Saleorderdetail> saleorderdetails) {
 		this.category = category;
-		this.user = user;
 		this.name = name;
 		this.description = description;
 		this.quantity = quantity;
@@ -82,16 +79,6 @@ public class Product implements java.io.Serializable {
 
 	public void setCategory(Category category) {
 		this.category = category;
-	}
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "userId", nullable = false)
-	public User getUser() {
-		return this.user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
 	}
 
 	@Column(name = "name", nullable = false, length = 250)

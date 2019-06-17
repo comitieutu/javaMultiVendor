@@ -58,5 +58,17 @@ public class CategoryController {
 		categoryService.save(category);
 		return "redirect:/admin/category";
 	}
+
+	@RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
+	public String delete(@PathVariable("id") int id, ModelMap modelMap){
+		modelMap.put("id", id);
+		return "admin.category.delete";
+	}
+
+	@RequestMapping(value = "delete/{id}", method = RequestMethod.DELETE)
+	public String delete(@PathVariable("id") int id){
+		categoryService.delete(id);
+		return "redirect:/admin/category";
+	}
 	
 }

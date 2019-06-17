@@ -29,6 +29,7 @@
                 <div class="form-group">
                     <div class="col-lg-offset-2 col-lg-10">
                         <button class="btn btn-theme" type="submit">Create</button>
+                        <a href="${pageContext.request.contextPath }/admin/category"><input class="btn btn-theme" type="button" value="Cancel" name="Cancel"></a>
                     </div>
                 </div>
             </s:form>

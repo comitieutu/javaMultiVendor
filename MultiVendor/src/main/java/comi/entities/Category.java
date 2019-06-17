@@ -20,6 +20,7 @@ import javax.persistence.Table;
 public class Category implements java.io.Serializable {
 
 	private Integer id;
+	private String name;
 	private String description;
 	private int parent;
 	private Set<Product> products = new HashSet<Product>(0);
@@ -27,7 +28,8 @@ public class Category implements java.io.Serializable {
 	public Category() {
 	}
 
-	public Category(String description, int parent) {
+	public Category(String name, String description, int parent) {
+		this.name = name;
 		this.description = description;
 		this.parent = parent;
 	}
@@ -48,6 +50,15 @@ public class Category implements java.io.Serializable {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	
+	@Column(name = "name", nullable = false, length = 250)
+	public String getName() {
+		return this.name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	@Column(name = "description", nullable = false, length = 250)

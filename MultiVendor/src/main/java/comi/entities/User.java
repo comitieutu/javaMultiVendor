@@ -28,7 +28,6 @@ public class User implements java.io.Serializable {
 	private Set<Comment> comments = new HashSet<Comment>(0);
 	private Set<Userrole> userroles = new HashSet<Userrole>(0);
 	private Set<Saleorder> saleorders = new HashSet<Saleorder>(0);
-	private Set<Product> products = new HashSet<Product>(0);
 
 	public User() {
 	}
@@ -41,7 +40,7 @@ public class User implements java.io.Serializable {
 	}
 
 	public User(String username, String email, String password, boolean enable, Set<Personinfo> personinfos,
-			Set<Comment> comments, Set<Userrole> userroles, Set<Saleorder> saleorders, Set<Product> products) {
+			Set<Comment> comments, Set<Userrole> userroles, Set<Saleorder> saleorders) {
 		this.username = username;
 		this.email = email;
 		this.password = password;
@@ -50,7 +49,6 @@ public class User implements java.io.Serializable {
 		this.comments = comments;
 		this.userroles = userroles;
 		this.saleorders = saleorders;
-		this.products = products;
 	}
 
 	@Id
@@ -135,15 +133,6 @@ public class User implements java.io.Serializable {
 
 	public void setSaleorders(Set<Saleorder> saleorders) {
 		this.saleorders = saleorders;
-	}
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-	public Set<Product> getProducts() {
-		return this.products;
-	}
-
-	public void setProducts(Set<Product> products) {
-		this.products = products;
 	}
 
 }

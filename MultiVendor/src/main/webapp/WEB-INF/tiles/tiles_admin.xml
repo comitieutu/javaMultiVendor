@@ -13,6 +13,16 @@
 		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/index.jsp"></put-attribute>
 	</definition>
 	
+	<definition name="admin.category.index" extends="templateAdmin">
+		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/category/index.jsp"></put-attribute>
+	</definition>
+	<definition name="admin.category.create" extends="templateAdmin">
+		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/category/create.jsp"></put-attribute>
+	</definition>
+	<definition name="admin.category.update" extends="templateAdmin">
+		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/category/update.jsp"></put-attribute>
+	</definition>
+	
 	<definition name="admin.product.index" extends="templateAdmin">
 		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/product/index.jsp"></put-attribute>
 	</definition>

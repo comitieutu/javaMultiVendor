@@ -2,7 +2,6 @@
 
 <aside>
   <div id="sidebar" class="nav-collapse ">
-    <!-- sidebar menu start-->
     <ul class="sidebar-menu" id="nav-accordion">
       <p class="centered"><a href="${pageContext.request.contextPath }/admin"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
       <h5 class="centered">Le comi</h5>
@@ -15,6 +14,16 @@
       <li class="sub-menu">
         <a href="javascript:;">
           <i class="fa fa-desktop"></i>
+          <span>Category</span>
+          </a>
+        <ul class="sub">
+          <li><a href="${pageContext.request.contextPath }/admin/category">List</a></li>
+          <li><a href="${pageContext.request.contextPath }/admin/category/create">Create</a></li>
+        </ul>
+      </li>
+      <li class="sub-menu">
+        <a href="javascript:;">
+          <i class="fa fa-desktop"></i>
           <span>Product</span>
           </a>
         <ul class="sub">
@@ -22,7 +31,7 @@
           <li><a href="${pageContext.request.contextPath }/admin/product/create">Create</a></li>
         </ul>
       </li>
+      
     </ul>
-    <!-- sidebar menu end-->
   </div>
 </aside>

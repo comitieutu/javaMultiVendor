@@ -48,7 +48,7 @@
                     <div class="col-md-4">
                         <s:input asp-for="Files" type="file" class="default" multiple/>
                     </div>
-                </div> --%> --%>
+                </div> --%> 
                 <s:hidden path="id" />
                 <div class="form-group">
                     <div class="col-lg-offset-2 col-lg-10">

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" isELIgnored="false"%>
+         pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags/form" %>
 <h3><i class="fa fa-angle-right"></i> Create category</h3>
 <div class="row mt">
@@ -30,7 +30,8 @@
                 </div>
                 <div class="form-group">
                     <div class="col-lg-offset-2 col-lg-10">
-                        <button class="btn btn-theme" type="submit">Create</button>
+                        <button class="btn btn-theme" type="submit">Create</button>\
+                        <a href="${pageContext.request.contextPath }/admin/category"><input class="btn btn-theme" type="button" value="Cancel" name="Cancel"></a>
                     </div>
                 </div>
             </s:form>

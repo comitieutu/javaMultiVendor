@@ -35,5 +35,8 @@
 	<definition name="admin.product.update" extends="templateAdmin">
 		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/product/update.jsp"></put-attribute>
 	</definition>
+	<definition name="admin.product.detail" extends="templateAdmin">
+		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/product/detail.jsp"></put-attribute>
+	</definition>
 	
 </tiles-definitions>

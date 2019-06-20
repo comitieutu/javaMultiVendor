@@ -16,6 +16,7 @@
                         <th><i class="fa fa-align-justify"></i> Quantity</th>
                         <th><i class="fa fa-bullhorn"></i> Unit price</th>
                         <th><i class="fa fa-bullhorn"></i> Brand</th>
+                        <th><i class="fa fa-bullhorn"></i> Photo</th>
                         <th><i class="fa fa-star"></i> Action</th>
                         <th></th>
                     </tr>
@@ -24,11 +25,18 @@
                 	<c:forEach var="p" items="${products }">
                 		<tr>
 							<td>${p.id }</td>
-							<td>${p.name }</td>
+							<td>
+								<a href="${pageContext.request.contextPath }/admin/product/detail/${p.id}">${p.name }</a>
+							</td>
 							<td>${p.description }</td>
 							<td>${p.quantity }</td>
 							<td>${p.unitprice }</td>
 							<td>${p.brand }</td>
+							<td>
+								<c:if test="${p.productdetails.size() > 0}">
+									<img src="${pageContext.request.contextPath }/assets/images/${p.productdetails.iterator().next().photo}">
+								</c:if> 
+							</td>
 							<td>
 								<a href="${pageContext.request.contextPath }/admin/product/update/${p.id}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i>Edit</a> 
 								<a href="${pageContext.request.contextPath }/admin/product/delete/${p.id}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i>Delete</a>

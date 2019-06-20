@@ -6,47 +6,47 @@
     <div class="col-lg-12">
         <div class="form-panel">
             <h4 class="mb"><i class="fa fa-angle-right"></i>Create product</h4>
-            <%-- <s:form action="${pageContext.request.contextPath }/admin/product/create" class="form-horizontal style-form" method="post" modelAttribute="product" enctype="multipart/form-data">
+            <s:form action="${pageContext.request.contextPath }/admin/product/create" class="form-horizontal style-form" method="post" modelAttribute="product" enctype="multipart/form-data">
                 <div class="form-group">
-                    <s:label class="col-sm-2 col-sm-2 control-label">Name</s:label>
+                    <s:label path="name" class="col-sm-2 col-sm-2 control-label">Name</s:label>
                     <div class="col-sm-10">
                         <s:input path="name" type="text" class="form-control round-form"/>
                     </div>
                 </div>
                 <div class="form-group">
-                    <s:label class="col-sm-2 col-sm-2 control-label">Description</s:label>
+                    <s:label path="description" class="col-sm-2 col-sm-2 control-label">Description</s:label>
                     <div class="col-sm-10">
                         <s:input path="description" type="text" class="form-control round-form"/>
                     </div>
                 </div>
                 <div class="form-group">
-                    <s:label class="col-sm-2 col-sm-2 control-label">Quantity</s:label>
+                    <s:label path="quantity" class="col-sm-2 col-sm-2 control-label">Quantity</s:label>
                     <div class="col-sm-10">
-                        <s:input path="quantity" type="text" class="form-control round-form"/>
+                        <s:input path="quantity" type="number" min="0" class="form-control round-form"/>
                     </div>
                 </div>
                 <div class="form-group">
-                    <s:label class="col-sm-2 col-sm-2 control-label">Price</s:label>
+                    <s:label path="unitprice" class="col-sm-2 col-sm-2 control-label">Price</s:label>
                     <div class="col-sm-10">
                         <s:input path="unitprice" type="text" class="form-control round-form"/>
                     </div>
                 </div>
                 <div class="form-group">
-                    <s:label class="col-sm-2 col-sm-2 control-label">Brand</s:label>
+                    <s:label path="brand" class="col-sm-2 col-sm-2 control-label">Brand</s:label>
                     <div class="col-sm-10">
                         <s:input path="brand" type="text" class="form-control round-form"/>
                     </div>
                 </div>
                 <div class="form-group">
-                    <s:label class="col-sm-2 col-sm-2 control-label">Category</s:label>
+                    <s:label path="category.id" class="col-sm-2 col-sm-2 control-label">Category</s:label>
                     <div class="col-sm-10">
-                        <s:select path="category.id" items="${categories }" type="text" class="form-control round-form"/>
+                        <s:select path="category.id" items="${categories }" itemLabel="name" itemValue="id" type="text" class="form-control round-form"/>
                     </div>
                 </div>
-                <%-- <div class="form-group">
+                <div class="form-group">
                     <label class="control-label col-md-3">Image</label>
                     <div class="col-md-4">
-                        <s:input asp-for="Files" type="file" class="default" multiple/>
+                        <input type="file" name="files" accept="image/*" class="default" multiple/>
                     </div>
                 </div> 
                 <div class="form-group">
@@ -54,7 +54,7 @@
                         <button class="btn btn-theme" type="submit">Create</button>
                     </div>
                 </div>
-            </s:form> --%>
+            </s:form>
         </div>
     </div>
 </div>

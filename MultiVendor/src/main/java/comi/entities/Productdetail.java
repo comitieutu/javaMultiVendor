@@ -20,13 +20,13 @@ public class Productdetail implements java.io.Serializable {
 
 	private Integer id;
 	private Product product;
-	private int photo;
+	private String photo;
 	private int description;
 
 	public Productdetail() {
 	}
 
-	public Productdetail(Product product, int photo, int description) {
+	public Productdetail(Product product, String photo, int description) {
 		this.product = product;
 		this.photo = photo;
 		this.description = description;
@@ -55,11 +55,11 @@ public class Productdetail implements java.io.Serializable {
 	}
 
 	@Column(name = "photo", nullable = false)
-	public int getPhoto() {
+	public String getPhoto() {
 		return this.photo;
 	}
 
-	public void setPhoto(int photo) {
+	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
 

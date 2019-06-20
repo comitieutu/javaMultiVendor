@@ -1,8 +1,5 @@
 package comi.services;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,11 +16,7 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public Iterable<Product> findAll() {
-		List<Product> products = new ArrayList<Product>();
-		products.add(new Product());
-		products.add(new Product());
-		products.add(new Product());
-		return products;
+		return this.productRepository.findAll();
 	}
 
 	@Override

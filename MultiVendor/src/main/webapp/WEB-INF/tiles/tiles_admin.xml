@@ -5,6 +5,10 @@
 
 <tiles-definitions>
 
+	<definition name="admin.login" template="/WEB-INF/views/admin/login.jsp">
+		<put-attribute name="login" value=""></put-attribute>
+	</definition>
+
 	<definition name="templateAdmin" template="/WEB-INF/views/admin/templateAdmin.jsp">
 		<put-attribute name="contentAdmin" value=""></put-attribute>
 	</definition>
@@ -37,6 +41,10 @@
 	</definition>
 	<definition name="admin.product.detail" extends="templateAdmin">
 		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/product/detail.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="admin.accessDenied" template="/WEB-INF/views/admin/accessDenied.jsp">
+		<put-attribute name="accessDenied" value=""></put-attribute>
 	</definition>
 	
 </tiles-definitions>

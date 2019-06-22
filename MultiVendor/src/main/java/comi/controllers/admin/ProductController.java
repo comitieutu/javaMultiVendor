@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.ServletContextAware;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import comi.entities.Product;
 import comi.entities.Productdetail;
@@ -97,6 +96,9 @@ public class ProductController implements ServletContextAware {
 	
 	@RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
 	public String delete(@PathVariable("id") int id) {
+		for (Productdetail productdetail : this.productDetailService.findByProduct(id)) {
+			this.deleteFile(productdetail.getPhoto());
+		}
 		this.productService.delete(id);
 		return "redirect:/admin/product";
 	}
@@ -104,6 +106,7 @@ public class ProductController implements ServletContextAware {
 	@RequestMapping(value = "detail/delete/{id}", method = RequestMethod.GET)
 	public String deleteDetail(@PathVariable("id") int id) {
 		Productdetail detail = this.productDetailService.find(id);
+		this.deleteFile(detail.getPhoto());
 		this.productDetailService.delete(id);
 		return "redirect:/admin/product/detail/" + detail.getProduct().getId();
 	}
@@ -115,6 +118,14 @@ public class ProductController implements ServletContextAware {
 			return multipartFile.getOriginalFilename();
 		} catch (Exception e) {
 			return null;
+		}
+	}
+	
+	private void deleteFile(String fileName) {
+		try {
+			Path path = Paths.get(this.servletContext.getRealPath("/assets/images/" + fileName));
+			Files.delete(path);
+		} catch (Exception e) {
 		}
 	}
 

@@ -5,12 +5,16 @@
 
 <tiles-definitions>
 	
-	<definition name="mytemplate" template="/WEB-INF/views/templates/mytemplate.jsp">
+	<definition name="templateClient" template="/WEB-INF/views/client/templateClient.jsp">
 		<put-attribute name="content" value=""></put-attribute>
 	</definition>
 	
-	<definition name="client.index" extends="mytemplate">
+	<definition name="client.index" extends="templateClient">
 		<put-attribute name="content" value="/WEB-INF/views/client/index.jsp"></put-attribute>
+	</definition>
+
+	<definition name="client.product.detailProduct" extends="templateClient">
+		<put-attribute name="content" value="/WEB-INF/views/client/product/detailProduct.jsp"></put-attribute>
 	</definition>
 	
 	

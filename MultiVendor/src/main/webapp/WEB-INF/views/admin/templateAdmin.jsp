@@ -238,10 +238,10 @@
     <mt:sidebar></mt:sidebar>
     
     <section id="main-content">
-      
-      <tiles:insertAttribute name="contentAdmin"></tiles:insertAttribute>
-      
-    </section>
+
+    <tiles:insertAttribute name="contentAdmin"></tiles:insertAttribute>
+
+  </section>
     <!--main content end-->
     <!--footer start-->
     <footer class="site-footer">

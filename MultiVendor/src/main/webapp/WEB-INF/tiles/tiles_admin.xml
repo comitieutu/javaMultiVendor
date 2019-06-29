@@ -43,6 +43,17 @@
 		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/product/detail.jsp"></put-attribute>
 	</definition>
 
+	<definition name="admin.saleorder.index" extends="templateAdmin">
+		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/saleorder/index.jsp"></put-attribute>
+	</definition>
+	<definition name="admin.saleorder.detail" extends="templateAdmin">
+		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/saleorder/detail.jsp"></put-attribute>
+	</definition>
+	<definition name="admin.saleorder.delete" extends="templateAdmin">
+		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/saleorder/delete.jsp"></put-attribute>
+	</definition>
+
+
 	<definition name="admin.accessDenied" template="/WEB-INF/views/admin/accessDenied.jsp">
 		<put-attribute name="accessDenied" value=""></put-attribute>
 	</definition>

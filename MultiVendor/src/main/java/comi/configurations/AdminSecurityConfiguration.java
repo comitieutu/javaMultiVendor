@@ -16,10 +16,10 @@ public class AdminSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	private UserService userService;
-	
+
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
-		
+		System.out.println();
 		httpSecurity.cors().and().csrf().disable();
 		
 		httpSecurity.authorizeRequests()
@@ -48,7 +48,7 @@ public class AdminSecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
 	@Bean
 	public BCryptPasswordEncoder encoder() {
-		return new BCryptPasswordEncoder();
+		return new BCryptPasswordEncoder(4);
 	}
 	
 }

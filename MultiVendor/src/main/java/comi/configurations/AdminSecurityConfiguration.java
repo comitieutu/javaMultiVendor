@@ -19,7 +19,6 @@ public class AdminSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
-		System.out.println();
 		httpSecurity.cors().and().csrf().disable();
 		
 		httpSecurity.authorizeRequests()

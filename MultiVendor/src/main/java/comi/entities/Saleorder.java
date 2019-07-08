@@ -1,5 +1,5 @@
 package comi.entities;
-// Generated Jun 15, 2019 5:07:07 PM by Hibernate Tools 5.1.7.Final
+// Generated Jul 8, 2019 8:31:00 PM by Hibernate Tools 5.1.7.Final
 
 import java.util.Date;
 import java.util.HashSet;
@@ -26,6 +26,7 @@ public class Saleorder implements java.io.Serializable {
 
 	private Integer id;
 	private Delivery delivery;
+	private Payment payment;
 	private Shipper shipper;
 	private User user;
 	private String ordernumber;
@@ -33,16 +34,16 @@ public class Saleorder implements java.io.Serializable {
 	private double deliveryprice;
 	private double totalprice;
 	private Date shipdate;
-	private Payment payment;
 	private Set<Saleorderdetail> saleorderdetails = new HashSet<Saleorderdetail>(0);
 	private Set<Shipmentdetail> shipmentdetails = new HashSet<Shipmentdetail>(0);
 
 	public Saleorder() {
 	}
 
-	public Saleorder(Delivery delivery, Shipper shipper, User user, String ordernumber, String status,
-			double deliveryprice, double totalprice, Date shipdate, Payment payment) {
+	public Saleorder(Delivery delivery, Payment payment, Shipper shipper, User user, String ordernumber, String status,
+			double deliveryprice, double totalprice, Date shipdate) {
 		this.delivery = delivery;
+		this.payment = payment;
 		this.shipper = shipper;
 		this.user = user;
 		this.ordernumber = ordernumber;
@@ -50,13 +51,13 @@ public class Saleorder implements java.io.Serializable {
 		this.deliveryprice = deliveryprice;
 		this.totalprice = totalprice;
 		this.shipdate = shipdate;
-		this.payment = payment;
 	}
 
-	public Saleorder(Delivery delivery, Shipper shipper, User user, String ordernumber, String status,
-			double deliveryprice, double totalprice, Date shipdate, Payment payment,
-			Set<Saleorderdetail> saleorderdetails, Set<Shipmentdetail> shipmentdetails) {
+	public Saleorder(Delivery delivery, Payment payment, Shipper shipper, User user, String ordernumber, String status,
+			double deliveryprice, double totalprice, Date shipdate, Set<Saleorderdetail> saleorderdetails,
+			Set<Shipmentdetail> shipmentdetails) {
 		this.delivery = delivery;
+		this.payment = payment;
 		this.shipper = shipper;
 		this.user = user;
 		this.ordernumber = ordernumber;
@@ -64,7 +65,6 @@ public class Saleorder implements java.io.Serializable {
 		this.deliveryprice = deliveryprice;
 		this.totalprice = totalprice;
 		this.shipdate = shipdate;
-		this.payment = payment;
 		this.saleorderdetails = saleorderdetails;
 		this.shipmentdetails = shipmentdetails;
 	}
@@ -89,6 +89,16 @@ public class Saleorder implements java.io.Serializable {
 
 	public void setDelivery(Delivery delivery) {
 		this.delivery = delivery;
+	}
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "paymentid", nullable = false)
+	public Payment getPayment() {
+		return this.payment;
+	}
+
+	public void setPayment(Payment payment) {
+		this.payment = payment;
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -155,16 +165,6 @@ public class Saleorder implements java.io.Serializable {
 
 	public void setShipdate(Date shipdate) {
 		this.shipdate = shipdate;
-	}
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "paymentid", nullable = false)
-	public Payment getPayment() {
-		return this.payment;
-	}
-
-	public void setPayment(Payment payment) {
-		this.payment = payment;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "saleorder")

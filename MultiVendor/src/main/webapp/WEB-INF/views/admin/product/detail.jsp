@@ -39,16 +39,17 @@
                 <div class="form-group">
                     <label class="control-label col-md-3">Add image</label>
                     <div class="col-md-4">
-                        <input type="file" name="files" accept="image/*" class="default" multiple/>
+                        <input id="fileImage" type="file" name="files" accept="image/*" class="default" multiple/>
                     </div>
                 </div>
                 <input type="hidden" name="id" value="${productdetails.get(0).product.id }"/> 
                 <div class="form-group">
                     <div class="col-lg-offset-2 col-lg-10">
-                        <button class="btn btn-theme" type="submit">Add</button>
+                        <button id="btnSubmit" class="btn btn-theme" type="submit" disabled="disabled">Add</button>
                     </div>
                 </div>
             </s:form>
         </div>
     </div>
 </div>
+

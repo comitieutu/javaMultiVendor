@@ -2,99 +2,12 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<c:set var="path" value="${pageContext.request.contextPath }/resources/client"></c:set>
+<%@ taglib prefix="mt" tagdir="/WEB-INF/tags/client"%>
 
+<c:set var="path" value="${pageContext.request.contextPath }/resources/client"></c:set>
 <header id="header" class="header-v1">
-    <div id="topbar">
-        <div class="container">
-            <div class="topbar-left">
-                <a class="refresh" href="#" title="twitter"><i class="zmdi zmdi-refresh-sync"></i></a>
-                <a class="favor" href="#" title="sky"><i class="zmdi zmdi-favorite-outline"></i></a>
-                <div class="cart dropdown">
-                    <a class="icon-cart" href="#" title="Cart">
-                        <i class="zmdi zmdi-shopping-cart-plus"></i>
-                        <span class="cart-count">4</span>
-                    </a>
-                    <div class="cart-list dropdown-menu">
-                        <ul class="list">
-                            <li>
-                                <a href="#" title="" class="cart-product-image"><img src="${path}/images/products/1.jpg" alt="Product"></a>
-                                <div class="text">
-                                    <p class="product-name">Duma #2145</p>
-                                    <p class="product-price">1 x $69.90</p>
-                                </div>
-                                <a href="#" class="delete-item">
-                                    <i class="zmdi zmdi-close-circle-o"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" title="" class="cart-product-image"><img src="${path}/images/products/2.jpg" alt="Product"></a>
-                                <div class="text">
-                                    <p class="product-name">Duma #2145</p>
-                                    <p class="product-price">1 x $69.90</p>
-                                </div>
-                                <a href="#" class="delete-item">
-                                    <i class="zmdi zmdi-close-circle-o"></i>
-                                </a>
-                            </li>
-                        </ul>
-                        <p class="total"><span>Total cost</span> $1121.98</p>
-                        <a class="checkout" href="#" title="view cart">view cart</a>
-                        <a class="checkout bg-black" href="#" title="check out">Check out</a>
-                    </div>
-                </div>
-            </div>
-            <!-- End topBar-left -->
-            <div class="topbar-right">
-                <a href="#" title="Guarantee"><i class="zmdi zmdi-wrench"></i>Guarantee</a>
-                <a href="#" title="Adress"><i class="zmdi zmdi-pin"></i>Store location</a>
-                <div class="wrap-dollar-box dropdown">
-                    <a href="#" title="Dollar"><i class="zmdi zmdi-money-box"></i>Dollar (US)<i class="zmdi zmdi-chevron-down"></i></a>
-                    <div class="dollar-list dropdown-menu">
-                        <ul>
-                            <li><a href="#" title="dollar(us)">Dollar (US)</a></li>
-                            <li><a href="#" title="Euro(EUR)">Euro(EUR)</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="wrap-sign-in cart dropdown">
-                    <a class="sign-in" href="#" title="user"><i class="zmdi zmdi-account"></i>My account</a>
-                    <div class="register-list cart-list dropdown-menu ">
-                        <h3>My account</h3>
-                        <form class="form-horizontal" method="POST">
-                            <div class="acc-name">
-                                <input class="form-control" type="text" placeholder="Account name" id="inputacname">
-                            </div>
-                            <div class="acc-pass">
-                                <input class="form-control" type="text" placeholder="Password" id="inputpass">
-                            </div>
-                            <div class="remember">
-                                <input type="checkbox" id="me" name="nar" />
-                                <label for="me">remember me</label>
-                                <a class="help" href="#" title="help ?">help?</a>
-                            </div>
-                            <button type="submit" class="link-button">Submit</button>
-                        </form>
-                        <h3>Or register</h3>
-                        <form class="form-horizontal" method="POST">
-                            <input type="text" placeholder="Your mail" id="inputmail" class="form-control">
-                            <input type="password" placeholder="Password" id="inputpass1" class="form-control">
-                            <button type="submit" class="link-button">register</button>
-                        </form>
-                        <h4>or register to</h4>
-                        <div class="social">
-                            <a class="facebook" href="#" title="facebook"><i class="zmdi zmdi-facebook"></i></a>
-                            <a class="twitter" href="#" title="twitter"><i class="zmdi zmdi-twitter"></i></a>
-                            <a class="instagram" href="#" title="instagram"><i class="zmdi zmdi-instagram"></i></a>
-                            <a class="google" href="#" title="google"><i class="zmdi zmdi-google-glass"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End topbar-right -->
-        </div>
-        <!-- End container -->
-    </div>
+    <mt:topbar></mt:topbar>
+    
     <!-- End Top Bar -->
     <div class="header-top">
         <div class="container">
@@ -2562,62 +2475,3 @@
     <!-- End container -->
 </div>
 <!-- End newsletter -->
-<footer id="footer">
-    <div class="container">
-        <div class="row footer-top">
-            <div class="col-md-5">
-                <a class="logo" href="#" title="logo"><img src="${path}/images/Dana-menu-logo.png" alt="Logo"></a>
-                <p class="italic">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.</p>
-                <div class="infomation">
-                    <p><i class="zmdi zmdi-pin"></i>PO Box CT16122 Collins Street West, Victoria 8007, Australia.</p>
-                    <p><i class="zmdi zmdi-phone"></i>+81 (2) 345 6789</p>
-                    <p><i class="zmdi zmdi-email"></i>engotheme@gmail.com</p>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <h3>Quick link</h3>
-                <ul class="menu">
-                    <li><a href="#" title="Headphone">Headphone</a></li>
-                    <li><a href="#" title="Smart watch">Smart watch</a></li>
-                    <li><a href="#" title="Smartphone">Smartphone</a></li>
-                    <li><a href="#" title="Video game & consoles">Video game & consoles</a></li>
-                    <li><a href="#" title="Laptop">Laptop</a></li>
-                    <li><a href="#" title="Televison">Televison</a></li>
-                    <li><a href="#" title="Home">Home</a></li>
-                    <li><a href="#" title="About us">About us</a></li>
-                    <li><a href="#" title="Blog">Blog</a></li>
-                    <li><a href="#" title="Service">Service</a></li>
-                    <li><a href="#" title="Contact us">Contact us</a></li>
-                </ul>
-            </div>
-            <div class="col-md-3">
-                <h3>Customer care</h3>
-                <ul class="menu">
-                    <li><a href="#" title="My account">My account</a></li>
-                    <li><a href="#" title="Order tracking">Order tracking</a></li>
-                    <li><a href="#" title="wish list">wish list</a></li>
-                    <li><a href="#" title="customer service">customer service</a></li>
-                    <li><a href="#" title="Returns/ Exchage">Returns/ Exchage</a></li>
-                    <li><a href="#" title="FAQS">FAQS</a></li>
-                    <li><a href="#" title="Product support">Product support</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <div class="container">
-            <div class="col-md-8">
-                <p>&copy; COPYRIGHT 2016 BY ENGOTHEME</p>
-                <a href="" title="facebook"><i class="zmdi zmdi-facebook"></i></a>
-                <a href="#" title="google"><i class="zmdi zmdi-google-plus"></i></a>
-                <a href="#" title="instagram"><i class="zmdi zmdi-instagram"></i></a>
-                <a href="#" title="twitter"><i class="zmdi zmdi-twitter"></i></a>
-            </div>
-            <div class="col-md-4">
-                <a href="#" title="Payment"><img src="${path}/images/Hermes-footer-payment.png" alt="payment"></a>
-            </div>
-        </div>
-    </div>
-    <!-- End container -->
-</footer>

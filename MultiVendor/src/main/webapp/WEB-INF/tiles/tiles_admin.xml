@@ -11,6 +11,7 @@
 
 	<definition name="templateAdmin" template="/WEB-INF/views/admin/templateAdmin.jsp">
 		<put-attribute name="contentAdmin" value=""></put-attribute>
+		<put-attribute name="script" value=""></put-attribute>
 	</definition>
 
 	<definition name="admin.index" extends="templateAdmin">
@@ -54,6 +55,7 @@
 	</definition>
 	<definition name="admin.product.detail" extends="templateAdmin">
 		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/product/detail.jsp"></put-attribute>
+		<put-attribute name="script" value="/WEB-INF/views/admin/product/detail_script.jsp"></put-attribute>
 	</definition>
 
 	<definition name="admin.saleorder.index" extends="templateAdmin">

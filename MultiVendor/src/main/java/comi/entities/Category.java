@@ -1,5 +1,5 @@
 package comi.entities;
-// Generated Jun 15, 2019 5:07:07 PM by Hibernate Tools 5.1.7.Final
+// Generated Jul 8, 2019 8:31:00 PM by Hibernate Tools 5.1.7.Final
 
 import java.util.HashSet;
 import java.util.Set;
@@ -34,7 +34,8 @@ public class Category implements java.io.Serializable {
 		this.parent = parent;
 	}
 
-	public Category(String description, int parent, Set<Product> products) {
+	public Category(String name, String description, int parent, Set<Product> products) {
+		this.name = name;
 		this.description = description;
 		this.parent = parent;
 		this.products = products;
@@ -51,7 +52,7 @@ public class Category implements java.io.Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
+
 	@Column(name = "name", nullable = false, length = 250)
 	public String getName() {
 		return this.name;

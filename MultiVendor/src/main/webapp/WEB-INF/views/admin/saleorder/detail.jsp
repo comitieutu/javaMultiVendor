@@ -28,9 +28,9 @@
 							<td>${sod.saleorder.id }</td>
 							<td>${sod.product.name }</td>
 							<td>${sod.quantity }</td>
-							<td>${sod.product.unitprice }</td>
+							<td>${sod.unitprice }</td>
 							<td>${sod.discount }</td>
-							<td>${sod.quantity * sod.product.unitprice * (100 - sod.discount)/100}</td>
+							<td>${sod.quantity * sod.unitprice * (100 - sod.discount)/100}</td>
 						</tr>
                 	</c:forEach>
                 </tbody>

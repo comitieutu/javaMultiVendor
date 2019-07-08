@@ -40,6 +40,16 @@
           <li><a href="${pageContext.request.contextPath }/admin/saleorder">List</a></li>
         </ul>
       </li>
+      <li class="sub-menu">
+        <a href="javascript:;">
+          <i class="fa fa-desktop"></i>
+          <span>Delivery</span>
+        </a>
+        <ul class="sub">
+          <li><a href="${pageContext.request.contextPath }/admin/delivery">List</a></li>
+          <li><a href="${pageContext.request.contextPath }/admin/delivery/create">Create</a></li>
+        </ul>
+      </li>
       
     </ul>
   </div>

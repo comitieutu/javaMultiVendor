@@ -1,9 +1,16 @@
 package comi.entities;
-// Generated Jun 15, 2019 5:07:07 PM by Hibernate Tools 5.1.7.Final
+// Generated Jul 8, 2019 8:31:00 PM by Hibernate Tools 5.1.7.Final
 
-import javax.persistence.*;
-
+import java.util.HashSet;
+import java.util.Set;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -26,6 +33,12 @@ public class Payment implements java.io.Serializable {
 	public Payment(String name, String description) {
 		this.name = name;
 		this.description = description;
+	}
+
+	public Payment(String name, String description, Set<Saleorder> saleorders) {
+		this.name = name;
+		this.description = description;
+		this.saleorders = saleorders;
 	}
 
 	@Id
@@ -58,7 +71,7 @@ public class Payment implements java.io.Serializable {
 		this.description = description;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "delivery")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "payment")
 	public Set<Saleorder> getSaleorders() {
 		return this.saleorders;
 	}

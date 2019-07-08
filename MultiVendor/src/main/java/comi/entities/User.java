@@ -1,5 +1,5 @@
 package comi.entities;
-// Generated Jun 15, 2019 5:07:07 PM by Hibernate Tools 5.1.7.Final
+// Generated Jul 8, 2019 8:31:00 PM by Hibernate Tools 5.1.7.Final
 
 import java.util.HashSet;
 import java.util.Set;
@@ -32,9 +32,8 @@ public class User implements java.io.Serializable {
 	public User() {
 	}
 
-	public User(String username, String email, String password, boolean enable) {
+	public User(String username, String password, boolean enable) {
 		this.username = username;
-		this.email = email;
 		this.password = password;
 		this.enable = enable;
 	}
@@ -72,7 +71,7 @@ public class User implements java.io.Serializable {
 		this.username = username;
 	}
 
-	@Column(name = "email", nullable = false, length = 250)
+	@Column(name = "email", length = 250)
 	public String getEmail() {
 		return this.email;
 	}

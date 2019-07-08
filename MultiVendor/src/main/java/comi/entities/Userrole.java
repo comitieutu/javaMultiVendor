@@ -1,5 +1,5 @@
 package comi.entities;
-// Generated Jun 15, 2019 5:07:07 PM by Hibernate Tools 5.1.7.Final
+// Generated Jul 8, 2019 8:31:00 PM by Hibernate Tools 5.1.7.Final
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;

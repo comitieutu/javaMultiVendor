@@ -17,5 +17,12 @@
 		<put-attribute name="content" value="/WEB-INF/views/client/product/detailProduct.jsp"></put-attribute>
 	</definition>
 	
+	<definition name="client.login" extends="mytemplate">
+		<put-attribute name="content" value="/WEB-INF/views/client/login.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="client.register" extends="mytemplate">
+		<put-attribute name="content" value="/WEB-INF/views/client/register.jsp"></put-attribute>
+	</definition>
 	
 </tiles-definitions>

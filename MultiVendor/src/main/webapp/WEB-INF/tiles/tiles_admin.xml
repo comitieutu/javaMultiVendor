@@ -29,7 +29,20 @@
 	<definition name="admin.category.delete" extends="templateAdmin">
 		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/category/delete.jsp"></put-attribute>
 	</definition>
-	
+
+	<definition name="admin.delivery.index" extends="templateAdmin">
+		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/delivery/index.jsp"></put-attribute>
+	</definition>
+	<definition name="admin.delivery.update" extends="templateAdmin">
+		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/delivery/update.jsp"></put-attribute>
+	</definition>
+	<definition name="admin.delivery.create" extends="templateAdmin">
+		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/delivery/create.jsp"></put-attribute>
+	</definition>
+	<definition name="admin.delivery.delete" extends="templateAdmin">
+		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/delivery/delete.jsp"></put-attribute>
+	</definition>
+
 	<definition name="admin.product.index" extends="templateAdmin">
 		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/product/index.jsp"></put-attribute>
 	</definition>

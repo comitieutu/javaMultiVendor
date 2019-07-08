@@ -12,14 +12,14 @@
                     <tr>
                     	<th><i class="fa fa-align-justify"></i> Id</th>
                         <th><i class="fa fa-align-justify"></i> Order Number</th>
-                        <th><i class="fa fa-align-justify"></i> User name</th>
+                        <th><i class="fa fa-align-justify"></i> Buyer name</th>
                         <th><i class="fa fa-align-justify"></i> Status</th>
                         <th><i class="fa fa-bullhorn"></i> Delivery price</th>
                         <th><i class="fa fa-bullhorn"></i> Total price</th>
                         <th><i class="fa fa-bullhorn"></i> Shipdate</th>
                         <th><i class="fa fa-star"></i> Shipper id</th>
                         <th><i class="fa fa-star"></i> Payment id</th>4
-                        <th><i class="fa fa-star"></i> Delivery id</th>
+                        <th><i class="fa fa-star"></i> Delivery Method</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -36,11 +36,10 @@
 							<td>${so.totalprice }</td>
                             <td>${so.shipdate }</td>
                             <td>${so.shipper.contactname }</td>
-                            <td>${so.paymentid }</td>
+                            <td>${so.payment.id }</td>
                             <td>${so.delivery.name }</td>
 							<td>
 								<a href="${pageContext.request.contextPath }/admin/saleorder/detail/${so.id}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i>Detail</a>
-								<%--<a href="${pageContext.request.contextPath }/admin/saleorder/delete/${so.id}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i>Delete</a>--%>
 							</td>
 						</tr>
                 	</c:forEach>

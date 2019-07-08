@@ -33,7 +33,7 @@ public class Saleorder implements java.io.Serializable {
 	private double deliveryprice;
 	private double totalprice;
 	private Date shipdate;
-	private int paymentid;
+	private Payment payment;
 	private Set<Saleorderdetail> saleorderdetails = new HashSet<Saleorderdetail>(0);
 	private Set<Shipmentdetail> shipmentdetails = new HashSet<Shipmentdetail>(0);
 
@@ -41,7 +41,7 @@ public class Saleorder implements java.io.Serializable {
 	}
 
 	public Saleorder(Delivery delivery, Shipper shipper, User user, String ordernumber, String status,
-			double deliveryprice, double totalprice, Date shipdate, int paymentid) {
+			double deliveryprice, double totalprice, Date shipdate, Payment payment) {
 		this.delivery = delivery;
 		this.shipper = shipper;
 		this.user = user;
@@ -50,11 +50,11 @@ public class Saleorder implements java.io.Serializable {
 		this.deliveryprice = deliveryprice;
 		this.totalprice = totalprice;
 		this.shipdate = shipdate;
-		this.paymentid = paymentid;
+		this.payment = payment;
 	}
 
 	public Saleorder(Delivery delivery, Shipper shipper, User user, String ordernumber, String status,
-			double deliveryprice, double totalprice, Date shipdate, int paymentid,
+			double deliveryprice, double totalprice, Date shipdate, Payment payment,
 			Set<Saleorderdetail> saleorderdetails, Set<Shipmentdetail> shipmentdetails) {
 		this.delivery = delivery;
 		this.shipper = shipper;
@@ -64,7 +64,7 @@ public class Saleorder implements java.io.Serializable {
 		this.deliveryprice = deliveryprice;
 		this.totalprice = totalprice;
 		this.shipdate = shipdate;
-		this.paymentid = paymentid;
+		this.payment = payment;
 		this.saleorderdetails = saleorderdetails;
 		this.shipmentdetails = shipmentdetails;
 	}
@@ -157,13 +157,14 @@ public class Saleorder implements java.io.Serializable {
 		this.shipdate = shipdate;
 	}
 
-	@Column(name = "paymentid", nullable = false)
-	public int getPaymentid() {
-		return this.paymentid;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "paymentid", nullable = false)
+	public Payment getPayment() {
+		return this.payment;
 	}
 
-	public void setPaymentid(int paymentid) {
-		this.paymentid = paymentid;
+	public void setPayment(Payment payment) {
+		this.payment = payment;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "saleorder")

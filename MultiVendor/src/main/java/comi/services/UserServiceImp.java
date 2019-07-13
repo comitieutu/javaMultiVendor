@@ -45,6 +45,7 @@ public class UserServiceImp implements UserService{
 	@Override
 	public User save(User user) {
 		user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
+		user.setEnable(true);
 		user = this.userRepository.save(user);
 		Role role = this.roleRepository.findByName("CUSTOMER");
 		Userrole userrole = new Userrole();

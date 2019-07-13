@@ -17,12 +17,16 @@
 		<put-attribute name="content" value="/WEB-INF/views/client/product/detailProduct.jsp"></put-attribute>
 	</definition>
 	
-	<definition name="client.login" extends="mytemplate">
+	<definition name="client.login" extends="templateClient">
 		<put-attribute name="content" value="/WEB-INF/views/client/login.jsp"></put-attribute>
 	</definition>
 	
-	<definition name="client.register" extends="mytemplate">
+	<definition name="client.register" extends="templateClient">
 		<put-attribute name="content" value="/WEB-INF/views/client/register.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="client.accessDenied" template="/WEB-INF/views/client/accessDenied.jsp">
+		<put-attribute name="accessDenied" value=""></put-attribute>
 	</definition>
 	
 </tiles-definitions>

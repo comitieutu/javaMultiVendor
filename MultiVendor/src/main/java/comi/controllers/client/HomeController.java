@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import comi.entities.User;
 import comi.services.UserService;
@@ -44,5 +45,10 @@ public class HomeController {
 	public String signup(@ModelAttribute("user") User user) {
 		this.userService.save(user);
 		return "redirect:/login";
+	}
+	
+	@RequestMapping(value = "accessDenied", method = RequestMethod.GET)
+	public String accessDenied() {
+		return "client.accessDenied";
 	}
 }

@@ -60,13 +60,11 @@
             	<sec:authorize access="isAuthenticated()">
             		<a href="${pageContext.request.contextPath }/admin">Welcome <sec:authentication property="name"/></a>
 				    <a class="logout" href="${pageContext.request.contextPath }/logout">Logout</a>
-				</sec:authorize>
+				</sec:authorize>s
                 <sec:authorize access="hasRole('ROLE_ADMIN')">
 				    <a href="${pageContext.request.contextPath }/admin">Admin</a>
 				</sec:authorize>
             </div>
         </div>
-        <!-- End topbar-right -->
     </div>
-    <!-- End container -->
 </div>

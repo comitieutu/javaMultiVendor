@@ -64,7 +64,17 @@
 		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/saleorder/delete.jsp"></put-attribute>
 	</definition>
 
-
-	
+	<definition name="admin.shipper.index" extends="templateAdmin">
+		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/shipper/index.jsp"></put-attribute>
+	</definition>
+	<definition name="admin.shipper.create" extends="templateAdmin">
+		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/shipper/create.jsp"></put-attribute>
+	</definition>
+	<definition name="admin.shipper.update" extends="templateAdmin">
+		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/shipper/update.jsp"></put-attribute>
+	</definition>
+	<definition name="admin.shipper.delete" extends="templateAdmin">
+		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/shipper/delete.jsp"></put-attribute>
+	</definition>
 	
 </tiles-definitions>

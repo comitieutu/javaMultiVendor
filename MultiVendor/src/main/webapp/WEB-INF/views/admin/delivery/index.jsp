@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-<h3><i class="fa fa-angle-right"></i> All product</h3>
+<h3><i class="fa fa-angle-right"></i> All delivery</h3>
 <div class="row mt">
     <div class="col-md-12">
         <div class="content-panel">

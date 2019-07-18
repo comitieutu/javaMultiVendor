@@ -51,5 +51,5 @@
 	tppabs="http://landing.engocreative.com/html/dama/demo/assets/js/wow.min.js"></script>
 <script type="text/javascript" src="${path}/js/store.js"
 	tppabs="http://landing.engocreative.com/html/dama/demo/assets/js/store.js"></script>
-<script type="text/javascript" src="${path}/lib/auth.js"></script>
+<tiles:insertAttribute name="script"/>
 </html>

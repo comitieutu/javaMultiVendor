@@ -11,4 +11,5 @@ public interface ProductDetailService {
 	public Productdetail save(Productdetail productdetail);
 	public void delete(int id);
 	public List<Productdetail> findByProduct(int id);
+	public Productdetail findByDetailProduct(int id);
 }

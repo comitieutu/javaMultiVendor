@@ -28,7 +28,7 @@ public class DetailProductController implements ServletContextAware {
 	
 	@RequestMapping(value = "detail/{id}", method = RequestMethod.GET)
 	public String detail(@PathVariable("id") int id, ModelMap modelMap) {
-		modelMap.put("productdetails", this.productDetailService.findByProduct(id));
+		modelMap.put("productdetail", this.productDetailService.findByDetailProduct(id));
 		return "client.product.detailProduct";
 	}
 

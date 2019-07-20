@@ -4,6 +4,11 @@
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags/form" %>
 <c:set var="path" value="${pageContext.request.contextPath }/resources/client"></c:set>
 
+KHOA:
+<s:form action="${pageContext.request.contextPath }/client/product/detail/1" class="form-horizontal style-form" method="post" modelAttribute="productdetail">
+    <s:input path="description" type="text" class="form-control round-form"/>
+</s:form>
+
 <header id="header" class="header-v3">
     <div id="topbar">
         <div class="container">

@@ -14,5 +14,8 @@ public interface ProductDetailRepository extends CrudRepository<Productdetail, I
 	
 	@Query("from Productdetail where product.id = :id")
 	public List<Productdetail> findByProduct(@Param("id") int id);
+
+	@Query("from Productdetail where product.id = :id")
+	public List<Productdetail> findByDetailProduct(@Param("id") int id);
 	
 }

@@ -40,4 +40,9 @@ public class CategoryServiceImpl implements CategoryService {
 	public List<Category> findMaster() {
 		return this.categoryRepository.findMaster();
 	}
+	
+	@Override
+	public List<Category> findByMaster(int parent) {
+		return this.categoryRepository.findByMaster(parent);
+	}
 }

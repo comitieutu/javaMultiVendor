@@ -6,14 +6,8 @@
 	        var id = $(this).data('id');
 	        $.ajax(
 	            {
-	                url: url + "/api/cart/change",
+	                url: url + "/api/cart/change/" + id + "/" + $(this).val(),
 	                type: 'GET',
-	                dataType: 'json',
-	                data:
-	                {
-	                    id:  id,
-	                    qty: $(this).val(),
-	                },
 	                success: function (data) {
 		                $('#carttotal').text(data.carttotal);
 		                $('#subtotal_' + id).text(data.subtotal);

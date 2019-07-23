@@ -46,12 +46,12 @@
                 <div class="form-group">
                     <label class="control-label col-md-3">Image</label>
                     <div class="col-md-4">
-                        <input type="file" name="files" accept="image/*" class="default" multiple/>
+                        <input id="fileImage" type="file" name="files" accept="image/*" class="default" multiple/>
                     </div>
                 </div> 
                 <div class="form-group">
                     <div class="col-lg-offset-2 col-lg-10">
-                        <button class="btn btn-theme" type="submit">Create</button>
+                        <button id="btnSubmit" disabled="disabled" class="btn btn-theme" type="submit">Create</button>
                     </div>
                 </div>
             </s:form>

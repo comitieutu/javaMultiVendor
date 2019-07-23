@@ -37,6 +37,7 @@ public class SpringMVCConfiguration implements WebMvcConfigurer {
 	public UrlBasedViewResolver viewResolver() {
 	    UrlBasedViewResolver urlBasedViewResolver = new UrlBasedViewResolver();
 	    urlBasedViewResolver.setViewClass(TilesView.class);
+	    urlBasedViewResolver.setExposedContextBeanNames("dynamicMenuContext");
 	    return urlBasedViewResolver;
 	}
 	

@@ -11,4 +11,5 @@ public interface CategoryService {
 	public Category save(Category category);
 	public void delete(int id);
 	public List<Category> findMaster();
+	public List<Category> findByMaster(int parent);
 }

@@ -2,15 +2,9 @@ package comi.models;
 
 public class CartQty {
 	
-	private int quantity;
 	private double subtotal;
 	private double totalprice;
-	public int getQuantity() {
-		return quantity;
-	}
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
+
 	public double getSubtotal() {
 		return subtotal;
 	}
@@ -27,9 +21,8 @@ public class CartQty {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public CartQty(int quantity, double subtotal, double totalprice) {
+	public CartQty(double subtotal, double totalprice) {
 		super();
-		this.quantity = quantity;
 		this.subtotal = subtotal;
 		this.totalprice = totalprice;
 	}

@@ -33,6 +33,11 @@ public class CartController {
 //		products.add(productService.find(5));
 //		products.add(productService.find(5));
 //		modelMap.put("products", products);
+		double carttotal = 0;
+		for (Item item : cart) {
+			carttotal += item.getProduct().getUnitprice() * item.getQuantity();
+		}
+		modelMap.put("carttotal", carttotal);
 		return "client.cart";
 	}
 	

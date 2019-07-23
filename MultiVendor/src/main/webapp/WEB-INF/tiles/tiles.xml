@@ -7,6 +7,7 @@
 	
 	<definition name="templateClient" template="/WEB-INF/views/client/templateClient.jsp">
 		<put-attribute name="content" value=""></put-attribute>
+		<put-attribute name="script" value=""></put-attribute>
 	</definition>
 	
 	<definition name="client.index" extends="templateClient">
@@ -23,6 +24,11 @@
 	
 	<definition name="client.register" extends="templateClient">
 		<put-attribute name="content" value="/WEB-INF/views/client/register.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="client.cart" extends="templateClient">
+		<put-attribute name="content" value="/WEB-INF/views/client/cart/index.jsp"></put-attribute>
+		<put-attribute name="script" value="/WEB-INF/views/client/cart/cart_script.jsp"></put-attribute>
 	</definition>
 	
 	<definition name="client.accessDenied" template="/WEB-INF/views/client/accessDenied.jsp">

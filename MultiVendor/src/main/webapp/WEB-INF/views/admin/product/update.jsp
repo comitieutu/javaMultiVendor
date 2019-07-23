@@ -46,7 +46,7 @@
                 <s:hidden path="id" />
                 <div class="form-group">
                     <div class="col-lg-offset-2 col-lg-10">
-                        <button class="btn btn-theme" type="submit">Create</button>
+                        <button class="btn btn-theme" type="submit">Update</button>
                     </div>
                 </div>
             </s:form>

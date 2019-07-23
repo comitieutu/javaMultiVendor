@@ -57,6 +57,7 @@ public class ProductController implements ServletContextAware {
 			productdetail = new Productdetail();
 			productdetail.setPhoto(saveFile(file));
 			productdetail.setProduct(product);
+			productdetail.setDescription(product.getDescription());
 			this.productDetailService.save(productdetail);
 		}		
 		return "redirect:/admin/product";

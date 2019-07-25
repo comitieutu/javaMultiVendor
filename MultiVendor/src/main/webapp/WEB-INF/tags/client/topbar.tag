@@ -60,7 +60,7 @@
             	<sec:authorize access="isAuthenticated()">
             		<a href="${pageContext.request.contextPath }/admin">Welcome <sec:authentication property="name"/></a>
 				    <a class="logout" href="${pageContext.request.contextPath }/logout">Logout</a>
-				</sec:authorize>s
+				</sec:authorize>
                 <sec:authorize access="hasRole('ROLE_ADMIN')">
 				    <a href="${pageContext.request.contextPath }/admin">Admin</a>
 				</sec:authorize>

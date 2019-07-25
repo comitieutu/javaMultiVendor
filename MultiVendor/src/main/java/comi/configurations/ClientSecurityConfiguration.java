@@ -29,7 +29,7 @@ public class ClientSecurityConfiguration extends WebSecurityConfigurerAdapter {
 					.antMatchers("/admin**").access("hasRole('ROLE_SUPER_ADMIN') or hasRole('ROLE_ADMIN')")
 					.antMatchers("/admin/product/**").access("hasRole('ROLE_SUPER_ADMIN') or hasRole('ROLE_ADMIN')")
 					.antMatchers("/admin/category/**").access("hasRole('ROLE_SUPER_ADMIN') or hasRole('ROLE_ADMIN')")
-					.antMatchers("/cart/checkout**").access("hasRole('CUSTOMER')")
+					.antMatchers("/checkout**").access("hasRole('ROLE_SUPER_ADMIN') or hasRole('CUSTOMER')")
 					.antMatchers("/auth**").access("hasRole('CUSTOMER')")
 					.and() 
 					.formLogin().loginPage("/login")
@@ -42,7 +42,8 @@ public class ClientSecurityConfiguration extends WebSecurityConfigurerAdapter {
 					.logoutSuccessUrl("/login")
 					.deleteCookies("JSESSIONID")
 					.and()
-					.exceptionHandling().accessDeniedPage("/accessDenied");;		
+					.exceptionHandling().accessDeniedPage("/accessDenied")
+					.and().sessionManagement();
 	}
 
 	@Autowired

@@ -7,5 +7,6 @@ import comi.entities.User;
 public interface UserService extends UserDetailsService {
 	
 	public User save(User user);
+	public User getByUsername(String username);
 
 }

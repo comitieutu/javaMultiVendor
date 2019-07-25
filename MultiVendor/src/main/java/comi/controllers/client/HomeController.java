@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import comi.entities.User;
 import comi.services.UserService;
 
+import javax.servlet.http.HttpSession;
+
+
 @Controller
 @RequestMapping("")
 public class HomeController {

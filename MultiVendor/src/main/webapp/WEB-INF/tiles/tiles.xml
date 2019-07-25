@@ -30,6 +30,10 @@
 		<put-attribute name="content" value="/WEB-INF/views/client/cart/index.jsp"></put-attribute>
 		<put-attribute name="script" value="/WEB-INF/views/client/cart/cart_script.jsp"></put-attribute>
 	</definition>
+
+	<definition name="client.checkout" extends="templateClient">
+		<put-attribute name="content" value="/WEB-INF/views/client/checkout/index.jsp"></put-attribute>
+	</definition>
 	
 	<definition name="client.accessDenied" template="/WEB-INF/views/client/accessDenied.jsp">
 		<put-attribute name="accessDenied" value=""></put-attribute>

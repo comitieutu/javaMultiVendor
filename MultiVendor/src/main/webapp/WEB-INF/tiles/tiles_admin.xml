@@ -78,4 +78,15 @@
 		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/shipper/delete.jsp"></put-attribute>
 	</definition>
 	
+	<definition name="admin.user.index" extends="templateAdmin">
+		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/user/index.jsp"></put-attribute>
+	</definition>
+	
+	
+	
+	
+	<definition name="admin.user.userprofile" extends="templateAdmin">
+		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/user/userprofile.jsp"></put-attribute>
+	</definition>
+	
 </tiles-definitions>

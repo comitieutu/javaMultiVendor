@@ -40,7 +40,8 @@
                 <div class="form-group">
                     <s:label path="category.id" class="col-sm-2 col-sm-2 control-label">Category</s:label>
                     <div class="col-sm-10">
-                        <s:select path="category.id" items="${categories }" itemLabel="name" itemValue="id" type="text" class="form-control round-form"/>
+                        <s:select path="category.id" items="${categories }" 
+                        itemLabel="name" itemValue="id" type="text" class="form-control round-form"/>
                     </div>
                 </div>
                 <div class="form-group">

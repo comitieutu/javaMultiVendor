@@ -56,4 +56,27 @@ public class UserServiceImp implements UserService{
 		return user;
 	}
 
+	@Override
+	public Iterable<User> findAll() {
+		return this.userRepository.findAll();
+	}
+
+	@Override
+	public User find(int id) {
+		return this.userRepository.findById(id).get();
+		
+	}
+
+	@Override
+	public User save(User user) {
+		return this.userRepository.save(user);
+		
+	}
+
+	@Override
+	public void delete(int id) {
+		this.userRepository.deleteById(id);
+		
+	}
+
 }

@@ -22,24 +22,24 @@
                     </tr>
                 </thead>
                 <tbody>
-                	<c:forEach var="p" items="${products }">
+                	<c:forEach var="c" items="${products }">
                 		<tr>
 							<td>${p.id }</td>
 							<td>
-								<a href="${pageContext.request.contextPath }/admin/product/detail/${p.id}">${p.name }</a>
+								<a href="${pageContext.request.contextPath }/admin/product/detail/${c.id}">${p.name }</a>
 							</td>
-							<td>${p.description }</td>
-							<td>${p.quantity }</td>
-							<td>${p.unitprice }</td>
-							<td>${p.brand }</td>
+							<td>${c.description }</td>
+							<td>${c.quantity }</td>
+							<td>${c.unitprice }</td>
+							<td>${c.brand }</td>
 							<td>
 								<c:if test="${p.productdetails.size() > 0}">
-									<img src="${pageContext.request.contextPath }/assets/images/${p.productdetails.iterator().next().photo}">
+									<img src="${pageContext.request.contextPath }/assets/images/${c.productdetails.iterator().next().photo}">
 								</c:if> 
 							</td>
 							<td>
-								<a href="${pageContext.request.contextPath }/admin/product/update/${p.id}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i>Edit</a> 
-								<a href="${pageContext.request.contextPath }/admin/product/delete/${p.id}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i>Delete</a>
+								<a href="${pageContext.request.contextPath }/admin/product/update/${c.id}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i>Edit</a> 
+								<a href="${pageContext.request.contextPath }/admin/product/delete/${c.id}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i>Delete</a>
 							</td>
 						</tr>
                 	</c:forEach>

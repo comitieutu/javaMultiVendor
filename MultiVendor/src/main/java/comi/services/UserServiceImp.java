@@ -33,4 +33,27 @@ public class UserServiceImp implements UserService{
 		return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), grantedAuthorities);
 	}
 
+	@Override
+	public Iterable<User> findAll() {
+		return this.userRepository.findAll();
+	}
+
+	@Override
+	public User find(int id) {
+		return this.userRepository.findById(id).get();
+		
+	}
+
+	@Override
+	public User save(User user) {
+		return this.userRepository.save(user);
+		
+	}
+
+	@Override
+	public void delete(int id) {
+		this.userRepository.deleteById(id);
+		
+	}
+
 }

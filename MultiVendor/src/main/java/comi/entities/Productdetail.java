@@ -1,5 +1,5 @@
 package comi.entities;
-// Generated Jun 15, 2019 5:07:07 PM by Hibernate Tools 5.1.7.Final
+// Generated Jul 8, 2019 8:31:00 PM by Hibernate Tools 5.1.7.Final
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,12 +21,17 @@ public class Productdetail implements java.io.Serializable {
 	private Integer id;
 	private Product product;
 	private String photo;
-	private int description;
+	private String description;
 
 	public Productdetail() {
 	}
 
-	public Productdetail(Product product, String photo, int description) {
+	public Productdetail(Product product, String photo) {
+		this.product = product;
+		this.photo = photo;
+	}
+
+	public Productdetail(Product product, String photo, String description) {
 		this.product = product;
 		this.photo = photo;
 		this.description = description;
@@ -54,7 +59,7 @@ public class Productdetail implements java.io.Serializable {
 		this.product = product;
 	}
 
-	@Column(name = "photo", nullable = false)
+	@Column(name = "photo", nullable = false, length = 250)
 	public String getPhoto() {
 		return this.photo;
 	}
@@ -63,12 +68,12 @@ public class Productdetail implements java.io.Serializable {
 		this.photo = photo;
 	}
 
-	@Column(name = "description", nullable = false)
-	public int getDescription() {
+	@Column(name = "description", length = 250)
+	public String getDescription() {
 		return this.description;
 	}
 
-	public void setDescription(int description) {
+	public void setDescription(String description) {
 		this.description = description;
 	}
 

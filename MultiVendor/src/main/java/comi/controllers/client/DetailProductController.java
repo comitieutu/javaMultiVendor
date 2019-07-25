@@ -10,13 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.ServletContextAware;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 @Controller
 @RequestMapping("product/")
@@ -33,7 +28,7 @@ public class DetailProductController implements ServletContextAware {
 	
 	@RequestMapping(value = "detail/{id}", method = RequestMethod.GET)
 	public String detail(@PathVariable("id") int id, ModelMap modelMap) {
-		modelMap.put("productdetails", this.productDetailService.findByProduct(id));
+		modelMap.put("productdetail", this.productDetailService.findByDetailProduct(id));
 		return "client.product.detailProduct";
 	}
 

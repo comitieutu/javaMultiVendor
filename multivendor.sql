@@ -2,10 +2,10 @@
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jun 15, 2019 at 12:18 PM
--- Server version: 10.1.35-MariaDB
--- PHP Version: 7.2.9
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th7 08, 2019 lúc 04:07 PM
+-- Phiên bản máy phục vụ: 10.1.35-MariaDB
+-- Phiên bản PHP: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `multivendor`
+-- Cơ sở dữ liệu: `multivendor`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bank`
+-- Cấu trúc bảng cho bảng `bank`
 --
 
 CREATE TABLE `bank` (
@@ -39,19 +39,28 @@ CREATE TABLE `bank` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `category`
+-- Cấu trúc bảng cho bảng `category`
 --
 
 CREATE TABLE `category` (
   `id` int(11) NOT NULL,
+  `name` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
   `description` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
   `parent` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `category`
+--
+
+INSERT INTO `category` (`id`, `name`, `description`, `parent`) VALUES
+(1, 'Smartphone', 'Smartphone', 0),
+(2, 'Clother', 'Clother', 1);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `comment`
+-- Cấu trúc bảng cho bảng `comment`
 --
 
 CREATE TABLE `comment` (
@@ -64,7 +73,7 @@ CREATE TABLE `comment` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `country`
+-- Cấu trúc bảng cho bảng `country`
 --
 
 CREATE TABLE `country` (
@@ -76,7 +85,7 @@ CREATE TABLE `country` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `delivery`
+-- Cấu trúc bảng cho bảng `delivery`
 --
 
 CREATE TABLE `delivery` (
@@ -89,7 +98,7 @@ CREATE TABLE `delivery` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `district`
+-- Cấu trúc bảng cho bảng `district`
 --
 
 CREATE TABLE `district` (
@@ -103,7 +112,7 @@ CREATE TABLE `district` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `flashsale`
+-- Cấu trúc bảng cho bảng `flashsale`
 --
 
 CREATE TABLE `flashsale` (
@@ -119,7 +128,7 @@ CREATE TABLE `flashsale` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `payment`
+-- Cấu trúc bảng cho bảng `payment`
 --
 
 CREATE TABLE `payment` (
@@ -131,7 +140,7 @@ CREATE TABLE `payment` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `personinfo`
+-- Cấu trúc bảng cho bảng `personinfo`
 --
 
 CREATE TABLE `personinfo` (
@@ -149,37 +158,53 @@ CREATE TABLE `personinfo` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product`
+-- Cấu trúc bảng cho bảng `product`
 --
 
 CREATE TABLE `product` (
   `id` int(11) NOT NULL,
   `name` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
   `description` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `userId` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
   `unitprice` double NOT NULL,
   `brand` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
   `categoryid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `product`
+--
+
+INSERT INTO `product` (`id`, `name`, `description`, `quantity`, `unitprice`, `brand`, `categoryid`) VALUES
+(5, 'samsung', 'samsung', 11, 5.5, 'brand 1', 1);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `productdetail`
+-- Cấu trúc bảng cho bảng `productdetail`
 --
 
 CREATE TABLE `productdetail` (
   `id` int(11) NOT NULL,
   `productid` int(11) NOT NULL,
-  `photo` int(11) NOT NULL,
-  `description` int(11) NOT NULL
+  `photo` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
+  `description` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `productdetail`
+--
+
+INSERT INTO `productdetail` (`id`, `productid`, `photo`, `description`) VALUES
+(7, 5, 'thumb1.gif', '0'),
+(8, 5, 'thumb2.gif', '0'),
+(9, 5, 'prod2.gif', '0'),
+(10, 5, 'prod1.gif', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `role`
+-- Cấu trúc bảng cho bảng `role`
 --
 
 CREATE TABLE `role` (
@@ -187,10 +212,18 @@ CREATE TABLE `role` (
   `name` varchar(250) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `role`
+--
+
+INSERT INTO `role` (`id`, `name`) VALUES
+(1, 'ROLE_ADMIN'),
+(2, 'CUSTOMER');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `saleorder`
+-- Cấu trúc bảng cho bảng `saleorder`
 --
 
 CREATE TABLE `saleorder` (
@@ -209,7 +242,7 @@ CREATE TABLE `saleorder` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `saleorderdetail`
+-- Cấu trúc bảng cho bảng `saleorderdetail`
 --
 
 CREATE TABLE `saleorderdetail` (
@@ -224,7 +257,7 @@ CREATE TABLE `saleorderdetail` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `shipmentdetail`
+-- Cấu trúc bảng cho bảng `shipmentdetail`
 --
 
 CREATE TABLE `shipmentdetail` (
@@ -242,7 +275,7 @@ CREATE TABLE `shipmentdetail` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `shipper`
+-- Cấu trúc bảng cho bảng `shipper`
 --
 
 CREATE TABLE `shipper` (
@@ -255,7 +288,7 @@ CREATE TABLE `shipper` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `stateorprovince`
+-- Cấu trúc bảng cho bảng `stateorprovince`
 --
 
 CREATE TABLE `stateorprovince` (
@@ -269,7 +302,7 @@ CREATE TABLE `stateorprovince` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `supplier`
+-- Cấu trúc bảng cho bảng `supplier`
 --
 
 CREATE TABLE `supplier` (
@@ -284,33 +317,55 @@ CREATE TABLE `supplier` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Cấu trúc bảng cho bảng `user`
 --
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `username` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
   `password` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `enable` tinyint(1) NOT NULL
+  `enable` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `email`, `password`, `enable`) VALUES
+(1, 'lecomi', 'lecomi@gmail.com', '$2a$04$YnS.4Ak1DPOV2YDjzPSl.ugIVk4/gXGPAHtSd/8g3fj2vJOuV49AG', 1),
+(2, 'lecomi1', 'lecomi1@gmail.com', '$2a$04$YnS.4Ak1DPOV2YDjzPSl.ugIVk4/gXGPAHtSd/8g3fj2vJOuV49AG', 1),
+(3, 'cong', 'cong@gmail.com', '$2a$04$p.gUiXz65s6f1P/IBjjSi.QJTjzBZMBo1HsUYNx0h.9mqOIK9t70u', 1),
+(8, 'congcong', NULL, '$2a$10$pCT7wzfMQ.JrkveK1CFCU.2q5CXinnBICIveW0VXpluNmpAHPFVfy', 0),
+(9, 'congcong1', NULL, '$2a$10$g85i2OMCXoHDxAqVA3GB5ud9iOaV3GTz3ydfAFjyzemaxMoBUbU.u', 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `userrole`
+-- Cấu trúc bảng cho bảng `userrole`
 --
 
 CREATE TABLE `userrole` (
   `userid` int(11) NOT NULL,
   `roleid` int(11) NOT NULL,
-  `enable` tinyint(1) NOT NULL
+  `enable` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `userrole`
+--
+
+INSERT INTO `userrole` (`userid`, `roleid`, `enable`) VALUES
+(1, 1, 1),
+(2, 2, 1),
+(3, 1, 1),
+(8, 2, 0),
+(9, 2, 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `warehouse`
+-- Cấu trúc bảng cho bảng `warehouse`
 --
 
 CREATE TABLE `warehouse` (
@@ -323,24 +378,24 @@ CREATE TABLE `warehouse` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `bank`
+-- Chỉ mục cho bảng `bank`
 --
 ALTER TABLE `bank`
   ADD PRIMARY KEY (`id`),
   ADD KEY `vendorid` (`vendorid`);
 
 --
--- Indexes for table `category`
+-- Chỉ mục cho bảng `category`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `comment`
+-- Chỉ mục cho bảng `comment`
 --
 ALTER TABLE `comment`
   ADD PRIMARY KEY (`id`),
@@ -348,38 +403,38 @@ ALTER TABLE `comment`
   ADD KEY `productid` (`productid`);
 
 --
--- Indexes for table `country`
+-- Chỉ mục cho bảng `country`
 --
 ALTER TABLE `country`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `delivery`
+-- Chỉ mục cho bảng `delivery`
 --
 ALTER TABLE `delivery`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `district`
+-- Chỉ mục cho bảng `district`
 --
 ALTER TABLE `district`
   ADD PRIMARY KEY (`id`),
   ADD KEY `StateOrProvinceId` (`StateOrProvinceId`);
 
 --
--- Indexes for table `flashsale`
+-- Chỉ mục cho bảng `flashsale`
 --
 ALTER TABLE `flashsale`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `payment`
+-- Chỉ mục cho bảng `payment`
 --
 ALTER TABLE `payment`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `personinfo`
+-- Chỉ mục cho bảng `personinfo`
 --
 ALTER TABLE `personinfo`
   ADD PRIMARY KEY (`id`),
@@ -387,37 +442,37 @@ ALTER TABLE `personinfo`
   ADD KEY `districtid` (`districtid`);
 
 --
--- Indexes for table `product`
+-- Chỉ mục cho bảng `product`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `categoryid` (`categoryid`),
-  ADD KEY `userId` (`userId`);
+  ADD KEY `categoryid` (`categoryid`);
 
 --
--- Indexes for table `productdetail`
+-- Chỉ mục cho bảng `productdetail`
 --
 ALTER TABLE `productdetail`
   ADD PRIMARY KEY (`id`),
   ADD KEY `productid` (`productid`);
 
 --
--- Indexes for table `role`
+-- Chỉ mục cho bảng `role`
 --
 ALTER TABLE `role`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `saleorder`
+-- Chỉ mục cho bảng `saleorder`
 --
 ALTER TABLE `saleorder`
   ADD PRIMARY KEY (`id`),
   ADD KEY `userid` (`userid`),
   ADD KEY `shipperid` (`shipperid`),
-  ADD KEY `deliveryid` (`deliveryid`);
+  ADD KEY `deliveryid` (`deliveryid`),
+  ADD KEY `saleorder_ibfk_4` (`paymentid`);
 
 --
--- Indexes for table `saleorderdetail`
+-- Chỉ mục cho bảng `saleorderdetail`
 --
 ALTER TABLE `saleorderdetail`
   ADD PRIMARY KEY (`id`),
@@ -425,7 +480,7 @@ ALTER TABLE `saleorderdetail`
   ADD KEY `productid` (`productid`);
 
 --
--- Indexes for table `shipmentdetail`
+-- Chỉ mục cho bảng `shipmentdetail`
 --
 ALTER TABLE `shipmentdetail`
   ADD PRIMARY KEY (`id`),
@@ -433,33 +488,33 @@ ALTER TABLE `shipmentdetail`
   ADD KEY `districtid` (`districtid`);
 
 --
--- Indexes for table `shipper`
+-- Chỉ mục cho bảng `shipper`
 --
 ALTER TABLE `shipper`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `stateorprovince`
+-- Chỉ mục cho bảng `stateorprovince`
 --
 ALTER TABLE `stateorprovince`
   ADD PRIMARY KEY (`id`),
   ADD KEY `countryid` (`countryid`);
 
 --
--- Indexes for table `supplier`
+-- Chỉ mục cho bảng `supplier`
 --
 ALTER TABLE `supplier`
   ADD PRIMARY KEY (`id`),
   ADD KEY `userid` (`userid`);
 
 --
--- Indexes for table `user`
+-- Chỉ mục cho bảng `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `userrole`
+-- Chỉ mục cho bảng `userrole`
 --
 ALTER TABLE `userrole`
   ADD PRIMARY KEY (`userid`,`roleid`),
@@ -467,7 +522,7 @@ ALTER TABLE `userrole`
   ADD KEY `roleid` (`roleid`);
 
 --
--- Indexes for table `warehouse`
+-- Chỉ mục cho bảng `warehouse`
 --
 ALTER TABLE `warehouse`
   ADD PRIMARY KEY (`id`),
@@ -475,209 +530,209 @@ ALTER TABLE `warehouse`
   ADD KEY `vendorid` (`vendorid`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `bank`
+-- AUTO_INCREMENT cho bảng `bank`
 --
 ALTER TABLE `bank`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `category`
+-- AUTO_INCREMENT cho bảng `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `comment`
+-- AUTO_INCREMENT cho bảng `comment`
 --
 ALTER TABLE `comment`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `delivery`
+-- AUTO_INCREMENT cho bảng `delivery`
 --
 ALTER TABLE `delivery`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `district`
+-- AUTO_INCREMENT cho bảng `district`
 --
 ALTER TABLE `district`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `flashsale`
+-- AUTO_INCREMENT cho bảng `flashsale`
 --
 ALTER TABLE `flashsale`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `payment`
+-- AUTO_INCREMENT cho bảng `payment`
 --
 ALTER TABLE `payment`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `personinfo`
+-- AUTO_INCREMENT cho bảng `personinfo`
 --
 ALTER TABLE `personinfo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `product`
+-- AUTO_INCREMENT cho bảng `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `productdetail`
+-- AUTO_INCREMENT cho bảng `productdetail`
 --
 ALTER TABLE `productdetail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `role`
+-- AUTO_INCREMENT cho bảng `role`
 --
 ALTER TABLE `role`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `saleorder`
+-- AUTO_INCREMENT cho bảng `saleorder`
 --
 ALTER TABLE `saleorder`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `saleorderdetail`
+-- AUTO_INCREMENT cho bảng `saleorderdetail`
 --
 ALTER TABLE `saleorderdetail`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `shipmentdetail`
+-- AUTO_INCREMENT cho bảng `shipmentdetail`
 --
 ALTER TABLE `shipmentdetail`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `shipper`
+-- AUTO_INCREMENT cho bảng `shipper`
 --
 ALTER TABLE `shipper`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `stateorprovince`
+-- AUTO_INCREMENT cho bảng `stateorprovince`
 --
 ALTER TABLE `stateorprovince`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `supplier`
+-- AUTO_INCREMENT cho bảng `supplier`
 --
 ALTER TABLE `supplier`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `warehouse`
+-- AUTO_INCREMENT cho bảng `warehouse`
 --
 ALTER TABLE `warehouse`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Constraints for dumped tables
+-- Các ràng buộc cho các bảng đã đổ
 --
 
 --
--- Constraints for table `bank`
+-- Các ràng buộc cho bảng `bank`
 --
 ALTER TABLE `bank`
   ADD CONSTRAINT `bank_ibfk_1` FOREIGN KEY (`vendorid`) REFERENCES `supplier` (`id`);
 
 --
--- Constraints for table `comment`
+-- Các ràng buộc cho bảng `comment`
 --
 ALTER TABLE `comment`
   ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`productid`) REFERENCES `product` (`id`),
   ADD CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`userid`) REFERENCES `user` (`id`);
 
 --
--- Constraints for table `district`
+-- Các ràng buộc cho bảng `district`
 --
 ALTER TABLE `district`
   ADD CONSTRAINT `district_ibfk_1` FOREIGN KEY (`StateOrProvinceId`) REFERENCES `stateorprovince` (`id`);
 
 --
--- Constraints for table `personinfo`
+-- Các ràng buộc cho bảng `personinfo`
 --
 ALTER TABLE `personinfo`
   ADD CONSTRAINT `personinfo_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `user` (`id`),
   ADD CONSTRAINT `personinfo_ibfk_2` FOREIGN KEY (`districtid`) REFERENCES `district` (`id`);
 
 --
--- Constraints for table `product`
+-- Các ràng buộc cho bảng `product`
 --
 ALTER TABLE `product`
-  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`categoryid`) REFERENCES `category` (`id`),
-  ADD CONSTRAINT `product_ibfk_2` FOREIGN KEY (`userId`) REFERENCES `user` (`id`);
+  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`categoryid`) REFERENCES `category` (`id`);
 
 --
--- Constraints for table `productdetail`
+-- Các ràng buộc cho bảng `productdetail`
 --
 ALTER TABLE `productdetail`
   ADD CONSTRAINT `productdetail_ibfk_1` FOREIGN KEY (`productid`) REFERENCES `product` (`id`);
 
 --
--- Constraints for table `saleorder`
+-- Các ràng buộc cho bảng `saleorder`
 --
 ALTER TABLE `saleorder`
   ADD CONSTRAINT `saleorder_ibfk_1` FOREIGN KEY (`deliveryid`) REFERENCES `delivery` (`id`),
   ADD CONSTRAINT `saleorder_ibfk_2` FOREIGN KEY (`shipperid`) REFERENCES `shipper` (`id`),
-  ADD CONSTRAINT `saleorder_ibfk_3` FOREIGN KEY (`userid`) REFERENCES `user` (`id`);
+  ADD CONSTRAINT `saleorder_ibfk_3` FOREIGN KEY (`userid`) REFERENCES `user` (`id`),
+  ADD CONSTRAINT `saleorder_ibfk_4` FOREIGN KEY (`paymentid`) REFERENCES `payment` (`id`);
 
 --
--- Constraints for table `saleorderdetail`
+-- Các ràng buộc cho bảng `saleorderdetail`
 --
 ALTER TABLE `saleorderdetail`
   ADD CONSTRAINT `saleorderdetail_ibfk_1` FOREIGN KEY (`productid`) REFERENCES `product` (`id`),
   ADD CONSTRAINT `saleorderdetail_ibfk_2` FOREIGN KEY (`saleorderid`) REFERENCES `saleorder` (`id`);
 
 --
--- Constraints for table `shipmentdetail`
+-- Các ràng buộc cho bảng `shipmentdetail`
 --
 ALTER TABLE `shipmentdetail`
   ADD CONSTRAINT `shipmentdetail_ibfk_1` FOREIGN KEY (`districtid`) REFERENCES `district` (`id`),
   ADD CONSTRAINT `shipmentdetail_ibfk_2` FOREIGN KEY (`saleid`) REFERENCES `saleorder` (`id`);
 
 --
--- Constraints for table `stateorprovince`
+-- Các ràng buộc cho bảng `stateorprovince`
 --
 ALTER TABLE `stateorprovince`
   ADD CONSTRAINT `stateorprovince_ibfk_1` FOREIGN KEY (`countryid`) REFERENCES `country` (`id`);
 
 --
--- Constraints for table `supplier`
+-- Các ràng buộc cho bảng `supplier`
 --
 ALTER TABLE `supplier`
   ADD CONSTRAINT `supplier_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `supplier` (`id`);
 
 --
--- Constraints for table `userrole`
+-- Các ràng buộc cho bảng `userrole`
 --
 ALTER TABLE `userrole`
   ADD CONSTRAINT `userrole_ibfk_1` FOREIGN KEY (`roleid`) REFERENCES `role` (`id`),
   ADD CONSTRAINT `userrole_ibfk_2` FOREIGN KEY (`userid`) REFERENCES `user` (`id`);
 
 --
--- Constraints for table `warehouse`
+-- Các ràng buộc cho bảng `warehouse`
 --
 ALTER TABLE `warehouse`
   ADD CONSTRAINT `warehouse_ibfk_1` FOREIGN KEY (`vendorid`) REFERENCES `supplier` (`id`),

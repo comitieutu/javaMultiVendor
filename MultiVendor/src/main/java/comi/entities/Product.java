@@ -1,10 +1,8 @@
 package comi.entities;
-// Generated Jun 15, 2019 5:07:07 PM by Hibernate Tools 5.1.7.Final
+// Generated Jul 8, 2019 8:31:00 PM by Hibernate Tools 5.1.7.Final
 
 import java.util.HashSet;
 import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -37,8 +35,7 @@ public class Product implements java.io.Serializable {
 	public Product() {
 	}
 
-	public Product(Category category, String name, String description, int quantity, double unitprice,
-			String brand) {
+	public Product(Category category, String name, String description, int quantity, double unitprice, String brand) {
 		this.category = category;
 		this.name = name;
 		this.description = description;
@@ -47,9 +44,8 @@ public class Product implements java.io.Serializable {
 		this.brand = brand;
 	}
 
-	public Product(Category category, String name, String description, int quantity, double unitprice,
-			String brand, Set<Comment> comments, Set<Productdetail> productdetails,
-			Set<Saleorderdetail> saleorderdetails) {
+	public Product(Category category, String name, String description, int quantity, double unitprice, String brand,
+			Set<Comment> comments, Set<Productdetail> productdetails, Set<Saleorderdetail> saleorderdetails) {
 		this.category = category;
 		this.name = name;
 		this.description = description;
@@ -137,7 +133,7 @@ public class Product implements java.io.Serializable {
 		this.comments = comments;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "product", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
 	public Set<Productdetail> getProductdetails() {
 		return this.productdetails;
 	}

@@ -40,4 +40,9 @@ public class ProductDetailServiceImpl implements ProductDetailService {
 	public List<Productdetail> findByProduct(int id) {
 		return this.productDetailRepository.findByProduct(id);
 	}
+
+	@Override
+	public Productdetail findByDetailProduct(int id) {
+		return this.productDetailRepository.findByDetailProduct(id).get(0);
+	}
 }

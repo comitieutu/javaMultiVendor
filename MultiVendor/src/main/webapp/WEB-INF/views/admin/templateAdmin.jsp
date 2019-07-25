@@ -230,7 +230,7 @@
       </div>
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
-          <li><a class="logout" href="${pageContext.request.contextPath }/admin/logout">Logout</a></li>
+          <li><a class="logout" href="${pageContext.request.contextPath }/logout">Logout</a></li>
         </ul>
       </div>
     </header>
@@ -238,10 +238,10 @@
     <mt:sidebar></mt:sidebar>
     
     <section id="main-content">
-      
-      <tiles:insertAttribute name="contentAdmin"></tiles:insertAttribute>
-      
-    </section>
+
+    <tiles:insertAttribute name="contentAdmin"></tiles:insertAttribute>
+
+  </section>
     <!--main content end-->
     <!--footer start-->
     <footer class="site-footer">
@@ -274,6 +274,9 @@
   <!--script for this page-->
   <script src="${path}/lib/sparkline-chart.js"></script>
   <script src="${path}/lib/zabuto_calendar.js"></script>
+  
+  <tiles:insertAttribute name="script"/>
+  
   <script type="text/javascript">
     $(document).ready(function() {
       var unique_id = $.gritter.add({

@@ -8,11 +8,14 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.context.SecurityContextPersistenceFilter;
+import org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter;
+
 import comi.services.UserService;
 
 @EnableWebSecurity
 @Configuration
-public class AdminSecurityConfiguration extends WebSecurityConfigurerAdapter {
+public class ClientSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	private UserService userService;
@@ -26,18 +29,20 @@ public class AdminSecurityConfiguration extends WebSecurityConfigurerAdapter {
 					.antMatchers("/admin**").access("hasRole('ROLE_SUPER_ADMIN') or hasRole('ROLE_ADMIN')")
 					.antMatchers("/admin/product/**").access("hasRole('ROLE_SUPER_ADMIN') or hasRole('ROLE_ADMIN')")
 					.antMatchers("/admin/category/**").access("hasRole('ROLE_SUPER_ADMIN') or hasRole('ROLE_ADMIN')")
+					.antMatchers("/cart/checkout**").access("hasRole('CUSTOMER')")
+					.antMatchers("/auth**").access("hasRole('CUSTOMER')")
 					.and() 
-					.formLogin().loginPage("/admin/login")
-					.loginProcessingUrl("/admin/process-login")
-					.defaultSuccessUrl("/admin")
-					.failureUrl("/admin/login?error")
+					.formLogin().loginPage("/login")
+					.loginProcessingUrl("/process-login")
+					.defaultSuccessUrl("/")
+					.failureUrl("/login?error")
 					.usernameParameter("username").passwordParameter("password")
 					.and()
-					.logout().logoutUrl("/admin/logout")
-					.logoutSuccessUrl("/admin/login")
+					.logout().logoutUrl("/logout")
+					.logoutSuccessUrl("/login")
+					.deleteCookies("JSESSIONID")
 					.and()
-					.exceptionHandling().accessDeniedPage("/admin/accessDenied");
-		
+					.exceptionHandling().accessDeniedPage("/accessDenied");;		
 	}
 
 	@Autowired
@@ -49,6 +54,16 @@ public class AdminSecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Bean
 	public BCryptPasswordEncoder encoder() {
 		return new BCryptPasswordEncoder();
+	}
+	
+	@Bean
+	public SecurityContextHolderAwareRequestFilter awareRequestFilter() {
+	    return new SecurityContextHolderAwareRequestFilter();
+	}
+	
+	@Bean
+	public SecurityContextPersistenceFilter persistenceFilter() {
+		return new SecurityContextPersistenceFilter();
 	}
 	
 }

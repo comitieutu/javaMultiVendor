@@ -5,12 +5,9 @@
 
 <tiles-definitions>
 
-	<definition name="admin.login" template="/WEB-INF/views/admin/login.jsp">
-		<put-attribute name="login" value=""></put-attribute>
-	</definition>
-
 	<definition name="templateAdmin" template="/WEB-INF/views/admin/templateAdmin.jsp">
 		<put-attribute name="contentAdmin" value=""></put-attribute>
+		<put-attribute name="script" value=""></put-attribute>
 	</definition>
 
 	<definition name="admin.index" extends="templateAdmin">
@@ -29,22 +26,67 @@
 	<definition name="admin.category.delete" extends="templateAdmin">
 		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/category/delete.jsp"></put-attribute>
 	</definition>
-	
+
+	<definition name="admin.delivery.index" extends="templateAdmin">
+		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/delivery/index.jsp"></put-attribute>
+	</definition>
+	<definition name="admin.delivery.update" extends="templateAdmin">
+		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/delivery/update.jsp"></put-attribute>
+	</definition>
+	<definition name="admin.delivery.create" extends="templateAdmin">
+		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/delivery/create.jsp"></put-attribute>
+	</definition>
+	<definition name="admin.delivery.delete" extends="templateAdmin">
+		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/delivery/delete.jsp"></put-attribute>
+	</definition>
+
 	<definition name="admin.product.index" extends="templateAdmin">
 		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/product/index.jsp"></put-attribute>
 	</definition>
 	<definition name="admin.product.create" extends="templateAdmin">
 		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/product/create.jsp"></put-attribute>
+		<put-attribute name="script" value="/WEB-INF/views/admin/product/detail_script.jsp"></put-attribute>
 	</definition>
 	<definition name="admin.product.update" extends="templateAdmin">
 		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/product/update.jsp"></put-attribute>
 	</definition>
 	<definition name="admin.product.detail" extends="templateAdmin">
 		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/product/detail.jsp"></put-attribute>
+		<put-attribute name="script" value="/WEB-INF/views/admin/product/detail_script.jsp"></put-attribute>
 	</definition>
 
-	<definition name="admin.accessDenied" template="/WEB-INF/views/admin/accessDenied.jsp">
-		<put-attribute name="accessDenied" value=""></put-attribute>
+	<definition name="admin.saleorder.index" extends="templateAdmin">
+		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/saleorder/index.jsp"></put-attribute>
+	</definition>
+	<definition name="admin.saleorder.detail" extends="templateAdmin">
+		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/saleorder/detail.jsp"></put-attribute>
+	</definition>
+	<definition name="admin.saleorder.delete" extends="templateAdmin">
+		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/saleorder/delete.jsp"></put-attribute>
+	</definition>
+
+	<definition name="admin.shipper.index" extends="templateAdmin">
+		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/shipper/index.jsp"></put-attribute>
+	</definition>
+	<definition name="admin.shipper.create" extends="templateAdmin">
+		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/shipper/create.jsp"></put-attribute>
+	</definition>
+	<definition name="admin.shipper.update" extends="templateAdmin">
+		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/shipper/update.jsp"></put-attribute>
+	</definition>
+	<definition name="admin.shipper.delete" extends="templateAdmin">
+		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/shipper/delete.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="admin.user.index" extends="templateAdmin">
+		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/user/index.jsp"></put-attribute>
+	</definition>
+	
+	
+	
+	
+	<definition name="admin.user.userprofile" extends="templateAdmin">
+		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/user/userprofile.jsp"></put-attribute>
 	</definition>
 	
 	<definition name="admin.user.index" extends="templateAdmin">

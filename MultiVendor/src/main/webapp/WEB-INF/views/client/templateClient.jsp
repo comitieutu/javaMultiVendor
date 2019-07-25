@@ -2,6 +2,7 @@
 	pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="mt" tagdir="/WEB-INF/tags/client"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -23,9 +24,15 @@
 
 </head>
 <body>
+	
+	
+	
 	<tiles:insertAttribute name="content"></tiles:insertAttribute>
+	
+	<mt:footer></mt:footer>
 
 </body>
+
 <script type="text/javascript" src="${path}/js/jquery-1.11.1.min.js"
 	tppabs="http://landing.engocreative.com/html/dama/demo/assets/js/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="${path}/js/bootstrap.min.js"
@@ -44,4 +51,5 @@
 	tppabs="http://landing.engocreative.com/html/dama/demo/assets/js/wow.min.js"></script>
 <script type="text/javascript" src="${path}/js/store.js"
 	tppabs="http://landing.engocreative.com/html/dama/demo/assets/js/store.js"></script>
+<tiles:insertAttribute name="script"/>
 </html>

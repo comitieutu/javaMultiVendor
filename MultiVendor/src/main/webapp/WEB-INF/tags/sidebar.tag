@@ -31,6 +31,49 @@
           <li><a href="${pageContext.request.contextPath }/admin/product/create">Create</a></li>
         </ul>
       </li>
+      <li class="sub-menu">
+        <a href="javascript:;">
+          <i class="fa fa-desktop"></i>
+          <span>Sale Order</span>
+        </a>
+        <ul class="sub">
+          <li><a href="${pageContext.request.contextPath }/admin/saleorder">List</a></li>
+        </ul>
+      </li>
+      <li class="sub-menu">
+        <a href="javascript:;">
+          <i class="fa fa-desktop"></i>
+          <span>Delivery</span>
+        </a>
+        <ul class="sub">
+          <li><a href="${pageContext.request.contextPath }/admin/delivery">List</a></li>
+          <li><a href="${pageContext.request.contextPath }/admin/delivery/create">Create</a></li>
+        </ul>
+      </li>
+      <li class="sub-menu">
+        <a href="javascript:;">
+          <i class="fa fa-desktop"></i>
+          <span>Shipper</span>
+        </a>
+        <ul class="sub">
+          <li><a href="${pageContext.request.contextPath }/admin/shipper">List</a></li>
+          <li><a href="${pageContext.request.contextPath }/admin/shipper/create">Create</a></li>
+        </ul>
+      </li>
+        <li class="sub-menu">
+        <a href="javascript:;">
+          <i class="fa fa-desktop"></i>
+          <span>User</span>
+          </a>
+        <ul class="sub">
+          <li><a href="${pageContext.request.contextPath }/admin/user">List</a></li>
+         
+        </ul>
+      </li>
+      
+      
+      
+       
       
         <li class="sub-menu">
         <a href="javascript:;">

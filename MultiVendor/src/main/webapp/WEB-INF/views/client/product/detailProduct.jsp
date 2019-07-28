@@ -326,26 +326,9 @@
                 <div class="product-box-content">
                     <div class="product-name">
                         <h1>${product.name} </h1>
-                        <p class="cat">Women Crochet</p>
+                        <p class="cat">${product.category.name}</p>
                     </div>
                     <!-- End product-name -->
-                    <div class="rating">
-                        <div class="overflow-h">
-                            <div class="icon-rating">
-                                <input type="radio" id="star-horizontal-rating-1" name="star-horizontal-rating" checked="">
-                                <label for="star-horizontal-rating-1"><i class="fa fa-star"></i></label>
-                                <input type="radio" id="star-horizontal-rating-2" name="star-horizontal-rating" checked="">
-                                <label for="star-horizontal-rating-2"><i class="fa fa-star"></i></label>
-                                <input type="radio" id="star-horizontal-rating-3" name="star-horizontal-rating" checked="">
-                                <label for="star-horizontal-rating-3"><i class="fa fa-star"></i></label>
-                                <input type="radio" id="star-horizontal-rating-4" name="star-horizontal-rating">
-                                <label for="star-horizontal-rating-4"><i class="fa fa-star"></i></label>
-                                <input type="radio" id="star-horizontal-rating-5" name="star-horizontal-rating">
-                                <label for="star-horizontal-rating-5"><i class="fa fa-star"></i></label>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Rating -->
                     <div class="wrap-price">
                         <p class="price">$${product.unitprice}</p>
                     </div>
@@ -616,11 +599,11 @@
 <!-- End MainContent -->
 <div class="bottom-product-footer space-padding-tb-50 wow fadeInUp">
     <div class="container">
-        <div class="col-md-4">
+        <div class="col-md-12">
             <div class="title-text size-25">
                 <h3><span>F</span>eature product</h3>
             </div>
-            <div class="product">
+            <div class="product" style="float: left; margin-right: 30px;">
                 <a class="product-images" href="#" title="">
                     <img class="primary_image" src="${path}/images/products/13.jpg" alt=""/>
                 </a>
@@ -636,176 +619,6 @@
                 </div>
                 <!-- End product content -->
             </div>
-            <!-- end produt item -->
-            <div class="product">
-                <a class="product-images" href="#" title="">
-                    <img class="primary_image" src="${path}/images/products/14.jpg" tppabs="http://landing.engocreative.com/html/dama/demo/assets/images/products/14.jpg" alt=""/>
-                </a>
-                <div class="product-content">
-                    <a class="category" href="#" title="category">watch</a>
-                    <a class="product-name" href="#" title="Mens Hugo Boss Chronograph Watch">BOSS HUGO BOSS Quartz Aviator Chronograph Watch</a>
-                    <p class="product-price"><span>Price: </span>$60.99</p>
-                    <div class="action">
-                        <a class="refresh" href="#"><i class="zmdi zmdi-refresh-sync"></i></a>
-                        <a href="#" title="Like"><i class="zmdi zmdi-favorite-outline"></i></a>
-                        <a href="#" title="add-to-cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
-                    </div>
-                </div>
-                <!-- End product content -->
-            </div>
-            <!-- end produt item -->
-            <div class="product">
-                <a class="product-images" href="#" title="">
-                    <img class="primary_image" src="${path}/images/products/15.jpg" tppabs="http://landing.engocreative.com/html/dama/demo/assets/images/products/15.jpg" alt=""/>
-                </a>
-                <div class="product-content">
-                    <a class="category" href="#" title="category">watch</a>
-                    <a class="product-name" href="#" title="Mens Hugo Boss Chronograph Watch">Tory Burch Watches 37mm Tory Stainless </a>
-                    <p class="product-price"><span>Price: </span>$60.99</p>
-                    <div class="action">
-                        <a class="refresh" href="#"><i class="zmdi zmdi-refresh-sync"></i></a>
-                        <a href="#" title="Like"><i class="zmdi zmdi-favorite-outline"></i></a>
-                        <a href="#" title="add-to-cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
-                    </div>
-                </div>
-                <!-- End product content -->
-            </div>
-            <!-- end produt item -->
-        </div>
-        <!-- End col-md-4 -->
-        <div class="col-md-4">
-            <div class="title-text size-25">
-                <h3><span>T</span>op Review</h3>
-            </div>
-            <div class="product">
-                <a class="product-images" href="#" title="">
-                    <img class="primary_image" src="${path}/images/products/16.jpg" tppabs="http://landing.engocreative.com/html/dama/demo/assets/images/products/16.jpg" alt=""/>
-                </a>
-                <div class="product-content">
-                    <a class="category" href="#" title="category">watch</a>
-                    <a class="product-name" href="#" title="Mens Hugo Boss Chronograph Watch">HP ENVY Curved All-in-One PC</a>
-                    <p class="product-price"><span>Price: </span>$60.99</p>
-                    <p class="star">
-                        <a href="#" title="star"><i class="fa fa-star"></i></a>
-                        <a href="#" title="star"><i class="fa fa-star"></i></a>
-                        <a href="#" title="star"><i class="fa fa-star"></i></a>
-                        <a href="#" title="star"><i class="fa fa-star"></i></a>
-                        <a href="#" title="star"><i class="fa fa-star-o"></i></a>
-                    </p>
-                    <div class="action">
-                        <a class="refresh" href="#"><i class="zmdi zmdi-refresh-sync"></i></a>
-                        <a href="#" title="Like"><i class="zmdi zmdi-favorite-outline"></i></a>
-                        <a href="#" title="add-to-cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
-                    </div>
-                </div>
-                <!-- End product content -->
-            </div>
-            <!-- end produt item -->
-            <div class="product">
-                <a class="product-images" href="#" title="">
-                    <img class="primary_image" src="${path}/images/products/17.jpg" tppabs="http://landing.engocreative.com/html/dama/demo/assets/images/products/17.jpg" alt=""/>
-                </a>
-                <div class="product-content">
-                    <a class="category" href="#" title="category">watch</a>
-                    <a class="product-name" href="#" title="Mens Hugo Boss Chronograph Watch">skullcandy headphones grind</a>
-                    <p class="product-price"><span>Price: </span>$60.99</p>
-                    <p class="star">
-                        <a href="#" title="star"><i class="fa fa-star"></i></a>
-                        <a href="#" title="star"><i class="fa fa-star"></i></a>
-                        <a href="#" title="star"><i class="fa fa-star"></i></a>
-                        <a href="#" title="star"><i class="fa fa-star"></i></a>
-                        <a href="#" title="star"><i class="fa fa-star-o"></i></a>
-                    </p>
-                    <div class="action">
-                        <a class="refresh" href="#"><i class="zmdi zmdi-refresh-sync"></i></a>
-                        <a href="#" title="Like"><i class="zmdi zmdi-favorite-outline"></i></a>
-                        <a href="#" title="add-to-cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
-                    </div>
-                </div>
-                <!-- End product content -->
-            </div>
-            <!-- end produt item -->
-            <div class="product">
-                <a class="product-images" href="#" title="">
-                    <img class="primary_image" src="${path}/images/products/18.jpg" tppabs="http://landing.engocreative.com/html/dama/demo/assets/images/products/18.jpg" alt=""/>
-                </a>
-                <div class="product-content">
-                    <a class="category" href="#" title="category">watch</a>
-                    <a class="product-name" href="#" title="Mens Hugo Boss Chronograph Watch">Inspire 1 Pro White Edition</a>
-                    <p class="product-price"><span>Price: </span>$60.99</p>
-                    <p class="star">
-                        <a href="#" title="star"><i class="fa fa-star"></i></a>
-                        <a href="#" title="star"><i class="fa fa-star"></i></a>
-                        <a href="#" title="star"><i class="fa fa-star"></i></a>
-                        <a href="#" title="star"><i class="fa fa-star"></i></a>
-                        <a href="#" title="star"><i class="fa fa-star-o"></i></a>
-                    </p>
-                    <div class="action">
-                        <a class="refresh" href="#"><i class="zmdi zmdi-refresh-sync"></i></a>
-                        <a href="#" title="Like"><i class="zmdi zmdi-favorite-outline"></i></a>
-                        <a href="#" title="add-to-cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
-                    </div>
-                </div>
-                <!-- End product content -->
-            </div>
-            <!-- end produt item -->
-        </div>
-        <!-- End col-md-4 -->
-        <div class="col-md-4">
-            <div class="title-text size-25">
-                <h3><span>P</span>opular</h3>
-            </div>
-            <div class="product">
-                <a class="product-images" href="#" title="">
-                    <img class="primary_image" src="${path}/images/products/19.jpg" tppabs="http://landing.engocreative.com/html/dama/demo/${path}/images/products/19.jpg" alt=""/>
-                </a>
-                <div class="product-content">
-                    <a class="category" href="#" title="category">watch</a>
-                    <a class="product-name" href="#" title="Mens Hugo Boss Chronograph Watch">Canon EOS 1200D</a>
-                    <p class="product-price"><span>Price: </span>$60.99</p>
-                    <div class="action">
-                        <a class="refresh" href="#"><i class="zmdi zmdi-refresh-sync"></i></a>
-                        <a href="#" title="Like"><i class="zmdi zmdi-favorite-outline"></i></a>
-                        <a href="#" title="add-to-cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
-                    </div>
-                </div>
-                <!-- End product content -->
-            </div>
-            <!-- end produt item -->
-            <div class="product">
-                <a class="product-images" href="#" title="">
-                    <img class="primary_image" src="${path}/images/products/20.jpg" tppabs="http://landing.engocreative.com/html/dama/demo/${path}/images/products/20.jpg" alt=""/>
-                </a>
-                <div class="product-content">
-                    <a class="category" href="#" title="category">watch</a>
-                    <a class="product-name" href="#" title="Mens Hugo Boss Chronograph Watch">Skullcandy shakedown x5shfz 820</a>
-                    <p class="product-price"><span>Price: </span>$60.99</p>
-                    <div class="action">
-                        <a class="refresh" href="#"><i class="zmdi zmdi-refresh-sync"></i></a>
-                        <a href="#" title="Like"><i class="zmdi zmdi-favorite-outline"></i></a>
-                        <a href="#" title="add-to-cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
-                    </div>
-                </div>
-                <!-- End product content -->
-            </div>
-            <!-- end produt item -->
-            <div class="product">
-                <a class="product-images" href="#" title="">
-                    <img class="primary_image" src="${path}/images/products/21.jpg" tppabs="http://landing.engocreative.com/html/dama/demo/${path}/images/products/21.jpg" alt=""/>
-                </a>
-                <div class="product-content">
-                    <a class="category" href="#" title="category">watch</a>
-                    <a class="product-name" href="#" title="Mens Hugo Boss Chronograph Watch">Philips spa 60 2.0 speaker with usb plug</a>
-                    <p class="product-price"><span>Price: </span>$60.99</p>
-                    <div class="action">
-                        <a class="refresh" href="#"><i class="zmdi zmdi-refresh-sync"></i></a>
-                        <a href="#" title="Like"><i class="zmdi zmdi-favorite-outline"></i></a>
-                        <a href="#" title="add-to-cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
-                    </div>
-                </div>
-                <!-- End product content -->
-            </div>
-            <!-- end produt item -->
         </div>
         <!-- End col-md-4 -->
     </div>

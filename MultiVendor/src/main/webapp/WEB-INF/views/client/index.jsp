@@ -3,7 +3,7 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="mt" tagdir="/WEB-INF/tags/client"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="path" value="${pageContext.request.contextPath }/resources/client"></c:set>
 <header id="header" class="header-v1">
     <mt:topbar></mt:topbar>
@@ -410,139 +410,61 @@
             <div class="tab-container space-30">
                 <div id="tab_01" class="tab-content">
                     <div class="products">
-                        <div class="product">
-                            <div class="wrap-title">
-                                <p class="product-title">Mota SmartWatch G2 Pro</p>
-                                <p class="product-price"><span>Price: </span>$ 250.00</p>
-                                <ul class="description">
-                                    <li>Windows 10</li>
-                                    <li>Intel Quad Core Processors</li>
-                                    <li>NVIDIA GeForce GTX 950M Graphics Card</li>
-                                </ul>
-                            </div>
-                            <!-- End wrap-title -->
-                            <div class="product-images">
-                                <div class="slide-product-images">
-                                    <div class="items" data-thumb='<img class="primary_image" src="${path}/images/Dana-home1-product1.jpg" alt=""/>'>
-                                        <a href="#" title="products">
-                                            <img class="primary_image" src="${path}/images/Dana-home1-product1.jpg" alt=""/>
-                                        </a>
+                        <c:forEach items="${products}" var="item" varStatus="loop">
+                            <c:if test="${loop.first}">
+                                <div class="product">
+                                    <div class="wrap-title">
+                                        <p class="product-title">Mota SmartWatch G2 Pro</p>
+                                        <p class="product-price"><span>Price: </span>$ 250.00</p>
+                                        <ul class="description">
+                                            <li>Windows 10</li>
+                                            <li>Intel Quad Core Processors</li>
+                                            <li>NVIDIA GeForce GTX 950M Graphics Card</li>
+                                        </ul>
                                     </div>
-                                    <div class="items" data-thumb='<img class="primary_image" src="${path}/images/Dana-home1-product2.jpg" alt=""/>'>
-                                        <a href="#" title="products">
-                                            <img class="primary_image" src="${path}/images/Dana-home1-product2.jpg" alt=""/>
-                                        </a>
+                                    <!-- End wrap-title -->
+                                    <div class="product-images">
+                                        <div class="slide-product-images">
+                                            <div class="items" data-thumb='<img class="primary_image" src="${path}/images/Dana-home1-product1.jpg" alt=""/>'>
+                                                <a href="#" title="products">
+                                                    <img class="primary_image" src="${path}/images/Dana-home1-product1.jpg" alt=""/>
+                                                </a>
+                                            </div>
+                                            <div class="items" data-thumb='<img class="primary_image" src="${path}/images/Dana-home1-product2.jpg" alt=""/>'>
+                                                <a href="#" title="products">
+                                                    <img class="primary_image" src="${path}/images/Dana-home1-product2.jpg" alt=""/>
+                                                </a>
+                                            </div>
+                                            <div class="items" data-thumb='<img class="primary_image" src="${path}/images/Dana-home1-product3.jpg" alt=""/>'>
+                                                <a href="#" title="products">
+                                                    <img class="primary_image" src="${path}/images/Dana-home1-product3.jpg" alt=""/>
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="items" data-thumb='<img class="primary_image" src="${path}/images/Dana-home1-product3.jpg" alt=""/>'>
-                                        <a href="#" title="products">
-                                            <img class="primary_image" src="${path}/images/Dana-home1-product3.jpg" alt=""/>
-                                        </a>
+                                    <div class="action">
+                                        <a href="#" class="refresh"><i class="zmdi zmdi-refresh-sync"></i></a>
+                                        <a title="Like" href="#"><i class="zmdi zmdi-favorite-outline"></i></a>
+                                        <a title="add-to-cart" href="#"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
                                     </div>
                                 </div>
+                            </c:if>
+                            <div class="product">
+                                <div class="wrap-title">
+                                    <p class="product-title">Sony smartwatch 2 sw2</p>
+                                    <p class="product-price"><span>Price: </span>$ 250.00</p>
+                                </div>
+                                <!-- End wrap-title -->
+                                <a class="product-images" href="#" title="">
+                                    <img class="primary_image" src="${path}/images/Dana-home1-product2.jpg" alt=""/>
+                                </a>
+                                <div class="action">
+                                    <a href="#" class="refresh"><i class="zmdi zmdi-refresh-sync"></i></a>
+                                    <a title="Like" href="#"><i class="zmdi zmdi-favorite-outline"></i></a>
+                                    <a title="add-to-cart" href="#"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
+                                </div>
                             </div>
-                            <div class="action">
-                                <a href="#" class="refresh"><i class="zmdi zmdi-refresh-sync"></i></a>
-                                <a title="Like" href="#"><i class="zmdi zmdi-favorite-outline"></i></a>
-                                <a title="add-to-cart" href="#"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
-                            </div>
-                        </div>
-                        <!-- End product -->
-                        <div class="product">
-                            <div class="wrap-title">
-                                <p class="product-title">Sony smartwatch 2 sw2</p>
-                                <p class="product-price"><span>Price: </span>$ 250.00</p>
-                            </div>
-                            <!-- End wrap-title -->
-                            <a class="product-images" href="#" title="">
-                                <img class="primary_image" src="${path}/images/Dana-home1-product2.jpg" alt=""/>
-                            </a>
-                            <div class="action">
-                                <a href="#" class="refresh"><i class="zmdi zmdi-refresh-sync"></i></a>
-                                <a title="Like" href="#"><i class="zmdi zmdi-favorite-outline"></i></a>
-                                <a title="add-to-cart" href="#"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
-                            </div>
-                        </div>
-                        <!-- End product -->
-                        <div class="product">
-                            <div class="wrap-title">
-                                <p class="product-title">Mota SmartWatch G2 Pro</p>
-                                <p class="product-price"><span>Price: </span>$ 250.00</p>
-                            </div>
-                            <!-- End wrap-title -->
-                            <a class="product-images" href="#" title="">
-                                <img class="primary_image" src="${path}/images/Dana-home1-product3.jpg" alt=""/>
-                            </a>
-                            <div class="action">
-                                <a href="#" class="refresh"><i class="zmdi zmdi-refresh-sync"></i></a>
-                                <a title="Like" href="#"><i class="zmdi zmdi-favorite-outline"></i></a>
-                                <a title="add-to-cart" href="#"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
-                            </div>
-                        </div>
-                        <!-- End product -->
-                        <div class="product">
-                            <div class="wrap-title">
-                                <p class="product-title">Apple watch sport green</p>
-                                <p class="product-price"><span>Price: </span>$ 250.00</p>
-                            </div>
-                            <!-- End wrap-title -->
-                            <a class="product-images" href="#" title="">
-                                <img class="primary_image" src="${path}/images/Dana-home1-product4.jpg" alt=""/>
-                            </a>
-                            <div class="action">
-                                <a href="#" class="refresh"><i class="zmdi zmdi-refresh-sync"></i></a>
-                                <a title="Like" href="#"><i class="zmdi zmdi-favorite-outline"></i></a>
-                                <a title="add-to-cart" href="#"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
-                            </div>
-                        </div>
-                        <!-- End product -->
-                        <div class="product">
-                            <div class="wrap-title">
-                                <p class="product-title">Zeaplus Watch DM360</p>
-                                <p class="product-price"><span>Price: </span>$ 250.00</p>
-                            </div>
-                            <!-- End wrap-title -->
-                            <a class="product-images" href="#" title="">
-                                <img class="primary_image" src="${path}/images/Dana-home1-product5.jpg" alt=""/>
-                            </a>
-                            <div class="action">
-                                <a href="#" class="refresh"><i class="zmdi zmdi-refresh-sync"></i></a>
-                                <a title="Like" href="#"><i class="zmdi zmdi-favorite-outline"></i></a>
-                                <a title="add-to-cart" href="#"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
-                            </div>
-                        </div>
-                        <!-- End product -->
-                        <div class="product">
-                            <div class="wrap-title">
-                                <p class="product-title">U8S Smart Bluetooth 3.0</p>
-                                <p class="product-price"><span>Price: </span>$ 250.00</p>
-                            </div>
-                            <!-- End wrap-title -->
-                            <a class="product-images" href="#" title="">
-                                <img class="primary_image" src="${path}/images/products/12.jpg" alt=""/>
-                            </a>
-                            <div class="action">
-                                <a href="#" class="refresh"><i class="zmdi zmdi-refresh-sync"></i></a>
-                                <a title="Like" href="#"><i class="zmdi zmdi-favorite-outline"></i></a>
-                                <a title="add-to-cart" href="#"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
-                            </div>
-                        </div>
-                        <!-- End product -->
-                        <div class="product">
-                            <div class="wrap-title">
-                                <p class="product-title">I5 Plus Smart Bluetooth 4.0 </p>
-                                <p class="product-price"><span>Price: </span>$ 250.00</p>
-                            </div>
-                            <!-- End wrap-title -->
-                            <a class="product-images" href="#" title="">
-                                <img class="primary_image" src="${path}/images/products/9.jpg" alt=""/>
-                            </a>
-                            <div class="action">
-                                <a href="#" class="refresh"><i class="zmdi zmdi-refresh-sync"></i></a>
-                                <a title="Like" href="#"><i class="zmdi zmdi-favorite-outline"></i></a>
-                                <a title="add-to-cart" href="#"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
-                            </div>
-                        </div>
-                        <!-- End product -->
+                        </c:forEach>
                     </div>
                     <!-- End product-tab-content products                                     -->
                 </div>

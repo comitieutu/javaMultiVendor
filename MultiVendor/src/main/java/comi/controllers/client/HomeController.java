@@ -1,5 +1,6 @@
 package comi.controllers.client;
 
+import comi.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -18,9 +19,12 @@ public class HomeController {
 	
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private ProductService productService;
 
 	@RequestMapping(method = RequestMethod.GET)
-	public String index() {
+	public String index(ModelMap modelMap) {
+		modelMap.put("products", productService.findAll());
 		return "client.index";
 	}
 	

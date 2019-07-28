@@ -411,53 +411,45 @@
                 <div id="tab_01" class="tab-content">
                     <div class="products">
                         <c:forEach items="${products}" var="item" varStatus="loop">
-                            <c:if test="${loop.first}">
-                                <div class="product">
-                                    <div class="wrap-title">
-                                        <p class="product-title">Mota SmartWatch G2 Pro</p>
-                                        <p class="product-price"><span>Price: </span>$ 250.00</p>
+                            <div class="product">
+                                <div class="wrap-title">
+                                    <p class="product-title">${item.name }</p>
+                                    <p class="product-price"><span>Price: </span>$ 250.00</p>
+                                    <c:if test="${loop.first}">
                                         <ul class="description">
                                             <li>Windows 10</li>
                                             <li>Intel Quad Core Processors</li>
                                             <li>NVIDIA GeForce GTX 950M Graphics Card</li>
                                         </ul>
-                                    </div>
-                                    <!-- End wrap-title -->
-                                    <div class="product-images">
-                                        <div class="slide-product-images">
-                                            <div class="items" data-thumb='<img class="primary_image" src="${path}/images/Dana-home1-product1.jpg" alt=""/>'>
-                                                <a href="#" title="products">
-                                                    <img class="primary_image" src="${path}/images/Dana-home1-product1.jpg" alt=""/>
-                                                </a>
-                                            </div>
-                                            <div class="items" data-thumb='<img class="primary_image" src="${path}/images/Dana-home1-product2.jpg" alt=""/>'>
-                                                <a href="#" title="products">
-                                                    <img class="primary_image" src="${path}/images/Dana-home1-product2.jpg" alt=""/>
-                                                </a>
-                                            </div>
-                                            <div class="items" data-thumb='<img class="primary_image" src="${path}/images/Dana-home1-product3.jpg" alt=""/>'>
-                                                <a href="#" title="products">
-                                                    <img class="primary_image" src="${path}/images/Dana-home1-product3.jpg" alt=""/>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="action">
-                                        <a href="#" class="refresh"><i class="zmdi zmdi-refresh-sync"></i></a>
-                                        <a title="Like" href="#"><i class="zmdi zmdi-favorite-outline"></i></a>
-                                        <a title="add-to-cart" href="#"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
-                                    </div>
-                                </div>
-                            </c:if>
-                            <div class="product">
-                                <div class="wrap-title">
-                                    <p class="product-title">Sony smartwatch 2 sw2</p>
-                                    <p class="product-price"><span>Price: </span>$ 250.00</p>
+                                    </c:if>
+
                                 </div>
                                 <!-- End wrap-title -->
-                                <a class="product-images" href="#" title="">
-                                    <img class="primary_image" src="${path}/images/Dana-home1-product2.jpg" alt=""/>
-                                </a>
+
+                                    <div class="product-images">
+                                        <c:if test="${loop.first}">
+                                            <div class="slide-product-images">
+                                                <div class="items" data-thumb='<img class="primary_image" src="${path}/images/Dana-home1-product1.jpg" alt=""/>'>
+                                                    <a href="#" title="products">
+                                                        <img class="primary_image" src="${path}/images/Dana-home1-product1.jpg" alt=""/>
+                                                    </a>
+                                                </div>
+                                                <div class="items" data-thumb='<img class="primary_image" src="${path}/images/Dana-home1-product2.jpg" alt=""/>'>
+                                                    <a href="#" title="products">
+                                                        <img class="primary_image" src="${path}/images/Dana-home1-product2.jpg" alt=""/>
+                                                    </a>
+                                                </div>
+                                                <div class="items" data-thumb='<img class="primary_image" src="${path}/images/Dana-home1-product3.jpg" alt=""/>'>
+                                                    <a href="#" title="products">
+                                                        <img class="primary_image" src="${path}/images/Dana-home1-product3.jpg" alt=""/>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </c:if>
+                                        <c:if test="${!loop.first}">
+                                            <img class="primary_image" src="${path}/images/Dana-home1-product2.jpg" alt=""/>
+                                        </c:if>
+                                    </div>
                                 <div class="action">
                                     <a href="#" class="refresh"><i class="zmdi zmdi-refresh-sync"></i></a>
                                     <a title="Like" href="#"><i class="zmdi zmdi-favorite-outline"></i></a>

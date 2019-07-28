@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.ServletContextAware;
 
 import javax.servlet.ServletContext;
+import java.util.List;
 
 @Controller
 @RequestMapping("product/")
@@ -28,7 +29,9 @@ public class DetailProductController implements ServletContextAware {
 	@RequestMapping(value = "detail/{id}", method = RequestMethod.GET)
 	public String detail(@PathVariable("id") int id, ModelMap modelMap) {
 		modelMap.put("product", this.productService.find(id));
-        modelMap.put("relatedProducts", productService.findAll());
+		List<Product> products = (List<Product>) productService.findAll();
+		products.removeIf(n -> (n.getId() == id));
+        modelMap.put("relatedProducts", products);
 		return "client.product.detailProduct";
 	}
 

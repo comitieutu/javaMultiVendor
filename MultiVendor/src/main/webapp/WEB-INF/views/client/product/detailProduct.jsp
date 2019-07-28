@@ -601,24 +601,33 @@
     <div class="container">
         <div class="col-md-12">
             <div class="title-text size-25">
-                <h3><span>F</span>eature product</h3>
+                <h3><span>R</span>elated products</h3>
             </div>
-            <div class="product" style="float: left; margin-right: 30px;">
-                <a class="product-images" href="#" title="">
-                    <img class="primary_image" src="${path}/images/products/13.jpg" alt=""/>
-                </a>
-                <div class="product-content">
-                    <a class="category" href="#" title="category">watch</a>
-                    <a class="product-name" href="#" title="Mens Hugo Boss Chronograph Watch">Mens Hugo Boss Chronograph Watch</a>
-                    <p class="product-price"><span>Price: </span>$60.99</p>
-                    <div class="action">
-                        <a class="refresh" href="#"><i class="zmdi zmdi-refresh-sync"></i></a>
-                        <a href="#" title="Like"><i class="zmdi zmdi-favorite-outline"></i></a>
-                        <a href="#" title="add-to-cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
+
+            <c:forEach items="${relatedProducts}" var="item" varStatus="loop">
+                <c:import url="${pageContext.request.contextPath }/assets/images/${item.productdetails.iterator().next().photo}" var="imageOthersData" />
+                <div class="product" style="float: left; margin-right: 27px;">
+                    <c:if test = "${not empty imageOthersData}">
+                        <a class="product-images" href="${pageContext.request.contextPath }/product/detail/${item.id}">
+                            <img class="primary_image" src="${pageContext.request.contextPath }/assets/images/${item.productdetails.iterator().next().photo}" width="130" height="130"/>
+                        </a>
+                    </c:if>
+                    <c:if test = "${empty imageOthersData}">
+                        <a href="${pageContext.request.contextPath }/product/detail/${item.id}">
+                            <img class="primary_image" src="${pageContext.request.contextPath }/assets/images/no-image.png" width="130" height="130"/>
+                        </a>
+                    </c:if>
+                    <div class="product-content">
+                        <a class="category" title="${item.category.name}">${item.category.name}</a>
+                        <a class="product-name" href="${pageContext.request.contextPath }/product/detail/${item.id}" title="${item.name }">${item.name }</a>
+                        <p class="product-price"><span>Price: </span>$${item.unitprice}</p>
+                        <div class="action">
+                            <a href="#" title="add-to-cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
+                        </div>
                     </div>
+                    <!-- End product content -->
                 </div>
-                <!-- End product content -->
-            </div>
+            </c:forEach>
         </div>
         <!-- End col-md-4 -->
     </div>

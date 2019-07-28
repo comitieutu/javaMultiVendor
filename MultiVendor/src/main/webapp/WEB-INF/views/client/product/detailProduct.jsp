@@ -524,116 +524,35 @@
         </div>
         <!-- End title -->
         <div class="upsell-product products">
+        <c:forEach items="${relatedProducts}" var="item" varStatus="loop">
+            <c:import url="${pageContext.request.contextPath }/assets/images/${item.productdetails.iterator().next().photo}" var="imageOthersData" />
             <div class="item-inner">
                 <div class="product">
-                    <p class="product-title">Apple watch sport green</p>
-                    <p class="product-price"><span>price: </span>$ 650.99</p>
-                    <a class="product-images" href="#" title="">
-                        <img class="primary_image" src="${path}/images/products/1.jpg" alt=""/>
+                    <p class="product-title">
+                        <a href="${pageContext.request.contextPath }/product/detail/${item.id}" title="${item.name }">${item.name }</a>
+                    </p>
+                    <p class="product-price"><span>price: </span>$ ${item.unitprice}</p>
+                    <a class="product-images">
+                        <c:if test = "${not empty imageOthersData}">
+                            <img class="primary_image" src="${pageContext.request.contextPath }/assets/images/${item.productdetails.iterator().next().photo}" width="213" height="213"/>
+                        </c:if>
+                        <c:if test = "${empty imageOthersData}">
+                            <img class="primary_image" src="${pageContext.request.contextPath }/assets/images/no-image.png" width="213" height="213"/>
+                        </c:if>
+
                         <img class="secondary_image" src="${path}/images/products/2.jpg" alt=""/>
                     </a>
-                    <p class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
                     <div class="action">
-                        <a class="refresh" href="#"><i class="zmdi zmdi-refresh-sync"></i></a>
-                        <a href="#" title="Like"><i class="zmdi zmdi-favorite-outline"></i></a>
                         <a href="#" title="add-to-cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="item-inner">
-                <div class="product">
-                    <p class="product-title">Apple watch sport green</p>
-                    <p class="product-price"><span>price: </span>$ 650.99</p>
-                    <a class="product-images" href="#" title="">
-                        <img class="primary_image" src="${path}/images/products/3.jpg" alt=""/>
-                        <img class="secondary_image" src="${path}/images/products/4.jpg" alt=""/>
-                    </a>
-                    <p class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                    <div class="action">
-                        <a class="refresh" href="#"><i class="zmdi zmdi-refresh-sync"></i></a>
-                        <a href="#" title="Like"><i class="zmdi zmdi-favorite-outline"></i></a>
-                        <a href="#" title="add-to-cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item-inner">
-                <div class="product sale">
-                    <p class="product-title">Apple watch sport green</p>
-                    <div class="product-price">
-                        <span>price: </span><span class="price">$ 650.99</span>
-                        <span class="price-old">$ 670.99</span>
-                    </div>
-                    <a class="product-images" href="#" title="">
-                        <img class="primary_image" src="${path}/images/products/7.jpg" alt=""/>
-                        <img class="secondary_image" src="${path}/images/products/6.jpg" alt=""/>
-                    </a>
-                    <p class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                    <div class="action">
-                        <a class="refresh" href="#"><i class="zmdi zmdi-refresh-sync"></i></a>
-                        <a href="#" title="Like"><i class="zmdi zmdi-favorite-outline"></i></a>
-                        <a href="#" title="add-to-cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item-inner">
-                <div class="product ">
-                    <span class="new lable">New</span>
-                    <p class="product-title">Apple watch sport green</p>
-                    <p class="product-price"><span>price: </span>$ 650.99</p>
-                    <a class="product-images" href="#" title="">
-                        <img class="primary_image" src="${path}/images/products/2.jpg" alt=""/>
-                        <img class="secondary_image" src="${path}/images/products/1.jpg" alt=""/>
-                    </a>
-                    <p class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                    <div class="action">
-                        <a class="refresh" href="#"><i class="zmdi zmdi-refresh-sync"></i></a>
-                        <a href="#" title="Like"><i class="zmdi zmdi-favorite-outline"></i></a>
-                        <a href="#" title="add-to-cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
-                    </div>
-                </div>
-            </div>
+        </c:forEach>
         </div>
     </div>
     <!-- End container -->
 </div>
 <!-- End MainContent -->
-<div class="bottom-product-footer space-padding-tb-50 wow fadeInUp">
-    <div class="container">
-        <div class="col-md-12">
-            <div class="title-text size-25">
-                <h3><span>R</span>elated products</h3>
-            </div>
-
-            <c:forEach items="${relatedProducts}" var="item" varStatus="loop">
-                <c:import url="${pageContext.request.contextPath }/assets/images/${item.productdetails.iterator().next().photo}" var="imageOthersData" />
-                <div class="product" style="float: left; margin-right: 27px;">
-                    <c:if test = "${not empty imageOthersData}">
-                        <a class="product-images" href="${pageContext.request.contextPath }/product/detail/${item.id}">
-                            <img class="primary_image" src="${pageContext.request.contextPath }/assets/images/${item.productdetails.iterator().next().photo}" width="130" height="130"/>
-                        </a>
-                    </c:if>
-                    <c:if test = "${empty imageOthersData}">
-                        <a href="${pageContext.request.contextPath }/product/detail/${item.id}">
-                            <img class="primary_image" src="${pageContext.request.contextPath }/assets/images/no-image.png" width="130" height="130"/>
-                        </a>
-                    </c:if>
-                    <div class="product-content">
-                        <a class="category" title="${item.category.name}">${item.category.name}</a>
-                        <a class="product-name" href="${pageContext.request.contextPath }/product/detail/${item.id}" title="${item.name }">${item.name }</a>
-                        <p class="product-price"><span>Price: </span>$${item.unitprice}</p>
-                        <div class="action">
-                            <a href="#" title="add-to-cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
-                        </div>
-                    </div>
-                    <!-- End product content -->
-                </div>
-            </c:forEach>
-        </div>
-        <!-- End col-md-4 -->
-    </div>
-    <!-- End conntainer -->
-</div>
-<!-- End product-footer -->
 <div class="newsletter">
     <div class="container">
         <h3><a href="#" title="sign up">sign up</a> to newsletter</h3>

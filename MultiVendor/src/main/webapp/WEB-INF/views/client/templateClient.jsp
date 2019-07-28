@@ -33,23 +33,14 @@
 
 </body>
 
-<script type="text/javascript" src="${path}/js/jquery-1.11.1.min.js"
-	tppabs="http://landing.engocreative.com/html/dama/demo/assets/js/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="${path}/js/bootstrap.min.js"
-	tppabs="http://landing.engocreative.com/html/dama/demo/assets/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="${path}/js/owl.carousel.min.js"
-	tppabs="http://landing.engocreative.com/html/dama/demo/assets/js/owl.carousel.min.js"></script>
-<script type="text/javascript"
-	src="${path}/js/jquery.themepunch.revolution.min.js"
-	tppabs="http://landing.engocreative.com/html/dama/demo/assets/js/jquery.themepunch.revolution.min.js"></script>
-<script type="text/javascript"
-	src="${path}/js/jquery.themepunch.plugins.min.js"
-	tppabs="http://landing.engocreative.com/html/dama/demo/assets/js/jquery.themepunch.plugins.min.js"></script>
-<script type="text/javascript" src="${path}/js/engo-plugins.js"
-	tppabs="http://landing.engocreative.com/html/dama/demo/assets/js/engo-plugins.js"></script>
-<script type="text/javascript" src="${path}/js/wow.min.js"
-	tppabs="http://landing.engocreative.com/html/dama/demo/assets/js/wow.min.js"></script>
-<script type="text/javascript" src="${path}/js/store.js"
-	tppabs="http://landing.engocreative.com/html/dama/demo/assets/js/store.js"></script>
+<script type="text/javascript" src="${path}/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="${path}/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="${path}/js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="${path}/js/jquery.elevatezoom.js"></script>
+<script type="text/javascript" src="${path}/js/jquery.themepunch.revolution.min.js"></script>
+<script type="text/javascript" src="${path}/js/jquery.themepunch.plugins.min.js"></script>
+<script type="text/javascript" src="${path}/js/engo-plugins.js"></script>
+<script type="text/javascript" src="${path}/js/wow.min.js"></script>
+<script type="text/javascript" src="${path}/js/store.js"></script>
 <tiles:insertAttribute name="script"/>
 </html>

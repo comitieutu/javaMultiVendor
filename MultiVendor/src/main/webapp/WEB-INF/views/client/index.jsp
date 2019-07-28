@@ -413,43 +413,48 @@
                         <c:forEach items="${products}" var="item" varStatus="loop">
                             <div class="product">
                                 <div class="wrap-title">
-                                    <p class="product-title">${item.name }</p>
-                                    <p class="product-price"><span>Price: </span>$ 250.00</p>
+                                    <p class="product-title">
+                                        <a style="font-family: 'Open Sans';font-size: 16px;color: #3a3a3a;line-height: 34px;font-weight: 700;text-transform: capitalize;" href="${pageContext.request.contextPath }/product/detail/${item.id}">${item.name }</a>
+                                    </p>
+                                    <p class="product-price"><span>Price: </span>$ ${item.unitprice}</p>
                                     <c:if test="${loop.first}">
                                         <ul class="description">
-                                            <li>Windows 10</li>
-                                            <li>Intel Quad Core Processors</li>
-                                            <li>NVIDIA GeForce GTX 950M Graphics Card</li>
+                                                ${item.description}
                                         </ul>
                                     </c:if>
 
                                 </div>
-                                <!-- End wrap-title -->
-
-                                    <div class="product-images">
-                                        <c:if test="${loop.first}">
-                                            <div class="slide-product-images">
-                                                <div class="items" data-thumb='<img class="primary_image" src="${path}/images/Dana-home1-product1.jpg" alt=""/>'>
-                                                    <a href="#" title="products">
-                                                        <img class="primary_image" src="${path}/images/Dana-home1-product1.jpg" alt=""/>
+                                <div class="product-images">
+                                    <c:import url="${pageContext.request.contextPath }/assets/images/${item.productdetails.iterator().next().photo}" var="imageData" />
+                                    <c:if test="${loop.first}">
+                                        <div class="slide-product-images">
+                                            <c:forEach var="image" items="${item.productdetails }" begin = "1" end = "3">
+                                                <div class="items" data-thumb='<img class="primary_image" src="${pageContext.request.contextPath }/assets/images/${image.photo}" width="252" height="252"/>'>
+                                                    <a title="products">
+                                                        <c:if test = "${not empty imageData}">
+                                                            <img class="primary_image" src="${pageContext.request.contextPath }/assets/images/${image.photo}" width="252" height="252"/>
+                                                        </c:if>
+                                                        <c:if test = "${empty imageData}">
+                                                            <img class="primary_image" src="${pageContext.request.contextPath }/assets/images/no-image.png" width="252" height="252"/>
+                                                        </c:if>
                                                     </a>
                                                 </div>
-                                                <div class="items" data-thumb='<img class="primary_image" src="${path}/images/Dana-home1-product2.jpg" alt=""/>'>
-                                                    <a href="#" title="products">
-                                                        <img class="primary_image" src="${path}/images/Dana-home1-product2.jpg" alt=""/>
-                                                    </a>
-                                                </div>
-                                                <div class="items" data-thumb='<img class="primary_image" src="${path}/images/Dana-home1-product3.jpg" alt=""/>'>
-                                                    <a href="#" title="products">
-                                                        <img class="primary_image" src="${path}/images/Dana-home1-product3.jpg" alt=""/>
-                                                    </a>
-                                                </div>
-                                            </div>
+                                            </c:forEach>
+                                        </div>
+                                    </c:if>
+                                    <c:if test="${!loop.first}">
+                                        <c:if test = "${not empty imageData}">
+                                            <a href="${pageContext.request.contextPath }/product/detail/${item.id}">
+                                                <img class="primary_image" src="${pageContext.request.contextPath }/assets/images/${item.productdetails.iterator().next().photo}" width="252" height="252"/>
+                                            </a>
                                         </c:if>
-                                        <c:if test="${!loop.first}">
-                                            <img class="primary_image" src="${path}/images/Dana-home1-product2.jpg" alt=""/>
+                                        <c:if test = "${empty imageData}">
+                                        <a href="${pageContext.request.contextPath }/product/detail/${item.id}">
+                                            <img class="primary_image" src="${pageContext.request.contextPath }/assets/images/no-image.png" width="252" height="252"/>
+                                        </a>
                                         </c:if>
-                                    </div>
+                                    </c:if>
+                                </div>
                                 <div class="action">
                                     <a href="#" class="refresh"><i class="zmdi zmdi-refresh-sync"></i></a>
                                     <a title="Like" href="#"><i class="zmdi zmdi-favorite-outline"></i></a>

@@ -34,7 +34,7 @@
 							<td>${p.brand }</td>
 							<td>
 								<c:if test="${p.productdetails.size() > 0}">
-									<img src="${pageContext.request.contextPath }/assets/images/${p.productdetails.iterator().next().photo}">
+									<img src="${pageContext.request.contextPath }/assets/images/${p.productdetails.iterator().next().photo}" height="50">
 								</c:if> 
 							</td>
 							<td>

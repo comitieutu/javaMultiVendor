@@ -4,11 +4,6 @@
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags/form" %>
 <c:set var="path" value="${pageContext.request.contextPath }/resources/client"></c:set>
 
-KHOA:
-<s:form action="${pageContext.request.contextPath }/client/product/detail/1" class="form-horizontal style-form" method="post" modelAttribute="productdetail">
-    <s:input path="description" type="text" class="form-control round-form"/>
-</s:form>
-
 <header id="header" class="header-v3">
     <div id="topbar">
         <div class="container">
@@ -281,17 +276,38 @@ KHOA:
 <div class="main-content">
     <div class="container">
         <div class="product-details-content">
+            <c:import url="${pageContext.request.contextPath }/assets/images/${product.productdetails.iterator().next().photo}" var="imageData" />
             <div class="col-md-6 col-sm-6">
                 <div class="product-img-box">
                     <a id="image-view" title="Product Image">
-                        <img id="image" src="assets/images/product-details1.jpg" tppabs="http://landing.engocreative.com/html/dama/demo/assets/images/product-details1.jpg" alt="Product"/>
+                        <img id="image" src=""/>
+                        <c:if test = "${not empty imageData}">
+                            <a href="${path}/images/product-details1.jpg" title="thumb product view1" onclick="swap(this);return false;">
+                                <img src="${pageContext.request.contextPath }/assets/images/${product.productdetails.iterator().next().photo}" alt="${product.name}" width="450">
+                            </a>
+                        </c:if>
+                        <c:if test = "${empty imageData}">
+                            <a href="${path}/images/product-details1.jpg" title="thumb product view1" onclick="swap(this);return false;">
+                                <img src="${pageContext.request.contextPath }/assets/images/no-image.png" alt="${product.name}" width="450">
+                            </a>
+                        </c:if>
                     </a>
                     <div class="product-thumb">
                         <ul class="thumb-content">
-                            <li class="thumb"><a href="${path}/images/product-details1.jpg" title="thumb product view1" onclick="swap(this);return false;"><img src="${path}/images/product-details1.jpg" alt="thumb product1"></a></li>
-                            <li class="thumb"><a href="${path}/images/product-details2.jpg" title="thumb product view1" onclick="swap(this);return false;"><img src="${path}/images/product-details2.jpg" alt="thumb product2"></a></li>
-                            <li class="thumb"><a href="${path}/images/product-details3.jpg" title="thumb product view1" onclick="swap(this);return false;"><img src="${path}/images/product-details3.jpg" alt="thumb product3"></a></li>
-                            <li class="thumb"><a href="${path}/images/product-details4.jpg" title="thumb product view1" onclick="swap(this);return false;"><img src="${path}/images/product-details4.jpg" alt="thumb product4"></a></li>
+                            <c:forEach var="image" items="${product.productdetails }">
+                                <li class="thumb">
+                                    <c:if test = "${not empty imageData}">
+                                        <a href="${path}/images/product-details1.jpg" title="thumb product view1" onclick="swap(this);return false;">
+                                            <img src="${pageContext.request.contextPath }/assets/images/${image.photo}">
+                                        </a>
+                                    </c:if>
+                                    <c:if test = "${empty imageData}">
+                                        <a href="${path}/images/product-details1.jpg" title="thumb product view1" onclick="swap(this);return false;">
+                                            <img src="${pageContext.request.contextPath }/assets/images/no-image.png">
+                                        </a>
+                                    </c:if>
+                                </li>
+                            </c:forEach>
                         </ul>
                     </div>
                 </div>
@@ -309,7 +325,7 @@ KHOA:
             <div class="col-md-6 col-sm-6">
                 <div class="product-box-content">
                     <div class="product-name">
-                        <h1>Samsung Gear S2 </h1>
+                        <h1>${product.name} </h1>
                         <p class="cat">Women Crochet</p>
                     </div>
                     <!-- End product-name -->
@@ -331,35 +347,18 @@ KHOA:
                     </div>
                     <!-- End Rating -->
                     <div class="wrap-price">
-                        <p class="price">$299</p>
+                        <p class="price">$${product.unitprice}</p>
                     </div>
                     <!-- End Price -->
-                    <p class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                    <p class="description">
+                        ${product.description}
+                    </p>
                     <div class="options">
-                        <p>Size</p>
-                        <ul class="size">
-                            <li><a href="#">xs</a></li>
-                            <li><a href="#" >s</a></li>
-                            <li><a href="#" >m</a></li>
-                            <li><a href="#" >l</a></li>
-                            <li><a href="#">xl</a></li>
-                            <li><a href="#">xxl</a></li>
-                        </ul>
-                        <p>Color</p>
-                        <ul class="color">
-                            <li><a class="gray" href="#" title="xs"></a></li>
-                            <li><a class="blue" href="#" title="s"></a></li>
-                            <li><a class="green" href="#" title="m"></a></li>
-                            <li><a class="white" href="#" title="l"></a></li>
-                            <li><a class="yellow" href="#" title="xl"></a></li>
-                            <li><a class="blue-light" href="#" title="xxl"></a></li>
-                        </ul>
                         <div class="quantity">
                             <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity" max="100" min="1" step="1">
                         </div>
                         <!-- End quanity -->
                         <a title="link" href="#" class="link-v2"><span>Buy now</span><i class="zmdi zmdi-shopping-cart-plus"></i></a>
-                        <a title="link" href="#" class="link-v2 link-v2-bg"><span>Wishlist</span><i class="zmdi zmdi-favorite-outline"></i></a>
                     </div>
                     <!-- End Options -->
                 </div>

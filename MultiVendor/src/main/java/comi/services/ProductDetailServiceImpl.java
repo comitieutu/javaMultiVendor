@@ -41,8 +41,4 @@ public class ProductDetailServiceImpl implements ProductDetailService {
 		return this.productDetailRepository.findByProduct(id);
 	}
 
-	@Override
-	public Productdetail findByDetailProduct(int id) {
-		return this.productDetailRepository.findByDetailProduct(id).get(0);
-	}
 }

@@ -21,8 +21,7 @@ public class DetailProductController implements ServletContextAware {
 	private ProductService productService;
 	@Autowired
 	private CategoryService categoryService;
-	@Autowired
-	private ProductDetailService productDetailService;
+
 	private ServletContext servletContext;
 
 	

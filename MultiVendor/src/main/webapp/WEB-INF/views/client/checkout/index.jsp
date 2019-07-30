@@ -59,7 +59,8 @@
                         <s:hidden path="id"/>
                     </div>
                     <div class="form-group col-md-12">
-                        <button type="submit" class="btn link-button" value="Submit">Submit</button>
+                        <input type="submit" value="COD" name="cod" class="btn btn-primary">
+                        <input type="submit" value="Paypal" name="paypal" class="btn btn-primary">
                     </div>
                 </s:form>
                 <!-- End Billing info menu -->

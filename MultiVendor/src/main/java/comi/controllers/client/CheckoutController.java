@@ -7,11 +7,13 @@ import comi.services.UserService;
 import comi.viewmodels.Item;
 import comi.viewmodels.UserViewModel;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import java.security.Principal;
@@ -73,8 +75,20 @@ public class CheckoutController {
     }
 
     @RequestMapping(value = "create", method = RequestMethod.POST)
-    public String create(@ModelAttribute("user") UserViewModel userViewModel, Principal principal, HttpSession session) {
+    public String create(@ModelAttribute("user") UserViewModel userViewModel,
+                         @RequestParam(required = false, value = "cod") String save,
+                         @RequestParam(required = false, value = "paypal") String paypal,
+                         Principal principal,
+                         HttpSession session) {
         Date date = new Date();
+
+        if(paypal != null ){
+            System.out.println("paypal");
+        }
+
+        if(save != null) {
+            System.out.println("save");
+        }
 
         Shipper shipper = new Shipper();
         shipper.setId(1);

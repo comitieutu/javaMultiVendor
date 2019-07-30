@@ -109,7 +109,10 @@ public class ProductController implements ServletContextAware {
 		Productdetail detail = this.productDetailService.find(id);
 		this.deleteFile(detail.getPhoto());
 		this.productDetailService.delete(id);
-		return "redirect:/admin/product/detail/" + detail.getProduct().getId();
+		if (this.productService.find(detail.getProduct().getId()).getProductdetails().size() > 0) {
+			return "redirect:/admin/product/detail/" + detail.getProduct().getId();
+		}
+		return "redirect:/admin/product";
 	}
 	
 	private String saveFile(MultipartFile multipartFile) {

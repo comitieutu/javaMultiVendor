@@ -17,6 +17,7 @@
                     <s:label path="description" class="col-sm-2 col-sm-2 control-label">Description</s:label>
                     <div class="col-sm-10">
                         <s:input path="description" type="text" class="form-control round-form"/>
+                        <script>tinymce.init({selector:'#description'});</script>
                     </div>
                 </div>
                 <div class="form-group">

@@ -164,7 +164,9 @@ CREATE TABLE `personinfo` (
 CREATE TABLE `product` (
   `id` int(11) NOT NULL,
   `name` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `description` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
+  `description` text COLLATE utf8_unicode_ci NOT NULL,
+  `content` text COLLATE utf8_unicode_ci NOT NULL,
+  `specification` text COLLATE utf8_unicode_ci NOT NULL,
   `quantity` int(11) NOT NULL,
   `unitprice` double NOT NULL,
   `brand` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
@@ -188,7 +190,7 @@ CREATE TABLE `productdetail` (
   `id` int(11) NOT NULL,
   `productid` int(11) NOT NULL,
   `photo` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `description` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL
+  `description` text COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --

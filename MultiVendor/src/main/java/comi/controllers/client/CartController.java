@@ -11,8 +11,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import comi.entities.Product;
 import comi.services.ProductService;
 import comi.viewmodels.Item;
 
@@ -25,9 +25,7 @@ public class CartController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String index(ModelMap modelMap, HttpSession session) {
-		List<Item> cart = new ArrayList<Item>();
-		cart.add(new Item(productService.find(5), 1));
-		cart.add(new Item(productService.find(5), 1));
+		List<Item> cart = (List<Item>) session.getAttribute("cart");
 		session.setAttribute("cart", cart);
 //		List<Product> products = new ArrayList<>();
 //		products.add(productService.find(5));
@@ -41,8 +39,8 @@ public class CartController {
 		return "client.cart";
 	}
 	
-	@RequestMapping(value = "buy/{id}/{qty}", method = RequestMethod.GET)
-	public String buy(@PathVariable("id") int id, @PathVariable("qty") int qty, HttpSession session) {
+	@RequestMapping(value = "buy", method = RequestMethod.GET)
+	public String buy(@RequestParam("id") int id, @RequestParam("qty") int qty, HttpSession session) {
 		if (session.getAttribute("cart") == null) {
 			List<Item> cart = new ArrayList<Item>();
 			cart.add(new Item(productService.find(id), 1));

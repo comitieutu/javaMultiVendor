@@ -21,6 +21,20 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <s:label path="content" class="col-sm-2 col-sm-2 control-label">Content</s:label>
+                    <div class="col-sm-10">
+                        <s:input id="content" path="content" type="text" class="form-control round-form"/>
+                        <script>tinymce.init({selector:'#content'});</script>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <s:label path="specification" class="col-sm-2 col-sm-2 control-label">Specification</s:label>
+                    <div class="col-sm-10">
+                        <s:input id="specification" path="specification" type="text" class="form-control round-form"/>
+                        <script>tinymce.init({selector:'#specification'});</script>
+                    </div>
+                </div>
+                <div class="form-group">
                     <s:label path="quantity" class="col-sm-2 col-sm-2 control-label">Quantity</s:label>
                     <div class="col-sm-10">
                         <s:input path="quantity" type="number" min="0" class="form-control round-form"/>

@@ -25,6 +25,8 @@ public class Product implements java.io.Serializable {
 	private Category category;
 	private String name;
 	private String description;
+	private String content;
+	private String specification;
 	private int quantity;
 	private double unitprice;
 	private String brand;
@@ -35,20 +37,24 @@ public class Product implements java.io.Serializable {
 	public Product() {
 	}
 
-	public Product(Category category, String name, String description, int quantity, double unitprice, String brand) {
+	public Product(Category category, String name, String description, String content, String specification, int quantity, double unitprice, String brand) {
 		this.category = category;
 		this.name = name;
 		this.description = description;
+		this.content = content;
+		this.specification = specification;
 		this.quantity = quantity;
 		this.unitprice = unitprice;
 		this.brand = brand;
 	}
 
-	public Product(Category category, String name, String description, int quantity, double unitprice, String brand,
+	public Product(Category category, String name, String description, String content, String specification, int quantity, double unitprice, String brand,
 			Set<Comment> comments, Set<Productdetail> productdetails, Set<Saleorderdetail> saleorderdetails) {
 		this.category = category;
 		this.name = name;
 		this.description = description;
+		this.content = content;
+		this.specification = specification;
 		this.quantity = quantity;
 		this.unitprice = unitprice;
 		this.brand = brand;
@@ -95,6 +101,24 @@ public class Product implements java.io.Serializable {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	@Column(name = "content", nullable = false)
+	public String getContent() {
+		return this.content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	@Column(name = "specification", nullable = false)
+	public String getSpecification() {
+		return this.specification;
+	}
+
+	public void setSpecification(String specification) {
+		this.specification = specification;
 	}
 
 	@Column(name = "quantity", nullable = false)

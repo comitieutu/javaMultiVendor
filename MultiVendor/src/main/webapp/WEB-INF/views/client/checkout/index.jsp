@@ -11,6 +11,7 @@
 
 <header id="header" class="header-v3">
 
+
     <mt:topbar></mt:topbar>
 
 </header>
@@ -32,35 +33,67 @@
                     <h3><span>B</span>illing info</h3>
                 </div>
                 <!-- End title-product -->
-                <s:form action="${pageContext.request.contextPath }/checkout/create" class="form-horizontal"
+                <s:form class="form-horizontal"
+                        action="${paypalConfig.posturl}"
                         method="post" modelAttribute="user" enctype="multipart/form-data">
 
                     <div class="form-group col-md-6">
                         <s:label path="firstName">First Name</s:label>
-                        <s:input path="firstName" type="text" class="form-control"/>
+                        <s:input path="firstName" type="text" class="form-control" id="firstName"/>
                     </div>
                     <div class="form-group col-md-6">
                         <s:label path="lastName">Last Name</s:label>
-                        <s:input path="lastName" type="text" class="form-control"/>
+                        <s:input path="lastName" type="text" class="form-control" id="lastName"/>
                     </div>
                     <div class="form-group col-md-6">
                         <s:label path="address">Address</s:label>
-                        <s:input path="address" type="text" class="form-control"/>
+                        <s:input path="address" type="text" class="form-control" id="address"/>
                     </div>
                     <div class="form-group col-md-6">
                         <s:label path="email">Email</s:label>
-                        <s:input path="email" type="text" class="form-control"/>
+                        <s:input path="email" type="text" class="form-control" id="email"/>
                     </div>
                     <div class="form-group col-md-6">
                         <label>Delivery method</label>
-                        <s:select path="deliveryId" items="${delivery}" itemLabel="name" itemValue="id" type="text" class="form-control" />
+                        <s:select path="deliveryId" items="${delivery}" itemLabel="name" itemValue="id" type="text" class="form-control" id="delivery"/>
                     </div>
                     <div>
                         <s:hidden path="id"/>
                     </div>
+                    <c:forEach var="c" items="${product}" varStatus="i">
+                        <input type="hidden" name="item_number_${i.index + 1 }"
+                               value="${c.product.id }">
+                        <input type="hidden" name="item_name_${i.index + 1 }"
+                               value="${c.product.name }">
+                        <input type="hidden" name="amount_${i.index + 1 }"
+                               value="${c.product.unitprice }">
+                        <input type="hidden" name="quantity_${i.index + 1 }"
+                               value="${c.quantity }">
+                    </c:forEach>
+
+                    <input type="hidden" name="upload" value="1" />
+                    <input type="hidden" name="return" value="${paypalConfig.returnurl }" />
+                    <input type="hidden" name="cmd" value="_cart" />
+                    <input type="hidden" name="business" value="${paypalConfig.business}" />
                     <div class="form-group col-md-12">
-                        <input type="submit" value="COD" name="cod" class="btn btn-primary">
-                        <input type="submit" value="Paypal" name="paypal" class="btn btn-primary">
+                        <input
+                                type="submit"
+                                value="COD"
+                                name="cod"
+                                class="btn btn-primary"
+                                formaction="${pageContext.request.contextPath }/checkout/create">
+                        <%--<input--%>
+                                <%--type="submit"--%>
+                                <%--value="Paypal"--%>
+                                <%--name="paypal"--%>
+                                <%--class="btn btn-primary"--%>
+                                <%--formaction="${paypalConfig.posturl}">--%>
+                        <input
+                                type="submit"
+                                value="Paypal"
+                                name="paypal"
+                                class="btn btn-primary"
+                                onclick="return submitPaypal()">
                     </div>
                 </s:form>
                 <!-- End Billing info menu -->

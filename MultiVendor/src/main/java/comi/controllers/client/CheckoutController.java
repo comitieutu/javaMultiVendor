@@ -1,13 +1,11 @@
 package comi.controllers.client;
 import comi.entities.*;
-import comi.services.DeliveryService;
-import comi.services.ProductService;
-import comi.services.SaleOrderService;
-import comi.services.UserService;
+import comi.paypal.PayPalResult;
+import comi.paypal.PayPalSucess;
+import comi.services.*;
 import comi.viewmodels.Item;
 import comi.viewmodels.UserViewModel;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -15,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.security.Principal;
 import java.util.*;
@@ -34,6 +33,9 @@ public class CheckoutController {
 
     @Autowired
     private SaleOrderService saleOrderService;
+
+    @Autowired
+    private PayPalService payPalService;
 
     @RequestMapping(method = RequestMethod.GET)
     public String index(ModelMap modelMap, HttpSession session, Principal principal) {
@@ -69,6 +71,8 @@ public class CheckoutController {
             userViewModel.id = user.getId();
 
             modelMap.put("user", userViewModel);
+            modelMap.put("paypalConfig", payPalService.getPayPalConfig());
+            modelMap.put("product", fakeSession);
 
             return "client.checkout";
         }
@@ -110,5 +114,13 @@ public class CheckoutController {
 
         saleOrderService.save(saleorder);
         return "redirect:/";
+    }
+
+    @RequestMapping(value = "success", method = RequestMethod.GET)
+    public String success(HttpServletRequest request) {
+        PayPalSucess payPalSucess = new PayPalSucess();
+        PayPalResult payPalResult = payPalSucess.getPayPal(request, payPalService.getPayPalConfig());
+        String addressStreet = payPalResult.getAddress_street();
+        return "client.checkout.success";
     }
 }

@@ -418,9 +418,7 @@
                                     </p>
                                     <p class="product-price"><span>Price: </span>$ ${item.unitprice}</p>
                                     <c:if test="${loop.first}">
-                                        <ul class="description">
-                                                ${item.description}
-                                        </ul>
+                                        ${item.description}
                                     </c:if>
 
                                 </div>

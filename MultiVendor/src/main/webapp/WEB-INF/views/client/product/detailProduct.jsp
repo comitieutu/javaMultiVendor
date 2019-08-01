@@ -323,7 +323,7 @@
                 </div>
             </div>
             <div class="col-md-6 col-sm-6">
-                <div class="product-box-content">
+                <div class="product-box-content" style="color: white;">
                     <div class="product-name">
                         <h1>${product.name} </h1>
                         <p class="cat">${product.category.name}</p>
@@ -336,9 +336,10 @@
                     <p class="description">
                         ${product.description}
                     </p>
+                    <br/><br/>
                     <div class="options">
                         <div class="quantity">
-                            <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity" max="100" min="1" step="1">
+                            <input  style="color: black;" type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity" max="100" min="1" step="1">
                         </div>
                         <!-- End quanity -->
                         <a title="link" href="#" class="link-v2"><span>Buy now</span><i class="zmdi zmdi-shopping-cart-plus"></i></a>

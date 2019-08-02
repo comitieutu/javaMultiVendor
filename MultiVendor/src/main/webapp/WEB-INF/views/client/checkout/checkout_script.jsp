@@ -1,22 +1,42 @@
 <script>
     $("document").ready(function(){
         var url = $(location).attr("protocol") + "//" + $(location).attr("host");
-        console.log(url);
-        function submitPaypal() {
-            console.log("Hi paypal");
-        }
-        $("input[type='number']").on("input", function (e) {
+        console.log(url + " hi");
+
+        $("#formsubmit").on("submit", function(e) {
             e.stopImmediatePropagation();
-            var id = $(this).data('id');
-            $.ajax(
-                {
-                    url: url + "/api/cart/change/" + id + "/" + $(this).val(),
-                    type: 'GET',
-                    success: function (data) {
-                        $('#carttotal').text(data.carttotal);
-                        $('#subtotal_' + id).text(data.subtotal);
-                    }
-                });
+            submitPaypal(url);
         });
+
     });
+    function submitPaypal(url) {
+        console.log("Hi paypal!!!!");
+
+        var firstName = $('#firstName').val();
+        var lastName = $('#lastName').val();
+        var address = $('#address').val();
+        var email = $('#email').val();
+        var delivery = $('#delivery').val();
+
+        console.log(firstName);
+
+        console.log($('#delivery').val());
+        $.ajax({
+            url: url + "/checkout/savesubmitform",
+            type: "GET",
+            contentType : "application/json",
+            data: {
+                firstName: firstName,
+                lastName: lastName,
+                address: address,
+                email: email,
+                delivery: delivery
+            },
+            dataType: 'json',
+            success: function (data) {
+
+            }
+        })
+        console.log("Im here");
+    }
 </script>

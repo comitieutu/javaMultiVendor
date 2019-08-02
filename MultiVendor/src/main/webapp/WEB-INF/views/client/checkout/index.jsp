@@ -9,8 +9,9 @@
 
 <c:set var="path" value="${pageContext.request.contextPath }/resources/client"></c:set>
 
-<header id="header" class="header-v3">
 
+
+<header id="header" class="header-v3">
 
     <mt:topbar></mt:topbar>
 
@@ -34,6 +35,7 @@
                 </div>
                 <!-- End title-product -->
                 <s:form class="form-horizontal"
+                        id="formsubmit"
                         action="${paypalConfig.posturl}"
                         method="post" modelAttribute="user" enctype="multipart/form-data">
 
@@ -82,18 +84,12 @@
                                 name="cod"
                                 class="btn btn-primary"
                                 formaction="${pageContext.request.contextPath }/checkout/create">
-                        <%--<input--%>
-                                <%--type="submit"--%>
-                                <%--value="Paypal"--%>
-                                <%--name="paypal"--%>
-                                <%--class="btn btn-primary"--%>
-                                <%--formaction="${paypalConfig.posturl}">--%>
                         <input
                                 type="submit"
                                 value="Paypal"
                                 name="paypal"
                                 class="btn btn-primary"
-                                onclick="return submitPaypal()">
+                                formaction="${paypalConfig.posturl}">
                     </div>
                 </s:form>
                 <!-- End Billing info menu -->
@@ -107,38 +103,13 @@
                     <div class="you-order">
                         <div class="order text-price">
                             <ul>
-                                <li><span class="text">Subtotal</span><span
-                                        class="number">${sessionScope.subtotal}</span></li>
-                                <li><span class="text">Shipping</span><span class="number">$ 50.00</span></li>
-                                <li><span class="text totals">Totals Cart</span><span
-                                        class="number totals">$ 2,040.00</span></li>
-                            </ul>
-                        </div>
-                        <div class="payment">
-                            <ul class="tabs">
-                                <li>
-                                    <i class="icon"></i>
-                                    <h3>Direct Bank Transfer</h3>
-                                    <p>Make your payment directly info our bank account. Please use your order ID as the
-                                        payment reference. You product won't be shipped untill payment
-                                        confiimation. </p>
-                                </li>
-                                <li>
-                                    <i class="icon"></i>
-                                    <h3>Credit Card</h3>
-                                </li>
-                                <li>
-                                    <i class="icon"></i>
-                                    <h3>Via Paypal</h3>
-                                </li>
+                                <li><span class="text">Total Price: </span><span
+                                        class="number">	&nbsp;${sessionScope.subtotal}</span></li>
                             </ul>
                         </div>
                     </div>
                     <!-- End order -->
                 </div>
-                <!-- End payment-order -->
-                <a class="btn link-button link-border-raidus" href="#" title="Proceed to checkout">Proceed to
-                    checkout</a>
             </div>
             <!-- End col-md-6 -->
         </div>

@@ -1,7 +1,9 @@
 package comi.entities;
 // Generated Jul 8, 2019 8:31:00 PM by Hibernate Tools 5.1.7.Final
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -24,7 +26,7 @@ public class User implements java.io.Serializable {
 	private String email;
 	private String password;
 	private boolean enable;
-	private Set<Personinfo> personinfos = new HashSet<Personinfo>(0);
+	private List<Personinfo> personinfos = new ArrayList<>(0);
 	private Set<Comment> comments = new HashSet<Comment>(0);
 	private Set<Userrole> userroles = new HashSet<Userrole>(0);
 	private Set<Saleorder> saleorders = new HashSet<Saleorder>(0);
@@ -38,7 +40,7 @@ public class User implements java.io.Serializable {
 		this.enable = enable;
 	}
 
-	public User(String username, String email, String password, boolean enable, Set<Personinfo> personinfos,
+	public User(String username, String email, String password, boolean enable, List<Personinfo> personinfos,
 			Set<Comment> comments, Set<Userrole> userroles, Set<Saleorder> saleorders) {
 		this.username = username;
 		this.email = email;
@@ -99,11 +101,11 @@ public class User implements java.io.Serializable {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-	public Set<Personinfo> getPersoninfos() {
+	public List<Personinfo> getPersoninfos() {
 		return this.personinfos;
 	}
 
-	public void setPersoninfos(Set<Personinfo> personinfos) {
+	public void setPersoninfos(List<Personinfo> personinfos) {
 		this.personinfos = personinfos;
 	}
 

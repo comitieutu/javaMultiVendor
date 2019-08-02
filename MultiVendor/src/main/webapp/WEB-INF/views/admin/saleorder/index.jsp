@@ -14,7 +14,6 @@
                         <th><i class="fa fa-align-justify"></i> Order Number</th>
                         <th><i class="fa fa-align-justify"></i> Buyer name</th>
                         <th><i class="fa fa-align-justify"></i> Status</th>
-                        <th><i class="fa fa-bullhorn"></i> Delivery price</th>
                         <th><i class="fa fa-bullhorn"></i> Total price</th>
                         <th><i class="fa fa-bullhorn"></i> Shipdate</th>
                         <th><i class="fa fa-star"></i> Shipper id</th>
@@ -32,11 +31,9 @@
 							</td>
 							<td>${so.user.username }</td>
 							<td>${so.status }</td>
-							<td>${so.deliveryprice }</td>
 							<td>${so.totalprice }</td>
                             <td>${so.shipdate }</td>
-                            <td>${so.shipper.contactname }</td>
-                            <td>${so.payment.id }</td>
+                            <td>${so.payment.name }</td>
                             <td>${so.delivery.name }</td>
 							<td>
 								<a href="${pageContext.request.contextPath }/admin/saleorder/detail/${so.id}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i>Detail</a>

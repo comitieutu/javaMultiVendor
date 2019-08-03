@@ -55,5 +55,10 @@ public class UserServiceImp implements UserService{
 		this.userroleRepository.save(userrole);
 		return user;
 	}
+	
+	@Override
+	public List<User> findAll() {
+		return (List<User>) this.userRepository.findAll();
+	}
 
 }

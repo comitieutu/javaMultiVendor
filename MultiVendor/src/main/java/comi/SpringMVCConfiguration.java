@@ -1,7 +1,9 @@
 package comi;
 
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
@@ -48,5 +50,11 @@ public class SpringMVCConfiguration implements WebMvcConfigurer {
 	    return configurer;
 	}
 
+	@Bean
+	public MessageSource messageSource() {
+		ResourceBundleMessageSource bundleMessageSource = new ResourceBundleMessageSource();
+		bundleMessageSource.setBasename("messages");
+		return bundleMessageSource;
+	}
 
 }

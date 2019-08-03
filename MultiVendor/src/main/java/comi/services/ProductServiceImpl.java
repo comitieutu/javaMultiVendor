@@ -20,6 +20,12 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
+	public Iterable<Product> findAllById(int id) {
+		//return this.productRepository.findAllById(id).get();
+		return this.productRepository.findAll();
+	}
+
+	@Override
 	public Product find(int id) {
 		return this.productRepository.findById(id).get();
 	}

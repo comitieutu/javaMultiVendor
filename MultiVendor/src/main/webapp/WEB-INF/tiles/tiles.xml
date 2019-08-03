@@ -17,6 +17,10 @@
 	<definition name="client.product.detailProduct" extends="templateClient">
 		<put-attribute name="content" value="/WEB-INF/views/client/product/detailProduct.jsp"></put-attribute>
 	</definition>
+
+	<definition name="client.product.index" extends="templateClient">
+		<put-attribute name="content" value="/WEB-INF/views/client/product/index.jsp"></put-attribute>
+	</definition>
 	
 	<definition name="client.login" extends="templateClient">
 		<put-attribute name="content" value="/WEB-INF/views/client/login.jsp"></put-attribute>

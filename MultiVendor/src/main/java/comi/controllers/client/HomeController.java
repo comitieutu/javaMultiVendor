@@ -26,8 +26,8 @@ public class HomeController {
 	private UserService userService;
 	@Autowired
 	private ProductService productService;
-//	@Autowired
-//	private UserValidator userValidator;
+	@Autowired
+	private UserValidator userValidator;	
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String index(ModelMap modelMap) {
@@ -54,12 +54,14 @@ public class HomeController {
 	
 	@RequestMapping(value="signup", method = RequestMethod.POST)
 	public String signup(@ModelAttribute("user") @Valid User user, BindingResult bindingResult) {
-//		this.userValidator.validate(user, bindingResult);
-//		if (bindingResult.hasErrors()) {
-//			return "redirect:/register";
-//		}
-//		this.userService.save(user);
-		return "redirect:/login";
+		this.userValidator.validate(user, bindingResult);
+		if (bindingResult.hasErrors()) {
+			return "client.register";
+		} else {
+			this.userService.save(user);
+			return "redirect:/login";
+		}
+		
 	}
 	
 	@RequestMapping(value = "accessDenied", method = RequestMethod.GET)

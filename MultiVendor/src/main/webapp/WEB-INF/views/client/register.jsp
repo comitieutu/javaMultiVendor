@@ -10,7 +10,7 @@
     <mt:topbar></mt:topbar>
     <mt:menu></mt:menu>
     
-</header><!-- /header -->
+</header>
 
 <div class="breadcrumb">
     <div class="container">
@@ -29,7 +29,7 @@
                         <div class="form-group col-md-6">
                             <s:label path="username" class=" control-label" for="inputName">Username</s:label>                            
                             <s:input path="username" type="text" class="form-control" placeholder="Username"/>         
-                            <s:errors path="username" cssClass="error"></s:errors>               
+                            <s:errors path="username"></s:errors>               
                         </div>
                         <div class="form-group col-md-6">
                             <s:label path="password" class=" control-label" for="inputEmail">Password</s:label>                            

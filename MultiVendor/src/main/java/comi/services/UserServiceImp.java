@@ -61,4 +61,9 @@ public class UserServiceImp implements UserService{
 		return (List<User>) this.userRepository.findAll();
 	}
 
+	@Override
+	public User getByUsername(String username) {
+		return userRepository.find(username);
+	}
+
 }

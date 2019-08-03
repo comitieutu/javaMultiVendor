@@ -12,7 +12,6 @@
                     <tr>
                     	<th><i class="fa fa-align-justify"></i> Id</th>
                         <th><i class="fa fa-align-justify"></i> Name</th>
-                        <th><i class="fa fa-align-justify"></i> Description</th>
                         <th><i class="fa fa-align-justify"></i> Quantity</th>
                         <th><i class="fa fa-bullhorn"></i> Unit price</th>
                         <th><i class="fa fa-bullhorn"></i> Brand</th>
@@ -28,13 +27,12 @@
 							<td>
 								<a href="${pageContext.request.contextPath }/admin/product/detail/${p.id}">${p.name }</a>
 							</td>
-							<td>${p.description }</td>
 							<td>${p.quantity }</td>
 							<td>${p.unitprice }</td>
 							<td>${p.brand }</td>
 							<td>
 								<c:if test="${p.productdetails.size() > 0}">
-									<img src="${pageContext.request.contextPath }/assets/images/${p.productdetails.iterator().next().photo}" height="50">
+									<img src="${pageContext.request.contextPath }/assets/images/${p.productdetails.iterator().next().photo}" height="30">
 								</c:if> 
 							</td>
 							<td>

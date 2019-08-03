@@ -22,7 +22,4 @@ public class PayPalServiceImp implements PayPalService {
 		payPalConfig.setReturnurl(environment.getProperty("paypal.returnurl"));
 		return payPalConfig;
 	}
-
-	
-	
 }

@@ -17,6 +17,10 @@
 	<definition name="client.product.detailProduct" extends="templateClient">
 		<put-attribute name="content" value="/WEB-INF/views/client/product/detailProduct.jsp"></put-attribute>
 	</definition>
+
+	<definition name="client.product.index" extends="templateClient">
+		<put-attribute name="content" value="/WEB-INF/views/client/product/index.jsp"></put-attribute>
+	</definition>
 	
 	<definition name="client.login" extends="templateClient">
 		<put-attribute name="content" value="/WEB-INF/views/client/login.jsp"></put-attribute>
@@ -29,6 +33,14 @@
 	<definition name="client.cart" extends="templateClient">
 		<put-attribute name="content" value="/WEB-INF/views/client/cart/index.jsp"></put-attribute>
 		<put-attribute name="script" value="/WEB-INF/views/client/cart/cart_script.jsp"></put-attribute>
+	</definition>
+
+	<definition name="client.checkout" extends="templateClient">
+		<put-attribute name="content" value="/WEB-INF/views/client/checkout/index.jsp"></put-attribute>
+		<put-attribute name="script" value="/WEB-INF/views/client/checkout/checkout_script.jsp"></put-attribute>
+	</definition>
+	<definition name="client.checkout.success" extends="templateClient">
+		<put-attribute name="content" value="/WEB-INF/views/client/checkout/success.jsp"></put-attribute>
 	</definition>
 	
 	<definition name="client.accessDenied" template="/WEB-INF/views/client/accessDenied.jsp">

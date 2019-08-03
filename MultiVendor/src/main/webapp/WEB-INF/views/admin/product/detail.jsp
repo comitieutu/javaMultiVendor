@@ -12,7 +12,6 @@
                 <thead>
                     <tr>
                     	<th><i class="fa fa-align-justify"></i> Id</th>
-                        <th><i class="fa fa-align-justify"></i> Description</th>
                         <th><i class="fa fa-bullhorn"></i> Photo</th>
                         <th><i class="fa fa-star"></i> Action</th>
                         <th></th>
@@ -22,7 +21,6 @@
                 	<c:forEach var="p" items="${productdetails }">
                 		<tr>
 							<td>${p.id }</td>
-							<td>${p.description }</td>
 							<td>
 								<img src="${pageContext.request.contextPath }/assets/images/${p.photo}">
 							</td>

@@ -359,76 +359,10 @@
             </ul>
             <div class="tab-container">
                 <div id="overview" class="tab-content">
-                    <h2>About This Product</h2>
-                    <p><b>The Next Big Thing Is Here</b> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                        unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
-                        typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages.</p>
-                    <div class="panel-body">
-                        <div class="media images col-md-6">
-                            <div class="pull-right">
-                                <img src="${path}/images/product-details-tab-1.jpg" class="media-object img-circle" alt="images">
-                            </div>
-                            <div class="media-body">
-                                <h4 class="media-heading">Circular Interface</h4>
-                                <p>A revolutionary design keeps everything you need at your fingertips. The circular interface and unique rotating bezel let you navigate through notifications, apps and widgets quickly without covering the display.</p>
-                                <!-- Nested media object -->
-                            </div>
-                        </div>
-                        <div class="media images col-md-6">
-                            <div class="pull-right">
-                                <img src="${path}/images/product-details-tab-2.jpg" class="media-object img-circle" alt="images">
-                            </div>
-                            <div class="media-body">
-                                <h4 class="media-heading">3G or 4G2 Network Connectivity</h4>
-                                <p>A revolutionary design keeps everything you need at your fingertips. The circular interface and unique rotating bezel let you navigate through notifications, apps and widgets quickly without covering the display.</p>
-                            </div>
-                        </div>
-                        <div class="media images col-md-12">
-                            <div class="pull-right">
-                                <img src="${path}/images/product-details-tab-3.jpg" class="media-object img-circle" alt="images">
-                            </div>
-                            <div class="media-body">
-                                <h4 class="media-heading">Circular Interface</h4>
-                                <p>A revolutionary design keeps everything you need at your fingertips. The circular interface and unique rotating bezel let you navigate through notifications, apps and widgets quickly without covering the display.</p>
-                            </div>
-                        </div>
-                    </div>
+                    ${product.content}
                 </div>
                 <div id="specification" class="tab-content">
-                    <table class="table">
-                        <tr>
-                            <td>Category</td>
-                            <td><b>Gear S2 3G/4G</b></td>
-                        </tr>
-                        <tr>
-                            <td>Carrier</td>
-                            <td><b>AT&T</b></td>
-                        </tr>
-                        <tr>
-                            <td>Form Factor</td>
-                            <td>Wearable Tech</td>
-                        </tr>
-                        <tr>
-                            <td>Color</td>
-                            <td><b>Dark Gray</b></td>
-                        </tr>
-                        <tr>
-                            <td>OS</td>
-                            <td><b>Tizen based wearable platform</b></td>
-                        </tr>
-                        <tr>
-                            <td>Size</td>
-                            <td><b>51g</b></td>
-                        </tr>
-                        <tr>
-                            <td>Battery</td>
-                            <td><b>BATTERY TYPE AND SIZE</b></td>
-                        </tr>
-                        <tr>
-                            <td>Battery</td>
-                            <td><b>INTERNAL MEMORY </b></td>
-                        </tr>
-                    </table>
+                    ${product.specification}
                 </div>
                 <div id="reviews" class="tab-content">
                     <div class="col-md-6">

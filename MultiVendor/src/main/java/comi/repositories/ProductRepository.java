@@ -1,9 +1,13 @@
 package comi.repositories;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import comi.entities.Product;
+
+import java.util.List;
 
 @Repository("productRepository")
 public interface ProductRepository extends CrudRepository<Product, Integer> {
@@ -34,5 +38,8 @@ public interface ProductRepository extends CrudRepository<Product, Integer> {
 //	public Long count2(@Param("name") String name);
 //	
 //	public List<Product> findByStatus(boolean status);
+
+    @Query("from Product where category.id = :categoryid")
+	public List<Product> findAllByCategory(@Param("categoryid") int categoryid);
 	
 }

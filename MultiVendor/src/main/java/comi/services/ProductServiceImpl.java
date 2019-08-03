@@ -10,7 +10,7 @@ import comi.repositories.ProductRepository;
 @Service("productService")
 @Transactional
 public class ProductServiceImpl implements ProductService {
-	
+		
 	@Autowired
 	private ProductRepository productRepository;
 
@@ -21,8 +21,7 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public Iterable<Product> findAllById(int id) {
-		//return this.productRepository.findAllById(id).get();
-		return this.productRepository.findAll();
+		return this.productRepository.findAllByCategory(id);
 	}
 
 	@Override

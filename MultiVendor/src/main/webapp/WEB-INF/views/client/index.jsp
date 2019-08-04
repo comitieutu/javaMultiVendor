@@ -384,7 +384,13 @@
                                     </c:if>
                                 </div>
                                 <div class="action">
-                                    <a title="add-to-cart" href="#"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
+                                    <form action="${pageContext.request.contextPath }/cart/buy" method="get" >
+                                        <input type="hidden" name="id" value="${item.id}">
+                                        <input type="hidden" value="1" name="qty" max="100" min="1" step="1">
+                                        <button type="submit" title="link" class="link-v2" style="background: none;">
+                                            <a title="add-to-cart"><i style="top: 0px;left: 0px;" class="zmdi zmdi-shopping-cart-plus"></i></a>
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         </c:forEach>

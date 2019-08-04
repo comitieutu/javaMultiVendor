@@ -38,14 +38,14 @@
                 </div>
                 <div class="menu-top menu-top-v2">
                     <ul class="nav-top">
-                        <li class="level1"><a href="#" title="Hopme">Home</a>
+                        <li class="level1"><a title="Hopme">Home</a>
                             <ul class="menu-level-1">
                                 <li class="level2"><a href="home_v1.html" >Home</a></li>
                                 <li class="level2"><a href="about.html"  >About us</a></li>
                                 <li class="level2"><a href="contact.html" >Contact us</a></li>
                             </ul>
                         </li>
-                        <li class="level1"><a href="#" title="Product">Product</a>
+                        <li class="level1"><a title="Product">Product</a>
                             <ul class="menu-level-1">
                                 <li class="level2"><a href="#" title="New" target="_blank">New</a></li>
                                 <li class="level2"><a href="#" title="Featured" target="_blank">Featured</a></li>
@@ -53,10 +53,9 @@
 
                             </ul>
                         </li>
-                        <li class="level1 active"><a href="#" title="Blog">Blog</a>
+                        <li class="level1 active"><a title="Blog">Blog</a>
                             <ul class="menu-level-1">
-                                <li class="level2"><a href="#" title="New Blog" target="_blank">New Blog</a></li>
-                                <li class="level2"><a href="#" title="lester" target="_blank">lester</a></li>
+                                <li class="level2"><a href="#" title="News" target="_blank">News</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -165,7 +164,7 @@
                 <ul class="menu-level-1">
                     <li class="level2"><a href="home_v1.html" >Home</a></li>
                     <li class="level2"><a href="home_v2.html">about us</a></li>
-                    <li class="level2"><a href="home_v3.html" >contatc us</a></li>
+                    <li class="level2"><a href="home_v3.html" >contact us</a></li>
                 </ul>
             </li>
             <li class="level1"><a href="#" title="Product">Product</a>
@@ -224,15 +223,13 @@
 </header><!-- /header -->
 
 <div class="slide-show-ver1">
+    <c:import url="${pageContext.request.contextPath }/assets/images/${item.productdetails.iterator().next().photo}" var="imageData" />
     <div class="container">
         <div class="tp-banner-container">
             <div class="tp-banner tp-banner-ver1" >
                 <ul>
-                    <!-- SLIDE  -->
-                    <li data-transition="notransition" data-slotamount="6" data-masterspeed="1000" >
-                        <!-- MAIN IMAGE -->
-                        <img src="${path}/images/bg-slide-show.png">
-                        <!-- LAYER NR. 3 -->
+                    <c:forEach items="${products}" var="item" varStatus="loop" begin = "1" end = "3">
+                        <li data-transition="notransition" data-slotamount="6" data-masterspeed="1000" >
 
                         <div class="tp-caption large_bold_orange weight-600 capitalize color-white skewfromleft customout size-60 weight-800 uppercase"
                              data-x="155"
@@ -244,7 +241,8 @@
                              data-endspeed="300"
                              data-endeasing="Power1.easeIn"
                              data-captionhidden="on"
-                             style="z-index: 9">Apple Watch
+                             style="z-index: 9">
+                            <a style="color: white;" href="${pageContext.request.contextPath }/product/detail/${item.id}">${item.name }</a>
                         </div>
                         <!-- LAYER NR. 4 -->
 
@@ -259,7 +257,7 @@
                              data-endspeed="300"
                              data-endeasing="Power1.easeIn"
                              data-captionhidden="on"
-                             style="z-index: 7">of the printing and typesetting industry. Lorem Ipsum<br> has +been the industry's <span class="text-span">Sale up to 40%</span> text ever<br> since the 1500s
+                             style="z-index: 7">${item.description}
                         </div>
 
 
@@ -274,22 +272,19 @@
                              data-endspeed="300"
                              data-endeasing="Power1.easeIn"
                              data-captionhidden="on"
-                             style="z-index: 8"><a href="#" title="Follow">Buy Now</a>
+                             style="z-index: 8; transition: all 0s ease 0s; min-height: 0px; min-width: 0px; line-height: 45px; border-width: 2px; margin: 0px; padding: 0px 0px 0px 0px; letter-spacing: 0px; font-size: 14px; left: 155px; top: 500px; visibility: visible; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.0025, 0, 0, 0, 1);">
+                            <form action="${pageContext.request.contextPath }/cart/buy" method="get" >
+                                <input type="hidden" name="id" value="${item.id}">
+                                <input type="hidden" value="1" name="qty" max="100" min="1" step="1">
+                                <button type="submit" title="link" class="link-v2" style="background: none; border: 0px;height: 44px;">
+                                    <span style="color: white;">Buy now</span>
+                                    <i class="zmdi zmdi-shopping-cart-plus" style="top:0px; left:0px;"></i>
+                                </button>
+                            </form>
                         </div>
-                        <!-- LAYER NR. 8s -->
-                        <div class="tp-caption skewfromleft customout link-1 link-2 icons height-50"
-                             data-x="270"
-                             data-y="500"
-                             data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-                             data-speed="1000"
-                             data-start="1500"
-                             data-easing="Power4.easeOut"
-                             data-endspeed="300"
-                             data-endeasing="Power1.easeIn"
-                             data-captionhidden="on"
-                             style="z-index: 8"><a href="#" title="link">?</a>
-                        </div>
+                        <style>
 
+                        </style>
                         <!-- LAYER NR. 9 -->
                         <div class="tp-caption skewfromright customout"
                              data-x="590"
@@ -301,81 +296,16 @@
                              data-endspeed="300"
                              data-endeasing="Power1.easeIn"
                              data-captionhidden="on"
-                             style="z-index: 1"><img src="${path}/images/home1-slideshow.png" alt="galaxy s7">
+                            style="z-index: 1">
+                            <c:if test = "${not empty imageData}">
+                                <img src="${pageContext.request.contextPath }/assets/images/${image.photo}" width="500" height="500" style="top:60px;"/>
+                            </c:if>
+                            <c:if test = "${empty imageData}">
+                                <img src="${pageContext.request.contextPath }/assets/images/no-image.png" width="500" height="500" style="top:60px;"/>
+                            </c:if>
                         </div>
                     </li>
-                    <!-- SLIDER -->
-                    <!-- SLIDE  -->
-                    <li data-transition="notransition" data-slotamount="6" data-masterspeed="1000" >
-                        <img src="${path}/images/bg-slide-show.png" >
-
-                        <div class="tp-caption large_bold_orange weight-600 capitalize color-white skewfromleft customout size-60 weight-800 uppercase"
-                             data-x="155"
-                             data-y="260"
-                             data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-                             data-speed="800"
-                             data-start="1600"
-                             data-easing="Power4.easeOut"
-                             data-endspeed="300"
-                             data-endeasing="Power1.easeIn"
-                             data-captionhidden="on"
-                             style="z-index: 9">Apple Watch
-                        </div>
-
-                        <div class="tp-caption large_bold_orange size-18 color-white skewfromright customout transform-none"
-                             data-x="155"
-                             data-y="370"
-                             data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-                             data-speed="800"
-                             data-start="1800"
-                             data-easing="Power4.easeOut"
-                             data-endspeed="300"
-                             data-endeasing="Power1.easeIn"
-                             data-captionhidden="on"
-                             style="z-index: 7">of the printing and typesetting industry. Lorem Ipsum<br> has been the industry's <span class="text-span">Sale up to 40%</span> text ever<br> since the 1500s
-                        </div>
-
-
-                        <div class="tp-caption skewfromleft customout link-1 link-2 height-50"
-                             data-x="155"
-                             data-y="500"
-                             data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-                             data-speed="1000"
-                             data-start="1500"
-                             data-easing="Power4.easeOut"
-                             data-endspeed="300"
-                             data-endeasing="Power1.easeIn"
-                             data-captionhidden="on"
-                             style="z-index: 8"><a href="#" title="Follow">Buy Now</a>
-                        </div>
-
-                        <div class="tp-caption skewfromleft customout link-1 link-2 icons height-50"
-                             data-x="270"
-                             data-y="500"
-                             data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-                             data-speed="1000"
-                             data-start="1500"
-                             data-easing="Power4.easeOut"
-                             data-endspeed="300"
-                             data-endeasing="Power1.easeIn"
-                             data-captionhidden="on"
-                             style="z-index: 8"><a href="#" title="link">?</a>
-                        </div>
-
-                        <div class="tp-caption skewfromright customout"
-                             data-x="590"
-                             data-y="130"
-                             data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-                             data-speed="1000"
-                             data-start="1500"
-                             data-easing="Power4.easeOut"
-                             data-endspeed="300"
-                             data-endeasing="Power1.easeIn"
-                             data-captionhidden="on"
-                             style="z-index: 1"><img src="${path}/images/home1-slideshow.png" alt="galaxy s7">
-                        </div>
-                    </li>
-                    <!-- SLIDER -->
+                    </c:forEach>
                 </ul>
                 <div class="tp-bannertimer"></div>
             </div>

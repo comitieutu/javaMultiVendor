@@ -10,7 +10,7 @@ import comi.repositories.ProductRepository;
 @Service("productService")
 @Transactional
 public class ProductServiceImpl implements ProductService {
-		
+
 	@Autowired
 	private ProductRepository productRepository;
 

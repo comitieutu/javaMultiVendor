@@ -66,40 +66,10 @@
                 <div class="logo"><a href="#" title="Dana-Logo"><img src="${path}/images/Dana-menu-logo.png" alt="Dana-Logo"></a></div>
                 <div class="menu-top">
                     <ul class="nav-top">
-                        <li class="level1"><a href="#" title="Hopme">Home</a>
-                            <ul class="menu-level-1">
-                                <li class="level2"><a href="home_v1.html" title="Home 1" target="_blank">Home 1</a></li>
-                                <li class="level2"><a href="home_v2.html" title="Home 2" target="_blank">Home 2</a></li>
-                                <li class="level2"><a href="home_v3.html" title="Home 3" target="_blank">Home 3</a></li>
-                            </ul>
-                        </li>
-                        <li class="level1"><a href="#" title="Hopme">Shop</a>
-                            <ul class="menu-level-1">
-                                <li class="level2"><a href="shop-listing1.html" title="Shop Listing" target="_blank">Shop Listing 1</a></li>
-                                <li class="level2"><a href="shop-listing2.html" title="Shop Listing" target="_blank">Shop Listing 2</a></li>
-                                <li class="level2"><a href="shop-listing3.html" title="Shop Listing" target="_blank">Shop Listing 3</a></li>
-                                <li class="level2"><a href="shop-listing4.html" title="Shop Listing" target="_blank">Shop Listing 4</a></li>
-                                <li class="level2"><a href="product-detail.html" title="product detail" target="_blank">Products Details</a></li>
-                                <li class="level2"><a href="shopping-cart.html" title="productcart" target="_blank">Shopping Cart</a></li>
-                                <li class="level2"><a href="compare.html" title="product compare" target="_blank">Compare</a></li>
-                            </ul>
-                        </li>
-                        <li class="level1 active"><a href="#" title="Blog">Blog</a>
-                            <ul class="menu-level-1">
-                                <li class="level2"><a href="blog-1.html" title="Blog 1" target="_blank">Blog 1</a></li>
-                                <li class="level2"><a href="blog-2.html" tppabs="http://landing.engocreative.com/html/dama/demo/blog-2.html" title="Blog 2" target="_blank">Blog 2</a></li>
-                                <li class="level2"><a href="blog-details.html" tppabs="http://landing.engocreative.com/html/dama/demo/blog-details.html" title="Blog Details" target="_blank">Blog Details</a></li>
-                            </ul>
-                        </li>
-                        <li class="level1"><a href="#" title="Page">Page</a>
-                            <ul class="menu-level-1">
-                                <li class="level2"><a href="contact.html" tppabs="http://landing.engocreative.com/html/dama/demo/contact.html" title="" target="_blank">Contact</a></li>
-                                <li class="level2"><a href="contact2.html" tppabs="http://landing.engocreative.com/html/dama/demo/contact2.html" title="" target="_blank">Contact 2</a></li>
-                                <li class="level2"><a href="404.html" tppabs="http://landing.engocreative.com/html/dama/demo/404.html" title="Page 404" target="_blank">Page 404</a></li>
-                                <li class="level2"><a href="checkout.html" tppabs="http://landing.engocreative.com/html/dama/demo/checkout.html" title="check out" target="_blank">Check out</a></li>
-                                <li class="level2"><a href="undercontruction.html" tppabs="http://landing.engocreative.com/html/dama/demo/undercontruction.html" title="Undercontruction" target="_blank">Undercontruction</a></li>
-                            </ul>
-                        </li>
+                        <li class="level1"><a href="http://localhost:9596" title="Hopme">Home</a></li>
+                        <li class="level1"><a href="#" title="Hopme">About Us</a></li>
+                        <li class="level1 active"><a href="#" title="Blog">News</a></li>
+                        <li class="level1"><a href="#" title="Page">Contact</a></li>
                     </ul>
                 </div>
                 <div class="search">
@@ -210,7 +180,7 @@
 <div class="breadcrumb">
     <div class="container">
         <ul>
-            <li><a href="#">Home</a></li>
+            <li><a href="http://localhost:9596">Home</a></li>
             <li>${category.name}</li>
         </ul>
     </div>

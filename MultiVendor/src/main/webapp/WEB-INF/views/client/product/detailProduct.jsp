@@ -87,9 +87,9 @@
 	                        <div class="quantity">
 	                            <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="qty" max="100" min="1" step="1">
 	                        </div>
-	                        
-	                        <!-- End quanity --> 
-	                        <button type="submit" title="link" <%-- href="${pageContext.request.contextPath }/cart/buy/${product.id}/1" --%> class="link-v2"><span>Buy now</span><i class="zmdi zmdi-shopping-cart-plus"></i></button>
+
+	                        <!-- End quanity -->
+	                        <button type="submit" title="link" class="link-v2"><span>Buy now</span><i class="zmdi zmdi-shopping-cart-plus"></i></button>
 	                    </div>
                     </form>
                     <!-- End Options -->

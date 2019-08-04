@@ -67,70 +67,13 @@
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <span class="icon-menu-header"></span>
                 <ul class="nav navbar-nav" id="navbar">
-                    <li class="level1"><a href="#" title="Headphone"><span class="icon-mega icon-headphone"></span></a>
-                    </li>
-                    <li class="level1 dropdown">
-                        <a href="#" title="men"><span class="icon-mega icon-watch"></span></a>
-                        <div class="sub-menu dropdown-menu">
-                            <ul class="menu-level-1">
-                                <li class="level2"><a href="#">Laptop</a>
-                                    <ul class="menu-level-2">
-                                        <li class="level3"><a href="#" title="Apple">Apple</a></li>
-                                        <li class="level3"><a href="#" title="Samsung">Samsung</a></li>
-                                        <li class="level3"><a href="#" title="Sony">Sony</a></li>
-                                        <li class="level3"><a href="#" title="HTC">HTC</a></li>
-                                        <li class="level3"><a href="#" title="Xaomi">Xaomi</a></li>
-                                        <li class="level3"><a href="#" title="LG">LG</a></li>
-                                    </ul>
-                                </li>
-                                <li class="level2"><a href="#">Accessories</a>
-                                    <ul class="menu-level-2">
-                                        <li class="level3"><a href="#" title="Submenu1">Submenu1</a></li>
-                                        <li class="level3"><a href="#" title="Submenu2">Submenu2</a></li>
-                                        <li class="level3"><a href="#" title="Submenu3">Submenu3</a></li>
-                                        <li class="level3"><a href="#" title="Submenu4">Submenu4</a></li>
-                                        <li class="level3"><a href="#" title="Submenu5">Submenu5</a></li>
-                                    </ul>
-                                </li>
-                                <li class="level2">
-                                    <img src="${path}/images/images-menu.jpg" />
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- End Dropdow Menu -->
-                    </li>
-                    <li class="level1 dropdown"><a href="#" title="Smart phone "><span class="icon-mega icon-phone"></span></a>
-                        <div class="sub-menu dropdown-menu">
-                            <ul class="menu-level-1">
-                                <li class="level2"><a href="#">Laptop</a>
-                                    <ul class="menu-level-2">
-                                        <li class="level3"><a href="#" title="Apple">Apple</a></li>
-                                        <li class="level3"><a href="#" title="Samsung">Samsung</a></li>
-                                        <li class="level3"><a href="#" title="Sony">Sony</a></li>
-                                        <li class="level3"><a href="#" title="HTC">HTC</a></li>
-                                        <li class="level3"><a href="#" title="Xaomi">Xaomi</a></li>
-                                        <li class="level3"><a href="#" title="LG">LG</a></li>
-                                    </ul>
-                                </li>
-                                <li class="level2"><a href="#">Accessories</a>
-                                    <ul class="menu-level-2">
-                                        <li class="level3"><a href="#" title="Submenu1">Submenu1</a></li>
-                                        <li class="level3"><a href="#" title="Submenu2">Submenu2</a></li>
-                                        <li class="level3"><a href="#" title="Submenu3">Submenu3</a></li>
-                                        <li class="level3"><a href="#" title="Submenu4">Submenu4</a></li>
-                                        <li class="level3"><a href="#" title="Submenu5">Submenu5</a></li>
-                                    </ul>
-                                </li>
-                                <li class="level2">
-                                    <img src="${path}/images/images-menu.jpg" />
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- End Dropdow Menu -->
-                    </li>
-                    <li class="level1"><a href="#"><span class="icon-mega icon-game"></span></a></li>
-                    <li class="level1"><a href="#" title="Laptop"><span class="icon-mega icon-laptop"></span></a></li>
-                    <li class="level1"><a href="#" title="televison"><span class="icon-mega icon-televison"></span></a></li>
+                    <c:forEach items="${categories}" var="item" varStatus="loop">
+                        <li class="level1">
+                            <a href="${pageContext.request.contextPath }/product/category/${item.id}" title="${item.name}">
+                                <span class="icon-mega icon-${item.name}"></span>
+                            </a>
+                        </li>
+                    </c:forEach>
                 </ul>
             </nav>
             <!-- End mega menu -->
@@ -330,73 +273,72 @@
                 <h3><span>P</span>opular Product</h3>
             </div>
             <ul class="tabs">
-                <li class="item" rel="tab_01">Tables</li>
-                <li class="item" rel="tab_02">Chairs</li>
-                <li class="item" rel="tab_03">Sofas</li>
-                <li class="item" rel="tab_04">Sofas</li>
-                <li class="item" rel="tab_05">Sofas</li>
-                <li class="item" rel="tab_06">Sofas</li>
+                <c:forEach items="${categories}" var="cate" varStatus="loop">
+                    <li class="item" rel="tab_0${cate.id}">Tables</li>
+                </c:forEach>
             </ul>
             <div class="tab-container space-30">
-                <div id="tab_01" class="tab-content">
-                    <div class="products">
-                        <c:forEach items="${products}" var="item" varStatus="loop">
-                            <div class="product">
-                                <div class="wrap-title">
-                                    <p class="product-title">
-                                        <a style="font-family: 'Open Sans';font-size: 16px;color: #3a3a3a;line-height: 34px;font-weight: 700;text-transform: capitalize;" href="${pageContext.request.contextPath }/product/detail/${item.id}">${item.name }</a>
-                                    </p>
-                                    <p class="product-price"><span>Price: </span>$ ${item.unitprice}</p>
-                                    <c:if test="${loop.first}">
-                                        ${item.description}
-                                    </c:if>
+                <c:forEach items="${categories}" var="category" varStatus="loop">
+                    <div id="tab_0${category.id}" class="tab-content">
+                        <div class="products">
+                            <c:forEach items="${category.products}" var="item" varStatus="loop">
+                                <div class="product">
+                                    <div class="wrap-title">
+                                        <p class="product-title">
+                                            <a style="font-family: 'Open Sans';font-size: 16px;color: #3a3a3a;line-height: 34px;font-weight: 700;text-transform: capitalize;" href="${pageContext.request.contextPath }/product/detail/${item.id}">${item.name }</a>
+                                        </p>
+                                        <p class="product-price"><span>Price: </span>$ ${item.unitprice}</p>
+                                        <c:if test="${loop.first}">
+                                            ${item.description}
+                                        </c:if>
 
-                                </div>
-                                <div class="product-images">
-                                    <c:import url="${pageContext.request.contextPath }/assets/images/${item.productdetails.iterator().next().photo}" var="imageData" />
-                                    <c:if test="${loop.first}">
-                                        <div class="slide-product-images">
-                                            <c:forEach var="image" items="${item.productdetails }" begin = "1" end = "3">
-                                                <div class="items" data-thumb='<img class="primary_image" src="${pageContext.request.contextPath }/assets/images/${image.photo}" width="252" height="252"/>'>
-                                                    <a title="products">
-                                                        <c:if test = "${not empty imageData}">
-                                                            <img class="primary_image" src="${pageContext.request.contextPath }/assets/images/${image.photo}" width="252" height="252"/>
-                                                        </c:if>
-                                                        <c:if test = "${empty imageData}">
-                                                            <img class="primary_image" src="${pageContext.request.contextPath }/assets/images/no-image.png" width="252" height="252"/>
-                                                        </c:if>
-                                                    </a>
-                                                </div>
-                                            </c:forEach>
-                                        </div>
-                                    </c:if>
-                                    <c:if test="${!loop.first}">
-                                        <c:if test = "${not empty imageData}">
+                                    </div>
+                                    <div class="product-images">
+                                        <c:import url="${pageContext.request.contextPath }/assets/images/${item.productdetails.iterator().next().photo}" var="imageData" />
+                                        <c:if test="${loop.first}">
+                                            <div class="slide-product-images">
+                                                <c:forEach var="image" items="${item.productdetails }" begin = "1" end = "3">
+                                                    <div class="items" data-thumb='<img class="primary_image" src="${pageContext.request.contextPath }/assets/images/${image.photo}" width="252" height="252"/>'>
+                                                        <a title="products">
+                                                            <c:if test = "${not empty imageData}">
+                                                                <img class="primary_image" src="${pageContext.request.contextPath }/assets/images/${image.photo}" width="252" height="252"/>
+                                                            </c:if>
+                                                            <c:if test = "${empty imageData}">
+                                                                <img class="primary_image" src="${pageContext.request.contextPath }/assets/images/no-image.png" width="252" height="252"/>
+                                                            </c:if>
+                                                        </a>
+                                                    </div>
+                                                </c:forEach>
+                                            </div>
+                                        </c:if>
+                                        <c:if test="${!loop.first}">
+                                            <c:if test = "${not empty imageData}">
+                                                <a href="${pageContext.request.contextPath }/product/detail/${item.id}">
+                                                    <img class="primary_image" src="${pageContext.request.contextPath }/assets/images/${item.productdetails.iterator().next().photo}" width="252" height="252"/>
+                                                </a>
+                                            </c:if>
+                                            <c:if test = "${empty imageData}">
                                             <a href="${pageContext.request.contextPath }/product/detail/${item.id}">
-                                                <img class="primary_image" src="${pageContext.request.contextPath }/assets/images/${item.productdetails.iterator().next().photo}" width="252" height="252"/>
+                                                <img class="primary_image" src="${pageContext.request.contextPath }/assets/images/no-image.png" width="252" height="252"/>
                                             </a>
+                                            </c:if>
                                         </c:if>
-                                        <c:if test = "${empty imageData}">
-                                        <a href="${pageContext.request.contextPath }/product/detail/${item.id}">
-                                            <img class="primary_image" src="${pageContext.request.contextPath }/assets/images/no-image.png" width="252" height="252"/>
-                                        </a>
-                                        </c:if>
-                                    </c:if>
+                                    </div>
+                                    <div class="action">
+                                        <form action="${pageContext.request.contextPath }/cart/buy" method="get" >
+                                            <input type="hidden" name="id" value="${item.id}">
+                                            <input type="hidden" value="1" name="qty" max="100" min="1" step="1">
+                                            <button type="submit" title="link" class="link-v2" style="background: none;">
+                                                <a title="add-to-cart"><i style="top: 0px;left: 0px;" class="zmdi zmdi-shopping-cart-plus"></i></a>
+                                            </button>
+                                        </form>
+                                    </div>
                                 </div>
-                                <div class="action">
-                                    <form action="${pageContext.request.contextPath }/cart/buy" method="get" >
-                                        <input type="hidden" name="id" value="${item.id}">
-                                        <input type="hidden" value="1" name="qty" max="100" min="1" step="1">
-                                        <button type="submit" title="link" class="link-v2" style="background: none;">
-                                            <a title="add-to-cart"><i style="top: 0px;left: 0px;" class="zmdi zmdi-shopping-cart-plus"></i></a>
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </c:forEach>
+                            </c:forEach>
+                        </div>
+                        <!-- End product-tab-content products                                     -->
                     </div>
-                    <!-- End product-tab-content products                                     -->
-                </div>
+                </c:forEach>
             </div>
         </div>
         <!-- End container -->

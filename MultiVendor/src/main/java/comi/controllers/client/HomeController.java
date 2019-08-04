@@ -1,5 +1,6 @@
 package comi.controllers.client;
 
+import comi.services.CategoryService;
 import comi.services.ProductService;
 
 import javax.validation.Valid;
@@ -30,11 +31,15 @@ public class HomeController {
 	@Autowired
 	private ProductService productService;
 	@Autowired
-	private UserValidator userValidator;	
+	private UserValidator userValidator;
+
+	@Autowired
+	private CategoryService categoryService;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String index(ModelMap modelMap) {
 		modelMap.put("products", productService.findAll());
+		modelMap.put("categories", this.categoryService.findAll());
 		return "client.index";
 	}
 	

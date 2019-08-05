@@ -20,6 +20,9 @@
 <div style="text-align: center;">
     <h2 style="margin: 50px; color: green">Success payment !!!</h2>
     <h3>Your order is on delivery process</h3>
+    <a href="${pageContext.request.contextPath }/" style="margin: 50px;" class="btn btn-success">
+        Go To Home Page
+    </a>
 </div>
 
 

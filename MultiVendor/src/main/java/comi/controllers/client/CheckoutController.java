@@ -45,10 +45,7 @@ public class CheckoutController {
         List<Item> cartSession = new ArrayList<Item>();
 
         if(session.getAttribute("cart") == null){
-            cartSession.add(new Item(productService.find(5), 1));
-            cartSession.add(new Item(productService.find(5), 1));
-
-            session.setAttribute("cart", cartSession);
+            return "redirect:/";
         }
         else {
             cartSession = (List<Item>) session.getAttribute("cart");
@@ -59,7 +56,7 @@ public class CheckoutController {
         double subTotal = 0;
 
         if(cart == null || cart.isEmpty()) {
-            return "redirect:/cart";
+            return "redirect:/";
         } else {
             for (Item item: cart) {
                 subTotal += item.getQuantity() * item.getProduct().getUnitprice();
@@ -89,10 +86,19 @@ public class CheckoutController {
         }
     }
 
+    @RequestMapping(value = "create", method = RequestMethod.GET)
+    public String create() {
+        return "redirect:/";
+    }
+
     @RequestMapping(value = "create", method = RequestMethod.POST)
     public String create(@ModelAttribute("user") UserViewModel userViewModel,
                          Principal principal,
                          HttpSession session) {
+        if (session.getAttribute("cart") == null) {
+            return "redirect:/";
+        }
+
         Date date = new Date();
 
         Shipper shipper = new Shipper();
@@ -112,6 +118,7 @@ public class CheckoutController {
         saleorder.setDelivery(deliveryService.find(userViewModel.deliveryId));
         saleorder.setOrdernumber(UUID.randomUUID().toString());
         SaveSaveOrderDetailToDb(session, saleorder);
+        ClearCheckOutSession(session);
         return "client.checkout.success";
     }
 
@@ -130,6 +137,11 @@ public class CheckoutController {
 
     @RequestMapping(value = "success", method = RequestMethod.GET)
     public String success(HttpServletRequest request, HttpSession session, Principal principal) {
+
+        if (session.getAttribute("cart") == null) {
+            return "redirect:/";
+        }
+
         PayPalSucess payPalSucess = new PayPalSucess();
         PayPalResult payPalResult = payPalSucess.getPayPal(request, payPalService.getPayPalConfig());
 
@@ -156,6 +168,7 @@ public class CheckoutController {
         saleorder.setOrdernumber(UUID.randomUUID().toString());
         SaveSaveOrderDetailToDb(session, saleorder);
 
+        ClearCheckOutSession(session);
         return "client.checkout.success";
     }
 
@@ -187,5 +200,9 @@ public class CheckoutController {
             );
         }
         return saleorderdetails;
+    }
+
+    private void ClearCheckOutSession(HttpSession session) {
+        session.removeAttribute("cart");
     }
 }

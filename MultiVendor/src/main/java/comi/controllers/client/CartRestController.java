@@ -27,11 +27,11 @@ public class CartRestController {
 			cart.get(index).setQuantity(qty);
 			session.setAttribute("cart", cart);
 			double subtotal = cart.get(index).getQuantity() * cart.get(index).getProduct().getUnitprice();
-			double carttotal = 0;
+			double totalprice = 0;
 			for (Item item : cart) {
-				carttotal += item.getProduct().getUnitprice() * item.getQuantity();
+				totalprice += item.getProduct().getUnitprice() * item.getQuantity();
 			}
-			return new ResponseEntity<CartQty>(new CartQty(subtotal, carttotal), HttpStatus.OK);
+			return new ResponseEntity<CartQty>(new CartQty(subtotal, totalprice), HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<CartQty>(HttpStatus.BAD_REQUEST);
 		}

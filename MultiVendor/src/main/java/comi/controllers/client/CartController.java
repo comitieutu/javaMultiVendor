@@ -43,13 +43,13 @@ public class CartController {
 	public String buy(@RequestParam("id") int id, @RequestParam("qty") int qty, HttpSession session) {
 		if (session.getAttribute("cart") == null) {
 			List<Item> cart = new ArrayList<Item>();
-			cart.add(new Item(productService.find(id), 1));
+			cart.add(new Item(productService.find(id), qty));
 			session.setAttribute("cart", cart);
 		} else {
 			List<Item> cart = (List<Item>) session.getAttribute("cart");
 			int index = this.exists(id, cart);
 			if (index == -1) {
-				cart.add(new Item(productService.find(id), 1));
+				cart.add(new Item(productService.find(id), qty));
 			} else {
 				int quantity = cart.get(index).getQuantity() + qty;
 				cart.get(index).setQuantity(quantity);

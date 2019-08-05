@@ -9,7 +9,7 @@
 	                url: url + "/api/cart/change/" + id + "/" + $(this).val(),
 	                type: 'GET',
 	                success: function (data) {
-		                $('#carttotal').text(data.carttotal);
+		                $('#carttotalprice').text(data.totalprice);
 		                $('#subtotal_' + id).text(data.subtotal);
 	                }
 	            });

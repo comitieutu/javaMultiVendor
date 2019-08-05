@@ -6,6 +6,7 @@ import comi.services.ProductService;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -38,6 +39,7 @@ public class HomeController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String index(ModelMap modelMap) {
+		Sort.by(Sort.Direction.DESC, "id");
 		modelMap.put("products", productService.findAll());
 		modelMap.put("categories", this.categoryService.findAll());
 		return "client.index";

@@ -31,13 +31,7 @@
                         </p>
                         <p class="product-price"><span>price: </span>$ ${item.unitprice}</p>
                         <a class="product-images" href="${pageContext.request.contextPath }/product/detail/${item.id}">
-                            <c:import url="${pageContext.request.contextPath }/assets/images/${item.productdetails.iterator().next().photo}" var="imageData" />
-                            <c:if test = "${not empty imageData}">
-                                <img class="primary_image" src="${pageContext.request.contextPath }/assets/images/${item.productdetails.iterator().next().photo}" width="228" height="228"/>
-                            </c:if>
-                            <c:if test = "${empty imageData}">
-                                <img class="primary_image" src="${pageContext.request.contextPath }/assets/images/no-image.png" width="228" height="228"/>
-                            </c:if>
+                            <<img id="image" src="${pageContext.request.contextPath }/assets/images/${item.productdetails.iterator().next().photo}" width="228" height="228"/>
                         </a>
                         <div class="action">
                             <form action="${pageContext.request.contextPath }/cart/buy" method="get" >

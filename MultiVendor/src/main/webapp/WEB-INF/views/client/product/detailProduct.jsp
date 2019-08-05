@@ -25,32 +25,13 @@
             <div class="col-md-6 col-sm-6">
                 <div class="product-img-box">
                     <a id="image-view" title="Product Image">
-                        <img id="image" src=""/>
-                        <c:if test = "${not empty imageData}">
-                            <a href="${path}/images/product-details1.jpg" title="thumb product view1" onclick="swap(this);return false;">
-                                <img src="${pageContext.request.contextPath }/assets/images/${product.productdetails.iterator().next().photo}" alt="${product.name}" width="450">
-                            </a>
-                        </c:if>
-                        <c:if test = "${empty imageData}">
-                            <a href="${path}/images/product-details1.jpg" title="thumb product view1" onclick="swap(this);return false;">
-                                <img src="${pageContext.request.contextPath }/assets/images/no-image.png" alt="${product.name}" width="450">
-                            </a>
-                        </c:if>
+                        <img id="image" src="${pageContext.request.contextPath }/assets/images/${item.productdetails.iterator().next().photo}" width="450"/>
                     </a>
                     <div class="product-thumb">
                         <ul class="thumb-content">
                             <c:forEach var="image" items="${product.productdetails }">
                                 <li class="thumb">
-                                    <c:if test = "${not empty imageData}">
-                                        <a href="${path}/images/product-details1.jpg" title="thumb product view1" onclick="swap(this);return false;">
-                                            <img src="${pageContext.request.contextPath }/assets/images/${image.photo}">
-                                        </a>
-                                    </c:if>
-                                    <c:if test = "${empty imageData}">
-                                        <a href="${path}/images/product-details1.jpg" title="thumb product view1" onclick="swap(this);return false;">
-                                            <img src="${pageContext.request.contextPath }/assets/images/no-image.png">
-                                        </a>
-                                    </c:if>
+                                    <img src="${pageContext.request.contextPath }/assets/images/${item.productdetails.iterator().next().photo}"/>
                                 </li>
                             </c:forEach>
                         </ul>
@@ -219,14 +200,7 @@
                     </p>
                     <p class="product-price"><span>price: </span>$ ${item.unitprice}</p>
                     <a class="product-images">
-                        <c:if test = "${not empty imageOthersData}">
-                            <img class="primary_image" src="${pageContext.request.contextPath }/assets/images/${item.productdetails.iterator().next().photo}" width="213" height="213"/>
-                        </c:if>
-                        <c:if test = "${empty imageOthersData}">
-                            <img class="primary_image" src="${pageContext.request.contextPath }/assets/images/no-image.png" width="213" height="213"/>
-                        </c:if>
-
-                        <img class="secondary_image" src="${path}/images/products/2.jpg" alt=""/>
+                        <img src="${pageContext.request.contextPath }/assets/images/${item.productdetails.iterator().next().photo}" width="213" height="213"/>
                     </a>
                     <div class="action">
                         <a href="#" title="add-to-cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>

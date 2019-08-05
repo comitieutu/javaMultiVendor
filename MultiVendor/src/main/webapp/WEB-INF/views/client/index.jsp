@@ -240,12 +240,7 @@
                              data-endeasing="Power1.easeIn"
                              data-captionhidden="on"
                             style="z-index: 1">
-                            <c:if test = "${not empty imageData}">
-                                <img src="${pageContext.request.contextPath }/assets/images/${image.photo}" width="500" height="500" style="top:60px;"/>
-                            </c:if>
-                            <c:if test = "${empty imageData}">
-                                <img src="${pageContext.request.contextPath }/assets/images/no-image.png" width="500" height="500" style="top:60px;"/>
-                            </c:if>
+                            <img src="${pageContext.request.contextPath }/assets/images/${item.productdetails.iterator().next().photo}" width="500" height="500" style="top:60px;"/>
                         </div>
                     </li>
                     </c:forEach>
@@ -300,28 +295,14 @@
                                                 <c:forEach var="image" items="${item.productdetails }" begin = "1" end = "3">
                                                     <div class="items" data-thumb='<img class="primary_image" src="${pageContext.request.contextPath }/assets/images/${image.photo}" width="252" height="252"/>'>
                                                         <a title="products">
-                                                            <c:if test = "${not empty imageData}">
-                                                                <img class="primary_image" src="${pageContext.request.contextPath }/assets/images/${image.photo}" width="252" height="252"/>
-                                                            </c:if>
-                                                            <c:if test = "${empty imageData}">
-                                                                <img class="primary_image" src="${pageContext.request.contextPath }/assets/images/no-image.png" width="252" height="252"/>
-                                                            </c:if>
+                                                            <img src="${pageContext.request.contextPath }/assets/images/${item.productdetails.iterator().next().photo}" width="252" height="252"/>
                                                         </a>
                                                     </div>
                                                 </c:forEach>
                                             </div>
                                         </c:if>
                                         <c:if test="${!loop.first}">
-                                            <c:if test = "${not empty imageData}">
-                                                <a href="${pageContext.request.contextPath }/product/detail/${item.id}">
-                                                    <img class="primary_image" src="${pageContext.request.contextPath }/assets/images/${item.productdetails.iterator().next().photo}" width="252" height="252"/>
-                                                </a>
-                                            </c:if>
-                                            <c:if test = "${empty imageData}">
-                                            <a href="${pageContext.request.contextPath }/product/detail/${item.id}">
-                                                <img class="primary_image" src="${pageContext.request.contextPath }/assets/images/no-image.png" width="252" height="252"/>
-                                            </a>
-                                            </c:if>
+                                            <img src="${pageContext.request.contextPath }/assets/images/${item.productdetails.iterator().next().photo}" width="252" height="252"/>
                                         </c:if>
                                     </div>
                                     <div class="action">

@@ -13,7 +13,6 @@
                 <tr>
                     <th><i class="fa fa-align-justify"></i> Id</th>
                     <th><i class="fa fa-align-justify"></i> Title</th>
-                    <th><i class="fa fa-align-justify"></i> Content</th>
                     <th><i class="fa fa-star"></i> Action</th>
                 </tr>
                 </thead>
@@ -22,7 +21,6 @@
                     <tr>
                         <td>${item.id }</td>
                         <td>${item.title }</td>
-                        <td>${item.content}</td>
                         <td>
                             <a href="${pageContext.request.contextPath }/admin/static/update/${item.code}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i>Edit</a>
                         </td>

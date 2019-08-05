@@ -13,7 +13,7 @@
     <div class="container">
         <ul>
             <li><a href="http://localhost:9596">Home</a></li>
-            <li>${category.name}</li>
+            <li class="active">${category.name}</li>
         </ul>
     </div>
     <!-- End container -->

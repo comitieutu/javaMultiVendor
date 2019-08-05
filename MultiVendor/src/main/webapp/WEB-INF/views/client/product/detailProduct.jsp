@@ -12,7 +12,7 @@
 <div class="breadcrumb">
     <div class="container">
         <ul>
-            <li><a href="#">Home</a></li>
+            <li><a href="http://localhost:9596">Home</a></li>
             <li class="active">Product Details</li>
         </ul>
     </div>

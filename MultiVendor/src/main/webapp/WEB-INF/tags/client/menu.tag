@@ -7,7 +7,7 @@
         <div class="inner-container">
             <p class="icon-menu-mobile"><span class="icon-bar"></span></p>
             <div class="logo"><a href="http://localhost:9596" title="Dana-Logo">
-                <img src="${pageContext.request.contextPath }/assets/images/Dana-menu-logo.png"/>
+                <img width="120" height="50" src="${pageContext.request.contextPath }/assets/images/Dana-menu-logo.png"/>
             </a></div>
             <div class="menu-top">
                 <ul class="nav-top">
@@ -93,7 +93,7 @@
                 </c:if>
             </c:forEach>
         </ul>
-        <div class="menu-icon-right">
+        <div class="menu-icon-right" style="padding-top: 16px;">
     <a class="refresh" href="#" title="twitter"><i class="zmdi zmdi-refresh-sync"></i></a>
     <a class="favor" href="#" title="sky"><i class="zmdi zmdi-favorite-outline"></i></a>
     

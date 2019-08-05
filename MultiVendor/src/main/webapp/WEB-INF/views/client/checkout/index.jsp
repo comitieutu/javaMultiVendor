@@ -19,7 +19,7 @@
 <div class="breadcrumb">
     <div class="container">
         <ul>
-            <li><a href="#">Home</a></li>
+            <li><a href="http://localhost:9596">Home</a></li>
             <li class="active">Shopping Cart</li>
         </ul>
     </div>
@@ -137,9 +137,7 @@
     <div class="container">
         <div class="row footer-top">
             <div class="col-md-5">
-                <a class="logo" href="#" title="logo"><img src="assets/images/Dana-menu-logo.png"
-                                                           tppabs="http://landing.engocreative.com/html/dama/demo/assets/images/Dana-menu-logo.png"
-                                                           alt="Logo"></a>
+                <a class="logo" href="#" title="logo"><img src="assets/images/Dana-menu-logo.png"></a>
                 <p class="italic">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
                     has been the industry's standard.</p>
                 <div class="infomation">

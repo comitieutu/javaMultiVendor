@@ -13,7 +13,11 @@
         <div class="container">
             <div class="inner-container">
                 <p class="icon-menu-mobile"><span class="icon-bar"></span></p>
-                <div class="logo"><a href="#" title="Dana-Logo"><img src="${path}/images/Dana-menu-logo.png"></a></div>
+                <div class="logo">
+                    <a href="http://localhost:9596" title="Dana-Logo">
+                        <img width="120" src="${pageContext.request.contextPath }/assets/images/Dana-menu-logo.png">
+                    </a>
+                </div>
                 <div class="search">
                     <div class="search-form">
                         <form method="get" action="#">
@@ -38,11 +42,11 @@
                 </div>
                 <div class="menu-top menu-top-v2">
                     <ul class="nav-top">
-                        <li class="level1"><a title="Hopme">Home</a>
+                        <li class="level1"><a title="Home">Home</a>
                             <ul class="menu-level-1">
-                                <li class="level2"><a href="home_v1.html" >Home</a></li>
-                                <li class="level2"><a href="about.html"  >About us</a></li>
-                                <li class="level2"><a href="contact.html" >Contact us</a></li>
+                                <li class="level2"><a href="http://localhost:9596" >Home</a></li>
+                                <li class="level2"><a href="${pageContext.request.contextPath }/static/au">About us</a></li>
+                                <li class="level2"><a href="${pageContext.request.contextPath }/static/ct">Contact us</a></li>
                             </ul>
                         </li>
                         <li class="level1"><a title="Product">Product</a>

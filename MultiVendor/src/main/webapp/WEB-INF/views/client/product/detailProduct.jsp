@@ -8,7 +8,7 @@
 <header id="header" class="header-v3">
     <mt:topbar></mt:topbar>
    	<mt:menu></mt:menu>
-</header><!-- /header -->
+</header>
 <div class="breadcrumb">
     <div class="container">
         <ul>

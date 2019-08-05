@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping("static")
-public class ContentstaticController {
+public class ContentStaticController {
 
 	@Autowired
 	private ContentstaticService contentstaticService;
@@ -23,7 +23,7 @@ public class ContentstaticController {
 	public String index(@PathVariable("code") String code, ModelMap modelMap) {
 		modelMap.put("contentstatic", contentstaticService.find(code));
 		modelMap.put("categories", categoryService.findAll());
-		return "client.contentstatic.index";
+		return "client.static.index";
 	}
 
 }

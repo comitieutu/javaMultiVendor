@@ -47,8 +47,8 @@
 		<put-attribute name="accessDenied" value=""></put-attribute>
 	</definition>
 
-	<definition name="client.contentstatic.index" extends="templateClient">
-		<put-attribute name="content" value="/WEB-INF/views/client/contentstatic/index.jsp"></put-attribute>
+	<definition name="client.static.index" extends="templateClient">
+		<put-attribute name="content" value="/WEB-INF/views/client/static/index.jsp"></put-attribute>
 	</definition>
 	
 </tiles-definitions>

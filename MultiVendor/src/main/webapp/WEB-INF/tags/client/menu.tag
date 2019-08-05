@@ -12,9 +12,23 @@
             <div class="menu-top">
                 <ul class="nav-top">
                     <li class="level1"><a href="http://localhost:9596" title="Home">Home</a></li>
-                    <li class="level1"><a href="${pageContext.request.contextPath }/static/au" title="About Us">About Us</a></li>
+                    <li class="level1">
+                        <c:if test="${contentstatic.code == 'au'}">
+                            <a style="color: #f5c615;" href="${pageContext.request.contextPath }/static/au" title="About Us">About Us</a>
+                        </c:if>
+                        <c:if test="${contentstatic.code != 'au'}">
+                            <a href="${pageContext.request.contextPath }/static/au" title="About Us">About Us</a>
+                        </c:if>
+                    </li>
                     <li class="level1"><a href="${pageContext.request.contextPath }/news/" title="News">News</a></li>
-                    <li class="level1"><a href="${pageContext.request.contextPath }/static/ct" title="Contact">Contact</a></li>
+                    <li class="level1">
+                        <c:if test="${contentstatic.code == 'ct'}">
+                            <a style="color: #f5c615;" href="${pageContext.request.contextPath }/static/ct" title="Contact">Contact</a>
+                        </c:if>
+                        <c:if test="${contentstatic.code != 'ct'}">
+                            <a href="${pageContext.request.contextPath }/static/ct" title="Contact">Contact</a>
+                        </c:if>
+                    </li>
                 </ul>
             </div>
             <div class="search">

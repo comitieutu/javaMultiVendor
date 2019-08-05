@@ -13,20 +13,18 @@
                 <tr>
                     <th><i class="fa fa-align-justify"></i> Id</th>
                     <th><i class="fa fa-align-justify"></i> Title</th>
-                    <th><i class="fa fa-align-justify"></i> Code</th>
                     <th><i class="fa fa-align-justify"></i> Content</th>
                     <th><i class="fa fa-star"></i> Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="item" items="${contentstatics }">
+                <c:forEach var="item" items="${statics }">
                     <tr>
                         <td>${item.id }</td>
                         <td>${item.title }</td>
-                        <td>${item.code }</td>
                         <td>${item.content}</td>
                         <td>
-                            <a href="${pageContext.request.contextPath }/admin/category/update/${item.id}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i>Edit</a>
+                            <a href="${pageContext.request.contextPath }/admin/static/update/${item.code}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i>Edit</a>
                         </td>
                     </tr>
                 </c:forEach>

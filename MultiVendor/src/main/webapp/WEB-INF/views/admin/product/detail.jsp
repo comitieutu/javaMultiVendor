@@ -22,7 +22,7 @@
                 		<tr>
 							<td>${p.id }</td>
 							<td>
-								<img src="${pageContext.request.contextPath }/assets/images/${p.photo}">
+								<img width="24" src="${pageContext.request.contextPath }/assets/images/${p.photo}">
 							</td>
 							<td>
 								<a href="${pageContext.request.contextPath }/admin/product/detail/delete/${p.id}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i>Delete</a>

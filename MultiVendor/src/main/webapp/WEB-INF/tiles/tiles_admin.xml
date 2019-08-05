@@ -78,8 +78,11 @@
 		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/shipper/delete.jsp"></put-attribute>
 	</definition>
 
-	<definition name="admin.contentstatic.index" extends="templateAdmin">
-		<put-attribute name="content" value="/WEB-INF/views/admin/contentstatic/index.jsp"></put-attribute>
+	<definition name="admin.static.index" extends="templateAdmin">
+		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/static/index.jsp"></put-attribute>
+	</definition>
+	<definition name="admin.static.update" extends="templateAdmin">
+		<put-attribute name="contentAdmin" value="/WEB-INF/views/admin/static/update.jsp"></put-attribute>
 	</definition>
 	
 </tiles-definitions>

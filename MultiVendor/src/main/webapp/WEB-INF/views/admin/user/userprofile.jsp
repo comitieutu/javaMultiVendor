@@ -8,65 +8,42 @@
         <div class="form-panel">
             <h4 class="mb"><i class="fa fa-angle-right"></i>UserProfile</h4>
             
-            <s:form class="form-horizontal style-form" method="post" modelAttribute="user" enctype="multipart/form-data">
-            	<table  class="table table-striped table-advance table-hover">
-            	
+            <s:form class="form-horizontal style-form" action="${pageContext.request.contextPath }/admin/user/userprofile" 
+             method="post" modelAttribute="user" enctype="multipart/form-data">
+            	<table  class="table table-striped table-advance table-hover">            															
             <tr>
                  <th> Name : ${user.username}</th>     
                 	                                         
             </tr>
-            	
+                       	
               <tr>
-                <th> Email : ${user.email}</th>  
+                <th> Email : ${user.email}></th>  
                   
             </tr>
+            
             <tr>
-            	
-            	                <th>Role : ${role.name}</th>
-            	
-            
-            	
-             </tr>
-                 <td>
-             
-                 
-                <select path="userroles" class="form-control round-form">
-                   	
-                        	<c:forEach var="r" items="${userroles }">
-									<option >${r.role.name}</option>
-									
-                        			
-								
-					</c:forEach>
-					  </select>
+            			<th><c:forEach var="r" items="${user.userroles }">
+								Role: ${r.role.name }
+									<br>
+								</c:forEach>
+						</th>          	  
+            														 					 					
 					
-                      
-                        
-           		
-                  </td>
+             </tr>
              
-                  
-           
-            
-            
-                   
-                    
-                      
+               <tr>
+               <th>
+               		
+               		<s:select items="${roles }" itemLabel="name" itemValue="id" path="userroles[0].id.roleid" 
+               		class="form-horizontal style-form"/>             		              		                 	              									                     
+               			
+					</th>
+               </tr>
                
-            
-            
-            
-            
-					<s:hidden path="id"/>
-			  
               
-           
-			
-			
-		
-               
-                
-              	</table>
+            <s:hidden path="id" />
+              
+               	</table>
                         
           		<div class="form-group">
                     <div class="col-lg-offset-2 col-lg-10">
@@ -83,4 +60,33 @@
             
         </div>
     </div>
-</div>
+</div>		
+                   
+                  
+								
+		
+					
+					
+                      
+                        
+           		
+         
+             
+               
+           
+            
+            
+                   
+                    
+                      
+               
+            
+            
+            
+            
+					
+			  
+              
+                   
+                
+              

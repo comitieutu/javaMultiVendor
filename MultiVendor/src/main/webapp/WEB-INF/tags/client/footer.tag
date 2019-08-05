@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row footer-top">
             <div class="col-md-5">
-                <a class="logo" href="#" title="logo"><img src="${path}/images/Dana-menu-logo.png" alt="Logo"></a>
+                <a class="logo" href="#" title="logo"><img src="${path}/assets/images/Dana-menu-logo.png" alt="Logo"></a>
                 <p class="italic">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.</p>
                 <div class="infomation">
                     <p><i class="zmdi zmdi-pin"></i>PO Box CT16122 Collins Street West, Victoria 8007, Australia.</p>
@@ -47,13 +47,13 @@
         <div class="container">
             <div class="col-md-8">
                 <p>&copy; COPYRIGHT 2016 BY ENGOTHEME</p>
-                <a href="" title="facebook"><i class="zmdi zmdi-facebook"></i></a>
+                <a href="#" title="facebook"><i class="zmdi zmdi-facebook"></i></a>
                 <a href="#" title="google"><i class="zmdi zmdi-google-plus"></i></a>
                 <a href="#" title="instagram"><i class="zmdi zmdi-instagram"></i></a>
                 <a href="#" title="twitter"><i class="zmdi zmdi-twitter"></i></a>
             </div>
             <div class="col-md-4">
-                <a href="#" title="Payment"><img src="${path}/images/Hermes-footer-payment.png" alt="payment"></a>
+                <a href="#" title="Payment"><img src="${Path }assets/images/Hermes-footer-payment.png" alt="payment"></a>
             </div>
         </div>
     </div>

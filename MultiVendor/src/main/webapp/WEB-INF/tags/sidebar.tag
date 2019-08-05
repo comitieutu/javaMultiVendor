@@ -71,21 +71,8 @@
         </ul>
       </li>
       
-      
-      
-       
-      
-        <li class="sub-menu">
-        <a href="javascript:;">
-          <i class="fa fa-desktop"></i>
-          <span>User</span>
-          </a>
-        <ul class="sub">
-          <li><a href="${pageContext.request.contextPath }/admin/user">List</a></li>
-         
-        </ul>
-      </li>
-      
+           
+                   
       
       
        

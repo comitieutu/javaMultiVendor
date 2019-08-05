@@ -10,6 +10,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import comi.entities.Role;
 import comi.entities.User;
@@ -20,6 +21,7 @@ import comi.repositories.UserRepository;
 import comi.repositories.UserRoleRepository;
 
 @Service("userService")
+@Transactional
 public class UserServiceImp implements UserService{
 
 	@Autowired
@@ -47,55 +49,33 @@ public class UserServiceImp implements UserService{
 		user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
 		user.setEnable(true);
 		user = this.userRepository.save(user);
-		Role role = this.roleRepository.findByName("CUSTOMER");
+		Role role = this.roleRepository.findByName("name");
 		Userrole userrole = new Userrole();
-		userrole.setId(new UserroleId(user.getId(), role.getId()));
+		userrole.setId(new UserroleId(user.getId(), role.getId()));		
 		userrole.setUser(user);
 		userrole.setRole(role);
 		this.userroleRepository.save(userrole);
 		return user;
 	}
 
-	@Override
-	public Iterable<User> findAll() {
-		return this.userRepository.findAll();
-	}
-
+	
 	@Override
 	public User find(int id) {
 		return this.userRepository.findById(id).get();
 		
 	}
 
-	@Override
-	public User save(User user) {
-		return this.userRepository.save(user);
-		
-	}
-
-	@Override
-	public void delete(int id) {
-		this.userRepository.deleteById(id);
-		
-	}
+	
+	
 
 	@Override
 	public Iterable<User> findAll() {
 		return this.userRepository.findAll();
 	}
 
-	@Override
-	public User find(int id) {
-		return this.userRepository.findById(id).get();
-		
-	}
+	
 
-	@Override
-	public User save(User user) {
-		return this.userRepository.save(user);
-		
-	}
-
+	
 	@Override
 	public void delete(int id) {
 		this.userRepository.deleteById(id);

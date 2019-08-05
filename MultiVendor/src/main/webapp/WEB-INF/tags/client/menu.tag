@@ -79,5 +79,37 @@
                 </c:if>
             </c:forEach>
         </ul>
+        <div class="menu-icon-right">
+    <a class="refresh" href="#" title="twitter"><i class="zmdi zmdi-refresh-sync"></i></a>
+    <a class="favor" href="#" title="sky"><i class="zmdi zmdi-favorite-outline"></i></a>
+    
+    <div class="cart dropdown">
+    <a class="icon-cart" href="${pageContext.request.contextPath }/cart" title="Cart">
+        <i class="zmdi zmdi-shopping-cart-plus"></i>
+    </a>
+    <div class="cart-list dropdown-menu">
+        <ul class="list">
+        	<c:set var="total" value="0"></c:set>
+         	<c:forEach var="item" items="${sessionScope.cart }">
+         		<c:set var="total" value="${total + item.product.unitprice * item.quantity }"></c:set>
+	            <li>
+	                <a href="#" title="" class="cart-product-image"><img src="${pageContext.request.contextPath }/assets/images/${item.product.productdetails.iterator().next().photo}" 
+	                		tppabs="${pageContext.request.contextPath }/assets/images/${item.product.productdetails.iterator().next().photo}" alt="Product"></a>
+	                <div class="text">
+	                    <p class="product-name">${ item.product.name }</p>
+	                    <p class="product-price">${item.product.unitprice }</p>
+	                </div>
+	                <a href="${pageContext.request.contextPath }/cart/remove/${item.product.id }" class="delete-item" onclick="return confirm('Are you sure?')">
+	                    <i class="zmdi zmdi-close-circle-o"></i>
+	                </a>
+	            </li>
+            </c:forEach>                            
+        </ul>
+        <p class="total"><span>Total cost</span> ${total }</p>
+        <a class="checkout" href="${pageContext.request.contextPath }/cart" title="view cart">view cart</a>
+        <a class="checkout bg-black" href="${pageContext.request.contextPath }/checkout" title="check out">Check out</a>
+    </div>
+</div>
+</div>
     </div>
 </nav>

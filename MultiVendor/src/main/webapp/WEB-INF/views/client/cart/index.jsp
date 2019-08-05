@@ -55,8 +55,8 @@
 	               </tr>
            		</c:forEach>
            		<tr>
-           			<td colspan="4" align="right">Sum</td>
-           			<td id="carttotal">${total }</td>
+           			<td colspan="4" align="right"><h3>Sum</h3></td>
+           			<td id="carttotalprice">${total }</td>
            		</tr>
            </tbody>
        </table>
@@ -86,14 +86,6 @@
         </div>
         <!-- End col-md-6 -->
        <div class="col-md-6 cart-totals text-price">
-           <div class="title-ver2">
-               <h3>Cart totals</h3>
-           </div>
-           <ul>
-               <li><span class="text">Subtotal</span><span class="number">$ 1,990.00</span></li>
-               <li><span class="text">Shipping</span><span class="number">$ 50.00</span></li>
-               <li><span class="text totals">Totals Cart</span><span class="number totals">$ 2,040.00</span></li>
-           </ul>
            <a class="btn link-button link-border-raidus"
               href="${pageContext.request.contextPath }/checkout" title="Proceed to checkout">Proceed to checkout</a>
        </div>

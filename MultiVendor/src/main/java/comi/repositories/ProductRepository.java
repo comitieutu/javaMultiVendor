@@ -15,9 +15,8 @@ public interface ProductRepository extends CrudRepository<Product, Integer> {
 //	//JPAQL
 //	@Query("from Product where price >= :min and price <= :max")
 //	public List<Product> findByPrices(@Param("min") double min, @Param("max") double max);
-//	
-//	@Query("from Product where name like :keyword%")
-//	public List<Product> searchLike1(@Param("keyword") String keyword);
+//
+
 //	
 //	@Query("from Product where name like %:keyword")
 //	public List<Product> searchLike2(@Param("keyword") String keyword);
@@ -41,5 +40,8 @@ public interface ProductRepository extends CrudRepository<Product, Integer> {
 
     @Query("from Product where category.id = :categoryid")
 	public List<Product> findAllByCategory(@Param("categoryid") int categoryid);
+
+    @Query("from Product where name like :keyword% and category.id = :categoryid")
+	public List<Product> searchLike(@Param("keyword") String keyword, @Param("categoryid") int categoryid);
 	
 }

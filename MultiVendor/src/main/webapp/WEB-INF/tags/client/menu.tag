@@ -33,20 +33,18 @@
             </div>
             <div class="search">
                 <div class="search-form">
-                    <form action="#" method="get">
+                    <form action="${pageContext.request.contextPath }/product/search" method="get" >
                         <div class="search-select">
                             <i class="zmdi zmdi-chevron-down"></i>
-                            <select name="orderby" class="category-search">
-                                <option value="">Select Category</option>
-                                <option value="Headphone">Headphone</option>
-                                <option value="Smart phone">Smart phone</option>
-                                <option value="game consoles">game consoles</option>
-                                <option value="Laptop">Laptop</option>
-                                <option value="televison">televison</option>
+                            <select name="categoryid" class="category-search">
+                                <option value="0">Select Category</option>
+                                <c:forEach var="cate" items="${categories }">
+                                    <option value="${cate.id}" ${cate.id == categoryInSearch.id ? 'selected="selected"' : ''}>${cate.name}</option>
+                                </c:forEach>
                             </select>
                         </div>
                         <!-- End search Select -->
-                        <input type="text" autocomplete="off" placeholder="search Keywork " value="" class="ajax_autosuggest_input ac_input" name="s">
+                        <input name="keywork" type="text" autocomplete="off" placeholder="search Keywork " value="${keywork}" class="ajax_autosuggest_input ac_input" name="s">
                         <button type="submit" class="icon-search">
                             <i class="zmdi zmdi-search"></i>
                         </button>

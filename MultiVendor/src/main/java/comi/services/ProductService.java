@@ -9,4 +9,5 @@ public interface ProductService {
 	public Product save(Product product);
 	public void delete(int id);
 	public Iterable<Product> findAllById(int id);
+	public Iterable<Product> searchLike(String keywork, int categoryid);
 }

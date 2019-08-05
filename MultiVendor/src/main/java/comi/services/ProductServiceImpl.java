@@ -38,4 +38,9 @@ public class ProductServiceImpl implements ProductService {
 	public void delete(int id) {
 		productRepository.deleteById(id);
 	}
+
+	@Override
+	public Iterable<Product> searchLike(String keywork, int categoryid) {
+		return this.productRepository.searchLike(keywork, categoryid);
+	}
 }

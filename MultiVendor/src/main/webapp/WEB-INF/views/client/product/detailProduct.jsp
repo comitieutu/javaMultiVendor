@@ -31,7 +31,7 @@
                         <ul class="thumb-content">
                             <c:forEach var="image" items="${product.productdetails }">
                                 <li class="thumb">
-                                    <img src="${pageContext.request.contextPath }/assets/images/${item.productdetails.iterator().next().photo}"/>
+                                    <img src="${pageContext.request.contextPath }/assets/images/${product.productdetails.iterator().next().photo}"/>
                                 </li>
                             </c:forEach>
                         </ul>

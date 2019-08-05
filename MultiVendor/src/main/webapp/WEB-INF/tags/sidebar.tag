@@ -66,7 +66,7 @@
           <span>Content Static</span>
         </a>
         <ul class="sub">
-          <li><a href="${pageContext.request.contextPath }/admin/contentstatic">List</a></li>
+          <li><a href="${pageContext.request.contextPath }/admin/static">List</a></li>
         </ul>
       </li>
     </ul>

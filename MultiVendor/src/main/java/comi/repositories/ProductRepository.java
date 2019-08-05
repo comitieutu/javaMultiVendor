@@ -41,7 +41,7 @@ public interface ProductRepository extends CrudRepository<Product, Integer> {
     @Query("from Product where category.id = :categoryid")
 	public List<Product> findAllByCategory(@Param("categoryid") int categoryid);
 
-    @Query("from Product where name like :keyword% and category.id = :categoryid")
+    @Query("from Product where name like %:keyword% and category.id = :categoryid")
 	public List<Product> searchLike(@Param("keyword") String keyword, @Param("categoryid") int categoryid);
 	
 }

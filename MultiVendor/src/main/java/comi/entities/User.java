@@ -31,11 +31,9 @@ public class User implements java.io.Serializable {
 	@NotEmpty
 	@Length(min = 3, max = 10)
 	private String username;
-	@NotEmpty
 	@Email
 	private String email;
 	@NotEmpty
-	@Pattern(regexp = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})")
 	private String password;
 	private boolean enable;
 	private List<Personinfo> personinfos = new ArrayList<>(0);

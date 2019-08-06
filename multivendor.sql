@@ -380,6 +380,17 @@ CREATE TABLE `warehouse` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
+-- Cấu trúc bảng cho bảng `contentstatic`
+--
+
+CREATE TABLE `contentstatic` (
+  `id` int(11) NOT NULL,
+  `title` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
+  `code` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
+  `content` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
 -- Chỉ mục cho các bảng đã đổ
 --
 

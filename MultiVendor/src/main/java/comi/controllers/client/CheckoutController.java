@@ -70,7 +70,22 @@ public class CheckoutController {
             modelMap.put("delivery", deliveryService.findAll());
 
             User user = userService.getByUsername(principal.getName());
-            Personinfo personinfo = user.getPersoninfos().get(0);
+            Personinfo personinfo;
+            if (user.getPersoninfos() != null) {
+                personinfo = user.getPersoninfos().get(0);
+            }
+            else {
+                personinfo = new Personinfo();
+                personinfo.setAddress("");
+                personinfo.setBirthday(new Date());
+                personinfo.setDistrict(new District());
+                personinfo.setFirstname("");
+                personinfo.setLastname("");
+                personinfo.setGender(true);
+                personinfo.setStreet("");
+                personinfo.setUser(user);
+            }
+
             UserViewModel userViewModel = new UserViewModel();
             userViewModel.address = personinfo.getAddress();
             userViewModel.firstName = personinfo.getFirstname();
@@ -106,6 +121,13 @@ public class CheckoutController {
 
         Payment payment = new Payment();
         payment.setId(1);
+
+        if (userViewModel.deliveryId == 2) {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(date);
+            calendar.add(Calendar.DATE, 3);
+            date = calendar.getTime();
+        }
 
         Saleorder saleorder = new Saleorder();
         saleorder.setUser(userService.getByUsername(principal.getName()));
@@ -156,12 +178,21 @@ public class CheckoutController {
         Payment payment = new Payment();
         payment.setId(2);
 
+        Date date = new Date();
+
+        if (submitForm.getDeliveryId() == 2) {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(date);
+            calendar.add(Calendar.DATE, 3);
+            date = calendar.getTime();
+        }
+
         Saleorder saleorder = new Saleorder();
         saleorder.setUser(userService.getByUsername(principal.getName()));
         saleorder.setStatus("Payed by Paypal");
         saleorder.setDeliveryprice((Double)deliveryService.find(submitForm.getDeliveryId()).getPrice());
         saleorder.setTotalprice(Double.valueOf(total));
-        saleorder.setShipdate(new Date());
+        saleorder.setShipdate(date);
         saleorder.setShipper(shipper);
         saleorder.setPayment(payment);
         saleorder.setDelivery(deliveryService.find(submitForm.getDeliveryId()));

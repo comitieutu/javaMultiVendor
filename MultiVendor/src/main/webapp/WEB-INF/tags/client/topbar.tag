@@ -10,6 +10,7 @@
             <div class="wrap-sign-in cart dropdown">
             	<sec:authorize access="!isAuthenticated()">
             		<a class="sign-in" href="${pageContext.request.contextPath }/login" title="user"><i class="zmdi zmdi-account"></i>Login</a>
+            		<a class="sign-in" href="${pageContext.request.contextPath }/register" title="user"><i class="zmdi zmdi-account"></i>Register</a>
 				</sec:authorize>
             	<sec:authorize access="isAuthenticated()">
             		<a href="${pageContext.request.contextPath }/admin">Welcome <sec:authentication property="name"/></a>

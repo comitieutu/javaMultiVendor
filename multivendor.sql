@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th7 08, 2019 lúc 04:07 PM
+-- Thời gian đã tạo: Th8 06, 2019 lúc 03:04 PM
 -- Phiên bản máy phục vụ: 10.1.35-MariaDB
 -- Phiên bản PHP: 7.2.9
 
@@ -54,8 +54,12 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `name`, `description`, `parent`) VALUES
-(1, 'Smartphone', 'Smartphone', 0),
-(2, 'Clother', 'Clother', 1);
+(1, 'headphone', 'Headphone', 0),
+(2, 'watch', 'Watch', 1),
+(3, 'phone', 'Phone', 0),
+(4, 'game', 'Game', 0),
+(5, 'laptop', 'Laptop', 0),
+(6, 'television', 'Television', 0);
 
 -- --------------------------------------------------------
 
@@ -69,6 +73,27 @@ CREATE TABLE `comment` (
   `productid` int(11) NOT NULL,
   `context` varchar(250) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `contentstatic`
+--
+
+CREATE TABLE `contentstatic` (
+  `id` int(11) NOT NULL,
+  `title` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
+  `code` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
+  `content` text COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `contentstatic`
+--
+
+INSERT INTO `contentstatic` (`id`, `title`, `code`, `content`) VALUES
+(1, 'About Us', 'au', 'content of about us'),
+(2, 'Contact', 'ct', 'content of contact');
 
 -- --------------------------------------------------------
 
@@ -165,11 +190,11 @@ CREATE TABLE `product` (
   `id` int(11) NOT NULL,
   `name` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci NOT NULL,
-  `content` text COLLATE utf8_unicode_ci NOT NULL,
-  `specification` text COLLATE utf8_unicode_ci NOT NULL,
   `quantity` int(11) NOT NULL,
   `unitprice` double NOT NULL,
   `brand` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
+  `specification` text COLLATE utf8_unicode_ci NOT NULL,
+  `content` text COLLATE utf8_unicode_ci NOT NULL,
   `categoryid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -177,8 +202,13 @@ CREATE TABLE `product` (
 -- Đang đổ dữ liệu cho bảng `product`
 --
 
-INSERT INTO `product` (`id`, `name`, `description`, `quantity`, `unitprice`, `brand`, `categoryid`) VALUES
-(5, 'samsung', 'samsung', 11, 5.5, 'brand 1', 1);
+INSERT INTO `product` (`id`, `name`, `description`, `quantity`, `unitprice`, `brand`, `specification`, `content`, `categoryid`) VALUES
+(3, 'Apple Watch Sport Green', '<p><span style=\"color: #3a3a3a; font-family: \'Open Sans\'; font-size: 16px; font-weight: bold; text-transform: capitalize; background-color: #ffffff;\">Apple Watch Sport Green</span></p>', 11, 11, 'Beat', '<table class=\"table\" style=\"box-sizing: border-box; border-spacing: 0px; background-color: #ffffff; width: 1170px; max-width: 100%; margin-bottom: 20px; color: #161616; font-family: \'Open Sans\', sans-serif; font-size: 14px;\"><tbody style=\"box-sizing: border-box;\"><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">CATEGORY</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\"><strong style=\"box-sizing: border-box;\">GEAR S2 3G/4G</strong></td></tr><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">CARRIER</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\"><strong style=\"box-sizing: border-box;\">AT&amp;T</strong></td></tr><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">FORM FACTOR</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">WEARABLE TECH</td></tr><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">COLOR</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\"><strong style=\"box-sizing: border-box;\">DARK GRAY</strong></td></tr><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">OS</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\"><strong style=\"box-sizing: border-box;\">TIZEN BASED WEARABLE PLATFORM</strong></td></tr><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">SIZE</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\"><strong style=\"box-sizing: border-box;\">51G</strong></td></tr><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">BATTERY</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\"><strong style=\"box-sizing: border-box;\">BATTERY TYPE AND SIZE</strong></td></tr><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">BATTERY</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\"><strong style=\"box-sizing: border-box;\">INTERNAL MEMORY</strong></td></tr></tbody></table>', '<p><strong style=\"box-sizing: border-box; color: #797979; font-family: \'Open Sans\', sans-serif; font-size: 16px; background-color: #ffffff;\">The Next Big Thing Is Here</strong><span style=\"color: #797979; font-family: \'Open Sans\', sans-serif; font-size: 16px; background-color: #ffffff;\">&nbsp;Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages.</span></p>', 1),
+(4, 'Inspire 1 Pro White Edition', '<p><strong><span style=\"color: #222222; font-family: Consolas, \'Lucida Console\', \'Courier New\', monospace; font-size: 12px; white-space: pre-wrap; background-color: #ffffff;\">Inspire 1 Pro White Edition</span></strong></p>', 9, 15, 'Inspire', '<table class=\"table\" style=\"box-sizing: border-box; border-spacing: 0px; background-color: #ffffff; width: 1170px; max-width: 100%; margin-bottom: 20px; color: #161616; font-family: \'Open Sans\', sans-serif; font-size: 14px;\"><tbody style=\"box-sizing: border-box;\"><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">CATEGORY</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\"><strong style=\"box-sizing: border-box;\">GEAR S2 3G/4G</strong></td></tr><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">CARRIER</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\"><strong style=\"box-sizing: border-box;\">AT&amp;T</strong></td></tr><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">FORM FACTOR</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">WEARABLE TECH</td></tr><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">COLOR</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\"><strong style=\"box-sizing: border-box;\">DARK GRAY</strong></td></tr><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">OS</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\"><strong style=\"box-sizing: border-box;\">TIZEN BASED WEARABLE PLATFORM</strong></td></tr><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">SIZE</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\"><strong style=\"box-sizing: border-box;\">51G</strong></td></tr><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">BATTERY</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\"><strong style=\"box-sizing: border-box;\">BATTERY TYPE AND SIZE</strong></td></tr><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">BATTERY</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\"><strong style=\"box-sizing: border-box;\">INTERNAL MEMORY</strong></td></tr></tbody></table>', '<p><strong><span style=\"color: #222222; font-family: Consolas, \'Lucida Console\', \'Courier New\', monospace; font-size: 12px; white-space: pre-wrap; background-color: #ffffff;\">Inspire 1 Pro White Edition</span></strong></p>', 2),
+(5, 'Philips spa 60 2.0 speaker with usb plug', '<p><strong><span style=\"color: #222222; font-family: Consolas, \'Lucida Console\', \'Courier New\', monospace; font-size: 12px; white-space: pre-wrap; background-color: #ffffff;\">Philips spa 60 2.0 speaker with usb plug</span></strong></p>', 15, 8, 'Philips', '<table class=\"table\" style=\"box-sizing: border-box; border-spacing: 0px; background-color: #ffffff; width: 1170px; max-width: 100%; margin-bottom: 20px; color: #161616; font-family: \'Open Sans\', sans-serif; font-size: 14px;\"><tbody style=\"box-sizing: border-box;\"><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">CATEGORY</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\"><strong style=\"box-sizing: border-box;\">GEAR S2 3G/4G</strong></td></tr><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">CARRIER</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\"><strong style=\"box-sizing: border-box;\">AT&amp;T</strong></td></tr><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">FORM FACTOR</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">WEARABLE TECH</td></tr><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">COLOR</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\"><strong style=\"box-sizing: border-box;\">DARK GRAY</strong></td></tr><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">OS</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\"><strong style=\"box-sizing: border-box;\">TIZEN BASED WEARABLE PLATFORM</strong></td></tr><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">SIZE</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\"><strong style=\"box-sizing: border-box;\">51G</strong></td></tr><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">BATTERY</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\"><strong style=\"box-sizing: border-box;\">BATTERY TYPE AND SIZE</strong></td></tr><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">BATTERY</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\"><strong style=\"box-sizing: border-box;\">INTERNAL MEMORY</strong></td></tr></tbody></table>', '<p><strong><span style=\"background-color: #ffffff; color: #222222; font-family: Consolas, \'Lucida Console\', \'Courier New\', monospace; font-size: 12px; white-space: pre-wrap;\">Philips spa 60 2.0 speaker with usb plug</span></strong></p>', 2),
+(6, 'U8S Smart Bluetooth 3.0', '<p><span style=\"color: #3a3a3a; font-family: \'Open Sans\'; font-size: 16px; font-weight: bold; text-transform: capitalize; background-color: #ffffff;\">U8S Smart Bluetooth 3.0</span></p>', 22, 17, 'U8S', '<table class=\"table\" style=\"box-sizing: border-box; border-spacing: 0px; background-color: #ffffff; width: 1170px; max-width: 100%; margin-bottom: 20px; color: #161616; font-family: \'Open Sans\', sans-serif; font-size: 14px;\"><tbody style=\"box-sizing: border-box;\"><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">CATEGORY</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\"><strong style=\"box-sizing: border-box;\">GEAR S2 3G/4G</strong></td></tr><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">CARRIER</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\"><strong style=\"box-sizing: border-box;\">AT&amp;T</strong></td></tr><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">FORM FACTOR</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">WEARABLE TECH</td></tr><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">COLOR</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\"><strong style=\"box-sizing: border-box;\">DARK GRAY</strong></td></tr><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">OS</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\"><strong style=\"box-sizing: border-box;\">TIZEN BASED WEARABLE PLATFORM</strong></td></tr><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">SIZE</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\"><strong style=\"box-sizing: border-box;\">51G</strong></td></tr><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">BATTERY</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\"><strong style=\"box-sizing: border-box;\">BATTERY TYPE AND SIZE</strong></td></tr><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">BATTERY</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\"><strong style=\"box-sizing: border-box;\">INTERNAL MEMORY</strong></td></tr></tbody></table>', '<p><span style=\"color: #3a3a3a; font-family: \'Open Sans\'; font-size: 16px; font-weight: bold; text-transform: capitalize; background-color: #ffffff;\">U8S Smart Bluetooth 3.0</span></p>', 1),
+(7, 'I5 Plus Smart Bluetooth 4.0', '<p><span style=\"color: #3a3a3a; font-family: \'Open Sans\'; font-size: 16px; font-weight: bold; text-transform: capitalize; background-color: #ffffff;\">I5 Plus Smart Bluetooth 4.0</span></p>', 13, 20, 'Sam Sung', '<table class=\"table\" style=\"box-sizing: border-box; border-spacing: 0px; background-color: #ffffff; width: 1170px; max-width: 100%; margin-bottom: 20px; color: #161616; font-family: \'Open Sans\', sans-serif; font-size: 14px;\"><tbody style=\"box-sizing: border-box;\"><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">CATEGORY</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\"><strong style=\"box-sizing: border-box;\">GEAR S2 3G/4G</strong></td></tr><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">CARRIER</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\"><strong style=\"box-sizing: border-box;\">AT&amp;T</strong></td></tr><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">FORM FACTOR</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">WEARABLE TECH</td></tr><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">COLOR</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\"><strong style=\"box-sizing: border-box;\">DARK GRAY</strong></td></tr><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">OS</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\"><strong style=\"box-sizing: border-box;\">TIZEN BASED WEARABLE PLATFORM</strong></td></tr><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">SIZE</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\"><strong style=\"box-sizing: border-box;\">51G</strong></td></tr><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">BATTERY</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\"><strong style=\"box-sizing: border-box;\">BATTERY TYPE AND SIZE</strong></td></tr><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">BATTERY</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\"><strong style=\"box-sizing: border-box;\">INTERNAL MEMORY</strong></td></tr></tbody></table>', '<p><span style=\"color: #3a3a3a; font-family: \'Open Sans\'; font-size: 16px; font-weight: bold; text-transform: capitalize; background-color: #ffffff;\">I5 Plus Smart Bluetooth 4.0</span></p>', 3),
+(8, 'HP ENVY 13-d008na ', '<p><span style=\"color: #222222; font-family: Consolas, \'Lucida Console\', \'Courier New\', monospace; font-size: 12px; white-space: pre-wrap; background-color: #ffffff;\"><strong>HP ENVY 13-d008na</strong> </span></p>', 15, 30, 'HP', '<table class=\"table\" style=\"box-sizing: border-box; border-spacing: 0px; background-color: #ffffff; width: 1170px; max-width: 100%; margin-bottom: 20px; color: #161616; font-family: \'Open Sans\', sans-serif; font-size: 14px;\"><tbody style=\"box-sizing: border-box;\"><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">CATEGORY</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\"><strong style=\"box-sizing: border-box;\">GEAR S2 3G/4G</strong></td></tr><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">CARRIER</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\"><strong style=\"box-sizing: border-box;\">AT&amp;T</strong></td></tr><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">FORM FACTOR</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">WEARABLE TECH</td></tr><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">COLOR</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\"><strong style=\"box-sizing: border-box;\">DARK GRAY</strong></td></tr><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">OS</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\"><strong style=\"box-sizing: border-box;\">TIZEN BASED WEARABLE PLATFORM</strong></td></tr><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">SIZE</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\"><strong style=\"box-sizing: border-box;\">51G</strong></td></tr><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">BATTERY</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\"><strong style=\"box-sizing: border-box;\">BATTERY TYPE AND SIZE</strong></td></tr><tr style=\"box-sizing: border-box;\"><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\">BATTERY</td><td style=\"box-sizing: border-box; padding: 8px; line-height: 1.42857; vertical-align: top; border-top-color: #dddddd; font-family: \'Open Sans\'; font-weight: 600; color: #262626; text-transform: uppercase;\"><strong style=\"box-sizing: border-box;\">INTERNAL MEMORY</strong></td></tr></tbody></table>', '<p><span style=\"color: #222222; font-family: Consolas, \'Lucida Console\', \'Courier New\', monospace; font-size: 12px; white-space: pre-wrap; background-color: #ffffff;\"><strong>HP ENVY 13-d008na</strong> </span></p>', 5);
 
 -- --------------------------------------------------------
 
@@ -190,7 +220,7 @@ CREATE TABLE `productdetail` (
   `id` int(11) NOT NULL,
   `productid` int(11) NOT NULL,
   `photo` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `description` text COLLATE utf8_unicode_ci DEFAULT NULL
+  `description` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -198,10 +228,15 @@ CREATE TABLE `productdetail` (
 --
 
 INSERT INTO `productdetail` (`id`, `productid`, `photo`, `description`) VALUES
-(7, 5, 'thumb1.gif', '0'),
-(8, 5, 'thumb2.gif', '0'),
-(9, 5, 'prod2.gif', '0'),
-(10, 5, 'prod1.gif', NULL);
+(4, 3, '1.jpg', '<p><span style=\"color: #3a3a3a; font-family: \'Open Sans\'; font-size: 16px; font-weight: bold; text-transform: capitalize; background-color: #ffffff;\">Apple Watch Sport Green</span></p>'),
+(5, 3, '1.png', NULL),
+(6, 4, '3.jpg', '<p><strong><span style=\"color: #222222; font-family: Consolas, \'Lucida Console\', \'Courier New\', monospace; font-size: 12px; white-space: pre-wrap; background-color: #ffffff;\">Inspire 1 Pro White Edition</span></strong></p>'),
+(7, 4, '4.jpg', '<p><strong><span style=\"color: #222222; font-family: Consolas, \'Lucida Console\', \'Courier New\', monospace; font-size: 12px; white-space: pre-wrap; background-color: #ffffff;\">Inspire 1 Pro White Edition</span></strong></p>'),
+(8, 5, '21.jpg', '<p><strong><span style=\"color: #222222; font-family: Consolas, \'Lucida Console\', \'Courier New\', monospace; font-size: 12px; white-space: pre-wrap; background-color: #ffffff;\">Philips spa 60 2.0 speaker with usb plug</span></strong></p>'),
+(9, 6, '12.jpg', '<p><span style=\"color: #3a3a3a; font-family: \'Open Sans\'; font-size: 16px; font-weight: bold; text-transform: capitalize; background-color: #ffffff;\">U8S Smart Bluetooth 3.0</span></p>'),
+(10, 7, '9.jpg', '<p><span style=\"color: #3a3a3a; font-family: \'Open Sans\'; font-size: 16px; font-weight: bold; text-transform: capitalize; background-color: #ffffff;\">I5 Plus Smart Bluetooth 4.0</span></p>'),
+(11, 8, 'banner-home3-2.png', '<p><span style=\"color: #222222; font-family: Consolas, \'Lucida Console\', \'Courier New\', monospace; font-size: 12px; white-space: pre-wrap; background-color: #ffffff;\"><strong>HP ENVY 13-d008na</strong> </span></p>'),
+(12, 3, '2.jpg', NULL);
 
 -- --------------------------------------------------------
 
@@ -230,7 +265,7 @@ INSERT INTO `role` (`id`, `name`) VALUES
 
 CREATE TABLE `saleorder` (
   `id` int(11) NOT NULL,
-  `ordernumber` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `ordernumber` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `userid` int(11) NOT NULL,
   `status` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `deliveryprice` double NOT NULL,
@@ -339,7 +374,9 @@ INSERT INTO `user` (`id`, `username`, `email`, `password`, `enable`) VALUES
 (2, 'lecomi1', 'lecomi1@gmail.com', '$2a$04$YnS.4Ak1DPOV2YDjzPSl.ugIVk4/gXGPAHtSd/8g3fj2vJOuV49AG', 1),
 (3, 'cong', 'cong@gmail.com', '$2a$04$p.gUiXz65s6f1P/IBjjSi.QJTjzBZMBo1HsUYNx0h.9mqOIK9t70u', 1),
 (8, 'congcong', NULL, '$2a$10$pCT7wzfMQ.JrkveK1CFCU.2q5CXinnBICIveW0VXpluNmpAHPFVfy', 0),
-(9, 'congcong1', NULL, '$2a$10$g85i2OMCXoHDxAqVA3GB5ud9iOaV3GTz3ydfAFjyzemaxMoBUbU.u', 0);
+(9, 'congcong1', NULL, '$2a$10$g85i2OMCXoHDxAqVA3GB5ud9iOaV3GTz3ydfAFjyzemaxMoBUbU.u', 0),
+(10, 'congcong2', NULL, '$2a$10$tp.OgAfUPiskSq1Uf1tFFeB0joqdNBZ2QvQDyZAzhHt5NlHUeIWHy', 1),
+(11, 'lecomi3', NULL, '$2a$10$N5s9yV3wdjF8vxYwFXHa1.UwLXsTfMWi35MU9wctn3KqCbAmNLt3q', 1);
 
 -- --------------------------------------------------------
 
@@ -362,7 +399,9 @@ INSERT INTO `userrole` (`userid`, `roleid`, `enable`) VALUES
 (2, 2, 1),
 (3, 1, 1),
 (8, 2, 0),
-(9, 2, 0);
+(9, 2, 0),
+(10, 2, 0),
+(11, 2, 0);
 
 -- --------------------------------------------------------
 
@@ -403,6 +442,12 @@ ALTER TABLE `comment`
   ADD PRIMARY KEY (`id`),
   ADD KEY `userid` (`userid`),
   ADD KEY `productid` (`productid`);
+
+--
+-- Chỉ mục cho bảng `contentstatic`
+--
+ALTER TABLE `contentstatic`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Chỉ mục cho bảng `country`
@@ -545,13 +590,19 @@ ALTER TABLE `bank`
 -- AUTO_INCREMENT cho bảng `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `comment`
 --
 ALTER TABLE `comment`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `contentstatic`
+--
+ALTER TABLE `contentstatic`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `delivery`
@@ -587,13 +638,13 @@ ALTER TABLE `personinfo`
 -- AUTO_INCREMENT cho bảng `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `productdetail`
 --
 ALTER TABLE `productdetail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT cho bảng `role`
@@ -641,7 +692,7 @@ ALTER TABLE `supplier`
 -- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT cho bảng `warehouse`
@@ -676,7 +727,6 @@ ALTER TABLE `district`
 -- Các ràng buộc cho bảng `personinfo`
 --
 ALTER TABLE `personinfo`
-  ADD CONSTRAINT `personinfo_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `user` (`id`),
   ADD CONSTRAINT `personinfo_ibfk_2` FOREIGN KEY (`districtid`) REFERENCES `district` (`id`);
 
 --

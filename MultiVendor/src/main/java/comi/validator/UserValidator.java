@@ -2,6 +2,7 @@ package comi.validator;
 
 import java.util.List;
 
+import comi.viewmodels.UserRegisterViewModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
@@ -18,12 +19,12 @@ public class UserValidator implements Validator {
 	
 	@Override
 	public boolean supports(Class<?> arg0) {
-		return User.class.equals(arg0);
+		return UserRegisterViewModel.class.equals(arg0);
 	}
 
 	@Override
 	public void validate(Object object, Errors errors) {
-		User user = (User) object;
+		UserRegisterViewModel user = (UserRegisterViewModel) object;
 		String username = user.getUsername();
 		List<User> users = this.userService.findAll();
 		for (User u : users) {

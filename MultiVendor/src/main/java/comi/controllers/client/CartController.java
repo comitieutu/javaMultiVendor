@@ -27,10 +27,6 @@ public class CartController {
 	public String index(ModelMap modelMap, HttpSession session) {
 		List<Item> cart = (List<Item>) session.getAttribute("cart");
 		session.setAttribute("cart", cart);
-//		List<Product> products = new ArrayList<>();
-//		products.add(productService.find(5));
-//		products.add(productService.find(5));
-//		modelMap.put("products", products);
 		double carttotal = 0;
 		for (Item item : cart) {
 			carttotal += item.getProduct().getUnitprice() * item.getQuantity();

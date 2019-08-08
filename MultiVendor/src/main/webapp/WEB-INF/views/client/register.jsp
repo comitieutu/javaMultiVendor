@@ -32,9 +32,50 @@
                             <s:errors path="username"></s:errors>               
                         </div>
                         <div class="form-group col-md-6">
-                            <s:label path="password" class=" control-label" for="inputEmail">Password</s:label>                            
+                            <s:label path="password" class=" control-label" for="inputPassword">Password</s:label>
                             <s:password path="password" class="form-control" placeholder="Password"/> 
                             <s:errors path="password" cssClass="error"></s:errors>                  
+                        </div>
+                        <div class="form-group col-md-6">
+                            <s:label path="email" class=" control-label" for="inputEmail">Email</s:label>
+                            <s:input path="email" class="form-control" placeholder="email"/>
+                            <s:errors path="email" cssClass="error"></s:errors>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <s:label path="district" class=" control-label" for="inputEmail">District</s:label>
+                            <s:input path="district" class="form-control" placeholder="district"/>
+                            <s:errors path="district" cssClass="error"></s:errors>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <s:label path="firstname" class=" control-label" for="inputEmail">First name</s:label>
+                            <s:input path="firstname" class="form-control" placeholder="firstname"/>
+                            <s:errors path="firstname" cssClass="error"></s:errors>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <s:label path="lastname" class=" control-label" for="inputEmail">Last Name</s:label>
+                            <s:input path="lastname" class="form-control" placeholder="lastname"/>
+                            <s:errors path="lastname" cssClass="error"></s:errors>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <s:label path="gender" class=" control-label" for="inputEmail">Gender</s:label>
+                            <s:select path="gender" class="form-control">
+                                <s:option value="0">Male</s:option>
+                                <s:option value="1">Female</s:option>
+                            </s:select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <s:label path="birthday" class=" control-label" for="inputEmail">Birthday</s:label>
+                            <s:input type="date" path="birthday" class="form-control" placeholder="birthday"/>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <s:label path="address" class=" control-label" for="inputEmail">Address</s:label>
+                            <s:input path="address" class="form-control" placeholder="address"/>
+                            <s:errors path="address" cssClass="error"></s:errors>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <s:label path="street" class=" control-label" for="inputEmail">Street</s:label>
+                            <s:input path="street" class="form-control" placeholder="street"/>
+                            <s:errors path="street" cssClass="error"></s:errors>
                         </div>
                         <div class="form-group col-md-12 text-center">
                             <div class="checkbox space-10">

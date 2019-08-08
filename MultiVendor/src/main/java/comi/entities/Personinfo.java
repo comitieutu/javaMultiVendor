@@ -59,7 +59,7 @@ public class Personinfo implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "districtid", nullable = false)
+	@JoinColumn(name = "districtid", nullable = true)
 	public District getDistrict() {
 		return this.district;
 	}

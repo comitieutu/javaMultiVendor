@@ -3,7 +3,9 @@ package comi.services;
 import comi.entities.Personinfo;
 import comi.repositories.PersonInfoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service("personInfoService")
 public class PersonInfoServiceImpl implements PersonInfoService {
 
     @Autowired

@@ -1,10 +1,13 @@
 package comi.controllers.client;
 
+import comi.entities.Personinfo;
 import comi.services.CategoryService;
+import comi.services.PersonInfoService;
 import comi.services.ProductService;
 
 import javax.validation.Valid;
 
+import comi.viewmodels.UserRegisterViewModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
@@ -21,6 +24,7 @@ import comi.services.UserService;
 import comi.validator.UserValidator;
 
 import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
 
 
 @Controller
@@ -33,9 +37,10 @@ public class HomeController {
 	private ProductService productService;
 	@Autowired
 	private UserValidator userValidator;
-
 	@Autowired
 	private CategoryService categoryService;
+	@Autowired
+	private PersonInfoService personInfoService;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String index(ModelMap modelMap) {
@@ -58,20 +63,35 @@ public class HomeController {
 		if (error != null) {
 			modelMap.put("msg", "Username or password is incorrect");
 		}
-		modelMap.put("user", new User());
+		modelMap.put("user", new UserRegisterViewModel());
 		return "client.register";
 	}
 	
 	@RequestMapping(value="signup", method = RequestMethod.POST)
-	public String signup(@ModelAttribute("user") @Valid User user, BindingResult bindingResult) {
+	public String signup(@ModelAttribute("user") @Valid UserRegisterViewModel user, BindingResult bindingResult) throws  Exception{
 		this.userValidator.validate(user, bindingResult);
 		if (bindingResult.hasErrors()) {
 			return "client.register";
 		} else {
-			this.userService.save(user);
+			User userDto = new User();
+			userDto.setEnable(true);
+			userDto.setPassword(user.getPassword());
+			userDto.setEmail(user.getEmail());
+			userDto.setUsername(user.getUsername());
+			userDto = this.userService.save(userDto);
+
+			Personinfo personinfo = new Personinfo();
+			personinfo.setUser(userDto);
+			personinfo.setStreet(user.getStreet());
+			personinfo.setGender(user.getGender() == 1 ? true : false);
+			personinfo.setLastname(user.getLastname());
+			personinfo.setFirstname(user.getFirstname());
+			personinfo.setBirthday(new SimpleDateFormat("yyyy-MM-dd").parse(user.getBirthday()));
+			personinfo.setAddress(user.getAddress());
+
+			personInfoService.save(personinfo);
 			return "redirect:/login";
 		}
-		
 	}
 	
 	@RequestMapping(value = "accessDenied", method = RequestMethod.GET)

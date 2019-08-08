@@ -2,19 +2,19 @@ package comi.services;
 
 import java.util.List;
 
-import comi.repositories.SaleOrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import comi.entities.Productdetail;
+import comi.repositories.ProductDetailRepository;
 
 @Service("productDetailService")
 @Transactional
 public class ProductDetailServiceImpl implements ProductDetailService {
 	
 	@Autowired
-	private SaleOrderRepository.ProductDetailRepository productDetailRepository;
+	private ProductDetailRepository productDetailRepository;
 
 	@Override
 	public Iterable<Productdetail> findAll() {

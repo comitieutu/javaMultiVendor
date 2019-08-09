@@ -31,7 +31,7 @@
                         </p>
                         <p class="product-price"><span>price: </span>$ ${item.unitprice}</p>
                         <a class="product-images" href="${pageContext.request.contextPath }/product/detail/${item.id}">
-                            <<img id="image" src="${pageContext.request.contextPath }/assets/images/${item.productdetails.iterator().next().photo}" width="228" height="228"/>
+                            <<img id="image" src="${pageContext.request.contextPath }/assets/images/${item.productdetails.iterator().next().photo}" height="228"/>
                         </a>
                         <div class="action">
                             <form action="${pageContext.request.contextPath }/cart/buy" method="get" >

@@ -4650,10 +4650,6 @@ nav.pagination .next:hover i, nav.pagination .prev:hover i {
   width: 100%;
 }
 
-.products .product .product-images img {
-  width: 100%;
-}
-
 .products .product p.product-title, .products .product .description {
   font-family: "Open Sans";
   font-size: 16px;

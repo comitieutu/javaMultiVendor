@@ -293,20 +293,19 @@
 
                                     </div>
                                     <div class="product-images">
-                                        <c:import url="${pageContext.request.contextPath }/assets/images/${item.productdetails.iterator().next().photo}" var="imageData" />
                                         <c:if test="${loop.first}">
                                             <div class="slide-product-images">
                                                 <c:forEach var="image" items="${item.productdetails }" begin = "1" end = "3">
-                                                    <div class="items" data-thumb='<img class="primary_image" src="${pageContext.request.contextPath }/assets/images/${image.photo}" width="252" height="252"/>'>
+                                                    <div class="items" data-thumb='<img class="primary_image" src="${pageContext.request.contextPath }/assets/images/${image.photo}" height="252"/>'>
                                                         <a title="products">
-                                                            <img src="${pageContext.request.contextPath }/assets/images/${item.productdetails.iterator().next().photo}" width="252" height="252"/>
+                                                            <img src="${pageContext.request.contextPath }/assets/images/${image.photo}" height="252"/>
                                                         </a>
                                                     </div>
                                                 </c:forEach>
                                             </div>
                                         </c:if>
                                         <c:if test="${!loop.first}">
-                                            <img src="${pageContext.request.contextPath }/assets/images/${item.productdetails.iterator().next().photo}" width="252" height="252"/>
+                                            <img src="${pageContext.request.contextPath }/assets/images/${item.productdetails.iterator().next().photo}" height="252"/>
                                         </c:if>
                                     </div>
                                     <div class="action">

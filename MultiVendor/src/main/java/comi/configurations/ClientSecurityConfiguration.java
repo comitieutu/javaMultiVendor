@@ -29,7 +29,6 @@ public class ClientSecurityConfiguration extends WebSecurityConfigurerAdapter {
 					.antMatchers("/admin**").access("hasRole('ROLE_SUPER_ADMIN') or hasRole('ROLE_ADMIN')")
 					.antMatchers("/admin/product/**").access("hasRole('ROLE_SUPER_ADMIN') or hasRole('ROLE_ADMIN')")
 					.antMatchers("/admin/category/**").access("hasRole('ROLE_SUPER_ADMIN') or hasRole('ROLE_ADMIN')")
-					.antMatchers("/checkout**").access("hasRole('ROLE_SUPER_ADMIN') or hasRole('ROLE_ADMIN') or hasRole('CUSTOMER')")
 					.antMatchers("/auth**").access("hasRole('CUSTOMER')")
 					.and() 
 					.formLogin().loginPage("/login")

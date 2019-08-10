@@ -42,6 +42,9 @@ public class CheckoutController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String index(ModelMap modelMap, HttpSession session, Principal principal) {
+
+        if(CheckoutSecurity(principal))
+            return "redirect:/";
         List<Item> cartSession = new ArrayList<Item>();
 
         if(session.getAttribute("cart") == null){
@@ -110,6 +113,9 @@ public class CheckoutController {
     public String create(@ModelAttribute("user") UserViewModel userViewModel,
                          Principal principal,
                          HttpSession session) {
+        if(CheckoutSecurity(principal))
+            return "redirect:/";
+
         if (session.getAttribute("cart") == null) {
             return "redirect:/";
         }
@@ -159,6 +165,8 @@ public class CheckoutController {
 
     @RequestMapping(value = "success", method = RequestMethod.GET)
     public String success(HttpServletRequest request, HttpSession session, Principal principal) {
+        if(CheckoutSecurity(principal))
+            return "redirect:/";
 
         if (session.getAttribute("cart") == null) {
             return "redirect:/";
@@ -235,5 +243,12 @@ public class CheckoutController {
 
     private void ClearCheckOutSession(HttpSession session) {
         session.removeAttribute("cart");
+    }
+
+    private boolean CheckoutSecurity(Principal principal) {
+        if (principal == null || principal.getName() == null)
+            return true;
+
+        return false;
     }
 }
